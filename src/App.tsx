@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import NavBar from "./components/NavBar";
+import SearchBar from "./components/SearchBar"
+import "./App.css";
+import "./fonts/PressStart2P-Regular.ttf";
+import sigle from "./assets/fut.png"
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Accueil from "./pages/Accueil";
+import FaisTaTeam from "./pages/FaisTaTeam";
+import JoueursDeLaSemaine from "./pages/JoueursDeLaSemaine";
+import JoueursParStats from "./pages/JoueursParStats";
 
-function App() {
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="background1">
+      <SearchBar />
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Accueil />} />
+          <Route path="/faistateam" element={<FaisTaTeam />} />
+          <Route path="/joueursdelasemaine" element={<JoueursDeLaSemaine />} />
+          <Route path="/joueursparstats" element={<JoueursParStats />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;
