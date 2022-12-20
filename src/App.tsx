@@ -11,21 +11,26 @@ import JoueursDeLaSemaine from "./pages/JoueursDeLaSemaine";
 import JoueursParStats from "./pages/JoueursParStats";
 
 
+
+
+
 const App = () => {
-  return (
-    <div className="background1">
-      <SearchBar />
-      <BrowserRouter>
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<Accueil />} />
-          <Route path="/faistateam" element={<FaisTaTeam />} />
-          <Route path="/joueursdelasemaine" element={<JoueursDeLaSemaine />} />
-          <Route path="/joueursparstats" element={<JoueursParStats />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
-  );
+
+
+  
+return (
+  <div>
+    <BrowserRouter>
+      <NavBar />
+      <Routes>
+        <Route path="/accueil" element={<Accueil />} />
+        <Route path="/faistateam" element={<FaisTaTeam />} />
+        <Route path="/joueursdelasemaine" element={<JoueursDeLaSemaine />} />
+        <Route path="/joueursparstats" element={<JoueursParStats />} />
+      </Routes>
+    </BrowserRouter>
+  </div>
+);
 };
 
 export default App;

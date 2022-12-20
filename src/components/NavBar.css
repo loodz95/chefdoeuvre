@@ -1,0 +1,33 @@
+.fut{
+  text-shadow:#e7f6ff 0 -1px 0,
+black 1px 1px 0,
+blue 2px 2px 0,
+purple 3px 3px 0,
+pink 4px 4px 0,
+black 5px 5px 0,
+#333 5px 5px 10px;color:rgb(190, 162, 7);
+}
+
+.nav-link{
+  font-family: 'Black Han Sans', sans-serif;
+color: #e7f6ff;
+}
+
+.slide{
+   animation-duration: 3s;
+  animation-name: slidein;
+}
+
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
