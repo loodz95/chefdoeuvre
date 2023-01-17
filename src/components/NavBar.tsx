@@ -5,7 +5,7 @@ import "./NavBar.css"
 const NavBar = () => {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg fixed-top ">
+      <nav className="navbar navbar-expand-lg fixed-top navStyle ">
         <div className="container-fluid slide">
           <img className="logo" src={sigle} alt="" />
           <a className="navbar-brand myFont" href="#">
@@ -25,7 +25,7 @@ const NavBar = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <NavLink to="accueil" className=" myFont">
+                <NavLink to="accueil" className="nav-link myFont">
                   Accueil
                 </NavLink>
               </li>

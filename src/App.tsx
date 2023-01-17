@@ -10,16 +10,11 @@ import FaisTaTeam from "./pages/FaisTaTeam";
 import JoueursDeLaSemaine from "./pages/JoueursDeLaSemaine";
 import JoueursParStats from "./pages/JoueursParStats";
 
-
-
-
-
 const App = () => {
-
 
   
 return (
-  <div>
+  <div >
     <BrowserRouter>
       <NavBar />
       <Routes>

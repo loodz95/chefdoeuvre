@@ -1,9 +1,9 @@
 
-.myFont{
-  font-family: 'Black Han Sans', sans-serif;
-  color: white;
-}
-
 .logo{
   height : 150px; 
+}
+
+.header{
+  background-color: black;
+  height: 50px;
 }

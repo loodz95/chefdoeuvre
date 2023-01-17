@@ -1,6 +1,12 @@
 .accueil{
     height: 10000px;
-    background-image: url(../assets/starWallpaper.jpg);
+    background-image: url(../assets/marble.jpg);
+    background-size: contain;
     color: white;
+}
+
+.imageFifa{
+    background-color: black;
+    height: 40px;
 }
 

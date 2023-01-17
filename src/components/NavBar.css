@@ -1,4 +1,5 @@
 .fut{
+  font-family: 'Sedgwick Ave Display', cursive;
   text-shadow:#e7f6ff 0 -1px 0,
 black 1px 1px 0,
 blue 2px 2px 0,
@@ -8,26 +9,12 @@ black 5px 5px 0,
 #333 5px 5px 10px;color:rgb(190, 162, 7);
 }
 
-.nav-link{
-  font-family: 'Black Han Sans', sans-serif;
-color: #e7f6ff;
+.myFont{
+font-family: 'Sedgwick Ave Display', cursive;
 }
 
-.slide{
-   animation-duration: 3s;
-  animation-name: slidein;
+.navStyle{
+ margin-top: 30px;
 }
 
-
-@keyframes slidein {
-  from {
-    margin-left: 100%;
-    width: 300%;
-  }
-
-  to {
-    margin-left: 0%;
-    width: 100%;
-  }
-}
 
