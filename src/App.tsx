@@ -16,9 +16,8 @@ const App = () => {
 return (
   <div >
     <BrowserRouter>
-      <NavBar />
       <Routes>
-        <Route path="/accueil" element={<Accueil />} />
+        <Route path="/" element={<Accueil />} />
         <Route path="/faistateam" element={<FaisTaTeam />} />
         <Route path="/joueursdelasemaine" element={<JoueursDeLaSemaine />} />
         <Route path="/joueursparstats" element={<JoueursParStats />} />

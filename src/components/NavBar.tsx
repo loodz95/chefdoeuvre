@@ -3,10 +3,11 @@ import { NavLink } from "react-router-dom";
 import "./NavBar.css"
 
 const NavBar = () => {
+
   return (
-    <div>
-      <nav className="navbar navbar-expand-lg fixed-top navStyle ">
-        <div className="container-fluid slide">
+    <div className="navBar">
+      <nav className="navbar navbar-expand-lg bg-body-tertiary  ">
+        <div className="container-fluid">
           <img className="logo" src={sigle} alt="" />
           <a className="navbar-brand myFont" href="#">
             <h1 className="fut">FUT STARZ</h1>
@@ -15,17 +16,17 @@ const NavBar = () => {
             className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav">
               <li className="nav-item">
-                <NavLink to="accueil" className="nav-link myFont">
+                <NavLink to="/" className="nav-link active myFont " >
                   Accueil
                 </NavLink>
               </li>
@@ -34,30 +35,10 @@ const NavBar = () => {
                   Fais ta team
                 </NavLink>
               </li>
-              <li className="nav-item dropdown">
+              <li className="nav-item">
                 <NavLink to="joueursparstats" className="nav-link myFont">
                   Joueurs par stats
                 </NavLink>
-                <ul className="dropdown-menu">
-                  <li>
-                    <a className="dropdown-item myFont" href="#">
-                      Action
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item myFont" href="#">
-                      Another action
-                    </a>
-                  </li>
-                  <li>
-                    <hr className="dropdown-divider" />
-                  </li>
-                  <li>
-                    <a className="dropdown-item myFont" href="#">
-                      Something else here
-                    </a>
-                  </li>
-                </ul>
               </li>
               <li className="nav-item">
                 <NavLink to="joueursdelasemaine" className="nav-link myFont">
@@ -71,6 +52,6 @@ const NavBar = () => {
       </nav>
     </div>
   );
-};
 
+  }
 export default NavBar;

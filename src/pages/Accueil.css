@@ -1,12 +1,51 @@
 .accueil{
-    height: 10000px;
+    
     background-image: url(../assets/marble.jpg);
-    background-size: contain;
+    height: 100em;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
     color: white;
+    z-index: 1;
 }
 
 .imageFifa{
     background-color: black;
     height: 40px;
+}
+
+.container{
+    display: flex;
+}
+
+.premiereImage{
+
+    background-image:  url(../assets/cards.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+  width: 700px;
+  height: 500px;
+ margin-top: 80px;
+}
+
+.groupImage1{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column ;
+}
+
+.textImage1{
+   width: 1000px;
+    margin-top: 150px;
+   color: black; 
+   font-size: 40px;   
+}
+
+.title{
+     font-family: 'Sedgwick Ave Display', cursive;
+}
+
+.explanation{
+    font-size: 20px;
 }
 
