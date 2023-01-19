@@ -78,29 +78,9 @@ background-image:  url(../assets/cards.jpg);
 -ms-transform: scale(1.1); /* IE 9 */
 -webkit-transform: scale(1.1); /* Safari 3-8 */
 transform: scale(1.1);
+
 }
 
-.transition-duration(@time) {
-    -webkit-transition-duration: @time;
-    -moz-transition-duration: @time;
-    -o-transition-duration: @time;
-    transition-duration: @time;
-}
-.transform(@angle) {
-    -webkit-transform:rotate(@angle);
-    -moz-transform:rotate(@angle);
-    -o-transform:rotate(@angle);
-    transform: rotate(@angle);
-}
-.image {
-    .transition-duration(1s);     
-    -webkit-transition-property: -webkit-transform;
-    -moz-transition-property: -moz-transform;
-    -o-transition-property: -o-transform;
-    transition-property: transform;
-        &:hover {
-    .transform(360deg);
-    } 
 
 .textImage2{
    width: 1000px;
