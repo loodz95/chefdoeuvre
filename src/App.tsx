@@ -9,6 +9,7 @@ import Accueil from "./pages/Accueil";
 import FaisTaTeam from "./pages/FaisTaTeam";
 import JoueursDeLaSemaine from "./pages/JoueursDeLaSemaine";
 import JoueursParStats from "./pages/JoueursParStats";
+import Footer from "./components/Footer";
 
 const App = () => {
 
@@ -23,6 +24,7 @@ return (
         <Route path="/joueursparstats" element={<JoueursParStats />} />
       </Routes>
     </BrowserRouter>
+    <Footer/>
   </div>
 );
 };

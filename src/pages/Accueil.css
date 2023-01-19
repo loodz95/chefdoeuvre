@@ -14,18 +14,26 @@
     height: 40px;
 }
 
-.container{
+.container1{
     display: flex;
 }
 
 .premiereImage{
-
     background-image:  url(../assets/cards.jpg);
     background-repeat: no-repeat;
     background-size: 100%;
-  width: 700px;
-  height: 500px;
+  width: 800px;
+  border-radius: 10px;
  margin-top: 80px;
+ box-shadow: 10px 10px 5px  grey;
+ transition: transform .4s;
+ margin-right: 20px;
+}
+
+.premiereImage:hover{
+-ms-transform: scale(1.1); /* IE 9 */
+-webkit-transform: scale(1.1); /* Safari 3-8 */
+transform: scale(1.1);
 }
 
 .groupImage1{
@@ -43,9 +51,60 @@
 
 .title{
      font-family: 'Sedgwick Ave Display', cursive;
+     margin-left: 20px;
 }
 
 .explanation{
+    margin-left: 20px;
     font-size: 20px;
 }
 
+.container2{
+ display: flex   
+}
+
+.deuxiemeImage{
+background-image:  url(../assets/cards.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+  width: 800px;
+  border-radius: 10px;
+ margin-top: 80px;
+ box-shadow: 10px 10px 5px  grey;
+ transition: transform .4s;
+}
+
+.deuxiemeImage:hover{
+-ms-transform: scale(1.1); /* IE 9 */
+-webkit-transform: scale(1.1); /* Safari 3-8 */
+transform: scale(1.1);
+}
+
+.transition-duration(@time) {
+    -webkit-transition-duration: @time;
+    -moz-transition-duration: @time;
+    -o-transition-duration: @time;
+    transition-duration: @time;
+}
+.transform(@angle) {
+    -webkit-transform:rotate(@angle);
+    -moz-transform:rotate(@angle);
+    -o-transform:rotate(@angle);
+    transform: rotate(@angle);
+}
+.image {
+    .transition-duration(1s);     
+    -webkit-transition-property: -webkit-transform;
+    -moz-transition-property: -moz-transform;
+    -o-transition-property: -o-transform;
+    transition-property: transform;
+        &:hover {
+    .transform(360deg);
+    } 
+
+.textImage2{
+   width: 1000px;
+    margin-top: 150px;
+   color: black; 
+   font-size: 40px;   
+}
