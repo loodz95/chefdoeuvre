@@ -45,6 +45,11 @@ const NavBar = () => {
                   Joueurs de la semaine
                 </NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink to="actusfifa" className="nav-link myFont">
+                  Actus Fifa
+                </NavLink>
+              </li>
             </ul>
            
           </div>

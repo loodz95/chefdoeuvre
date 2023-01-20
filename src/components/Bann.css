@@ -13,7 +13,7 @@ body {
 .banner {
   margin-top: 10px;
   position: relative;
-  width: 100%;
+  width: 120%;
   height: 3.5rem;
   overflow: hidden;
   background-color: rgb(190, 162, 7);
@@ -26,7 +26,7 @@ body {
   display: inline-block;
   white-space: nowrap !important;
   padding-top: 0.3rem;
-  animation: linear marqueelike 30s infinite;
+  animation: linear marqueelike 10s infinite;
   font-size: 30px;
 }
 .banner > span:first-of-type {

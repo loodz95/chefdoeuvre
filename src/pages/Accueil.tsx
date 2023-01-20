@@ -29,20 +29,28 @@ const Accueil = () =>{
         <div className="premiereImage">
         </div>
          </div>
+
           <div className="container2">
-            <div className="deuxiemeImage"></div>
-            <p className = "title"></p>
-            <p className="explanation"></p>
-          </div>
-          <div className="container2">
-             <div className="deuxiemeImage">
-        </div>
 <div className="textImage2">
-<p className="title">Sauvegarde toi une team avec les joueurs que tu as sélectionné</p>
-<p className="explanation">Inscris-toi sur le site et sauvegarde ta wish list de players</p>
+<p className="title2">Sauvegarde toi une team avec les <br /> joueurs que tu as sélectionné</p>
+<p className="explanation2">Inscris-toi sur le site et sauvegarde ta wish list de players grâce 
+<br /> à l'outil Fais ta Team.</p>
 </div>
-          </div>
-      </div>
+ <div className="deuxiemeImage">
+        </div>
+</div>
+
+      <div className="container3">
+        <p className="title3">Consulte les joueurs de la semaine</p>
+        <p className="explanation3">Qui sont les joueurs qui ont performé cette semaine ? On te liste tout ça !
+</p>
+             <div className="troisiemeImage">
+        </div>
+</div>
+<p className="title3">... Et suis l'actu Fifa et toutes les mises à jours</p>
+<p className="explanation3">On te permet de te tenir au jus en te proposant des articles traitant de l'actualité et toutes
+les mises à jours récentes de Fifa</p>
+</div>
     );
 }
 export default Accueil

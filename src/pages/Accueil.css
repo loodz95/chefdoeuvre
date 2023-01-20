@@ -1,33 +1,29 @@
 .accueil{
     
     background-image: url(../assets/marble.jpg);
-    height: 100em;
-    background-attachment: fixed;
+    height: 190em;
+    width: 100%;
+   background-attachment:fixed;
     background-size: cover;
     background-repeat: no-repeat;
     color: white;
     z-index: 1;
 }
 
-.imageFifa{
-    background-color: black;
-    height: 40px;
-}
 
-.container1{
-    display: flex;
-}
+
 
 .premiereImage{
     background-image:  url(../assets/cards.jpg);
     background-repeat: no-repeat;
-    background-size: 100%;
-  width: 800px;
-  border-radius: 10px;
- margin-top: 80px;
+   background-size: 22em;
+ height: 10em;
+border-radius: 10px;
+ margin-top: 40px;
  box-shadow: 10px 10px 5px  grey;
  transition: transform .4s;
- margin-right: 20px;
+ margin-right: 1em;
+ margin-left: 1em;
 }
 
 .premiereImage:hover{
@@ -37,16 +33,14 @@ transform: scale(1.1);
 }
 
 .groupImage1{
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column ;
+    
 }
 
 .textImage1{
-   width: 1000px;
-    margin-top: 150px;
+ 
+    margin-top: 80px;
    color: black; 
-   font-size: 40px;   
+   font-size: 30px;   
 }
 
 .title{
@@ -60,18 +54,23 @@ transform: scale(1.1);
 }
 
 .container2{
- display: flex   
+
+ margin-top: 90px; 
+ margin-right: 40px; 
 }
 
 .deuxiemeImage{
-background-image:  url(../assets/cards.jpg);
+background-image:  url(../assets/fifaSquad.png);
     background-repeat: no-repeat;
-    background-size: 100%;
-  width: 800px;
-  border-radius: 10px;
- margin-top: 80px;
+   background-size: 100%;
+ height: 235px;
+border-radius: 10px;
+ margin-top: 40px;
  box-shadow: 10px 10px 5px  grey;
  transition: transform .4s;
+ margin-left: 40px;
+
+ 
 }
 
 .deuxiemeImage:hover{
@@ -83,8 +82,70 @@ transform: scale(1.1);
 
 
 .textImage2{
+  
+    margin-top: 40px;
+   color: black; 
+   font-size: 30px;  
+}
+
+.title2{
+ font-family: 'Sedgwick Ave Display', cursive;
+  margin-left: 20px;   
+}
+
+.explanation2{
+   
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.container3{
+text-align: center; 
+margin-top: 90px; 
+}
+
+.troisiemeImage{
+background-image:  url(../assets/fifaTotw.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+  width: 600px;
+  height: 465px;
+  border-radius: 10px;
+ margin-top: 80px;
+ box-shadow: 10px 10px 5px  grey;
+ transition: transform .4s;
+ margin-left: 30px;
+ 
+}
+
+.troisiemeImage:hover{
+-ms-transform: scale(1.1); /* IE 9 */
+-webkit-transform: scale(1.1); /* Safari 3-8 */
+transform: scale(1.1);
+
+}
+
+
+.textImage3{
    width: 1000px;
     margin-top: 150px;
-   color: black; 
-   font-size: 40px;   
 }
+
+.title3{
+    
+ font-family: 'Sedgwick Ave Display', cursive;
+     text-align: center;
+     font-size: 40px; 
+      color: black; 
+    margin-top: 90px;
+     
+}
+
+.explanation3{
+    text-align: center;
+    margin-left: 20px;
+    font-size: 20px;  
+    color: black; 
+}
+
+

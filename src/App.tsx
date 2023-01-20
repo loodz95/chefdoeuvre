@@ -10,6 +10,7 @@ import FaisTaTeam from "./pages/FaisTaTeam";
 import JoueursDeLaSemaine from "./pages/JoueursDeLaSemaine";
 import JoueursParStats from "./pages/JoueursParStats";
 import Footer from "./components/Footer";
+import ActusFifa from "./pages/ActusFifa";
 
 const App = () => {
 
@@ -22,6 +23,7 @@ return (
         <Route path="/faistateam" element={<FaisTaTeam />} />
         <Route path="/joueursdelasemaine" element={<JoueursDeLaSemaine />} />
         <Route path="/joueursparstats" element={<JoueursParStats />} />
+        <Route path="/actusfifa" element={<ActusFifa />} />
       </Routes>
     </BrowserRouter>
     <Footer/>

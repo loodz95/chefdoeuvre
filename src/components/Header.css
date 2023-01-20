@@ -5,10 +5,13 @@
 .buttonGroup{
     display: flex;
     padding-top: 10px;
-    padding-left: 1260px;
+    padding-left: 15%;
 }
 
 .suscribeButton{
     margin-right: 15px;
 }
+
+
+
 
