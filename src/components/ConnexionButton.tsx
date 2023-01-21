@@ -1,9 +1,22 @@
+import { useState } from "react"
 import "./ConnexionButton.css"
 
-const ConnexionButton =()=>{
+export interface ButtonProps{
+    buttonProps: (value:boolean)=>void
+}
+
+const ConnexionButton =(props:ButtonProps)=>{
+const [isClicked, setIsClicked]= useState<boolean>(false)
+
+const clickFunction =(e:React.MouseEvent<HTMLButtonElement>)=>{
+    setIsClicked(true)
+    props.buttonProps(isClicked)
+}
+
     return(
         <div>
-            <button className = "connexionButton">connexion</button>
+            <button className = "connexionButton" onClick={clickFunction}>connexion</button>
+            
         </div>
     )
 }

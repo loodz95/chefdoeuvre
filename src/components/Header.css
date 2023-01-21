@@ -12,6 +12,13 @@
   width: 5px; 
 }
 
+.profil{
+    display: flex;
+   
+}
+
+
+
 
 
 /* ------------------------------------------------config desktop----------------------------------------------------------------------------- */
@@ -25,12 +32,22 @@
 .suscribeButton{
     margin-right: 10px;
 }
-}
+
 
 .icone{
     margin-left: 1460px;
     padding-top: 10px;
 }
 
+.profil{
+    display: flex;
+    margin-left: 90%;
+}
+
+.moncompte{
+    margin-top: 10px;
+    margin-right: 5px;
+}
+}
 
 

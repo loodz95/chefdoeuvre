@@ -19,7 +19,7 @@ const SearchBar =() => {
             className="form-control me-2 myFont inputSize"
             type="search"
             placeholder="Recherche un joueur"
-          
+      
           />
           <button className="btn btn-outline-success myFont" type="submit"   >Go!
           </button>
