@@ -95,7 +95,6 @@ transform: scale(1.1);
 .title2{
  font-family: 'Sedgwick Ave Display', cursive;
   text-align: center;
-  margin-top:60px
 }
 
 .explanation2{
@@ -133,8 +132,7 @@ transform: scale(1.1);
 
 
 .textImage3{
-   width: 1000px;
-    margin-top: 150px;
+   margin-top: 60px; 
 }
 
 .title3{
@@ -143,7 +141,7 @@ transform: scale(1.1);
      text-align: center;
      font-size: 40px; 
       color: black; 
-    margin-top: 60px;
+    
      
 }
 
@@ -154,6 +152,16 @@ transform: scale(1.1);
     color: black; 
 }
 
+.textImage4{
+    
+margin-top: 60px;
+     text-align: center;
+     font-size: 40px; 
+      color: black; 
+    
+     
+}
+
 
 /* ------------------------------------------------config desktop----------------------------------------------------------------------------- */
 
@@ -161,7 +169,7 @@ transform: scale(1.1);
 .accueil{
     
     background-image: url(../assets/marble.jpg);
-    height: 165em;
+    height: 135em;
     width: 100%;
    background-attachment:fixed;
     background-size: cover;
@@ -231,7 +239,7 @@ background-image:  url(../assets/fifaSquad.png);
     background-repeat: no-repeat;
    background-size: 40em;
    width: 40em;
- height: 25em;
+ height: 33.3em;
 border-radius: 10px;
  margin-top: 40px;
  box-shadow: 10px 10px 5px  grey;
@@ -279,9 +287,9 @@ margin-top:60px
 .troisiemeImage{
 background-image:  url(../assets/fifaTotw.jpg);
     background-repeat: no-repeat;
-   background-size: 40em;
-   width: 45em;
- height: 20em;
+   background-size: 50em;
+   width: 50em;
+ height: 25em;
 border-radius: 10px;
  margin-top: 60px;
  box-shadow: 10px 10px 5px  grey;
@@ -314,5 +322,14 @@ transform: scale(1.1);
     margin-left: 20px;
     font-size: 20px;  
     color: black; 
+}
+
+.textImage4{
+
+     text-align: center;
+     font-size: 40px; 
+      color: black; 
+    margin-top: 110px;
+     
 }
 }

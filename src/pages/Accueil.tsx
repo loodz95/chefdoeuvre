@@ -53,9 +53,11 @@ return (
              <div className="troisiemeImage">
         </div>
 </div>
+<div className="textImage4">
 <p className="title3">... Et suis l'actu Fifa et toutes les mises à jours</p>
 <p className="explanation3">On te permet de te tenir au jus en te proposant des articles traitant de l'actualité et toutes
 les mises à jours récentes de Fifa</p>
+</div>
 </div>
     );
 }

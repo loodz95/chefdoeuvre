@@ -9,6 +9,18 @@
 }
 
 
+/* ------------------------------------------------config desktop----------------------------------------------------------------------------- */
+
+@media screen and (min-width: 1224px) {
+ .buttonGroup{
+ display:inline-flex; 
+ padding-left:1300px;
+}   
+
+.suscribeButton{
+    margin-right: 10px;
+}
+}
 
 
 
