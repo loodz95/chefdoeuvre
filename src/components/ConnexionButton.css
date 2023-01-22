@@ -36,3 +36,90 @@
   }
 }
 
+
+.colorTitle{
+ background-color: rgb(190, 162, 7);
+ 
+}
+.colorBody{
+ background-color: white;
+ 
+}
+
+.phraseModal{
+  padding-right: 45px;
+}
+
+.buttonForm{
+  margin-left: 40%;
+  margin-top: 5%;
+}
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width: 1224px) {
+.connexionButton{
+    background-color: rgb(190, 162, 7) ;
+    color: white;
+   border-radius: 10px;
+    
+}
+
+
+/* Animation property */
+.connexionButton {
+  animation: wiggle 2s linear infinite;
+}
+
+/* Keyframes */
+@keyframes wiggle {
+  0%, 7% {
+    transform: rotateZ(0);
+  }
+  15% {
+    transform: rotateZ(-15deg);
+  }
+  20% {
+    transform: rotateZ(10deg);
+  }
+  25% {
+    transform: rotateZ(-10deg);
+  }
+  30% {
+    transform: rotateZ(6deg);
+  }
+  35% {
+    transform: rotateZ(-4deg);
+  }
+  40%, 100% {
+    transform: rotateZ(0);
+  }
+}
+
+
+.colorTitle{
+ background-color: rgb(190, 162, 7);
+ 
+}
+.colorBody{
+ background-color: white;
+ 
+}
+
+.phraseModal{
+  padding-right: 25%;
+}
+
+.buttonForm{
+  margin-left: 50%;
+}
+}
+

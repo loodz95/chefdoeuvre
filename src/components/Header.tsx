@@ -5,15 +5,15 @@ import { VscAccount} from "react-icons/vsc";
 import MediaQuery from "react-responsive";
 import { useState } from "react";
 
+
+
+
+
 const Header =()=>{
     const isConnected = true;
-    const [isClicked, setIsClicked]= useState<boolean>()
 
-const buttonProps =(e:boolean)=>{
-setIsClicked(true)
-console.log(isClicked)
-alert("bien cliqué")
-}
+
+
 
 return(
 <div className="header">
@@ -24,7 +24,8 @@ return(
 <SuscribeButton/>
 </div>
 <div >
-<ConnexionButton buttonProps ={buttonProps}/>
+<ConnexionButton />
+ 
 </div>
 </div>
  ))||(
@@ -37,6 +38,7 @@ return(
     </MediaQuery>
 </div>
  )}
+     
 </div>
     )
 }
