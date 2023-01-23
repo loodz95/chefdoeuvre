@@ -1,12 +1,52 @@
-.carteFUT{
-    background-image: url(../assets/carteFUT.png);
+    
+    .team{
+      background-image: url(../assets/etoiles.jpeg);
+    height: 70em;
+    width: 100%;
+   background-attachment:fixed;
+    background-size: cover;
     background-repeat: no-repeat;
-    height: 500px;
-    margin-top: 200px
-  
+    color: white;
+    z-index: 1;   
 }
 
-.age{
-    padding-top: 100px;
-    font-size: 50px;
+.titre{
+        padding-top:50px  ;
+        padding-left:390px;
+         
 }
+.titre2:hover{
+    color: rgb(190, 162, 7)  
+}
+.titre2{
+        padding-top:50px  ;
+        padding-left:390px;
+        cursor:pointer;
+}
+
+.rpc{
+    padding-left:70%;
+    margin-top:80px    
+}
+
+.carteFUT{
+    background-image: url(../assets/carteFUT.png);
+    background-repeat: no-repeat; 
+}
+
+.terrainGlobal{
+    height:1000px;
+ background-image:url(../assets/terrain_foot.svg);
+ background-repeat:no-repeat;
+ margin-top:px;
+ background-size:1000px;
+}
+
+.h1Titre{
+    display:flex;
+   
+}
+.h1Titre: :hover{
+   
+}
+

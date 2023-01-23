@@ -1,5 +1,7 @@
 .background2{
-    background-image: url(../assets/mbappe2.jpg);
-   background-size: cover
+    background-image: url(../assets/marble.jpg);
+   background-size: cover;
+   background-attachment:fixed;
+   height:120em
 }
 

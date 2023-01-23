@@ -1,5 +1,10 @@
 .header{
     background-color: black;
+border-style: double;
+    border-color: white;
+    border-top: none;
+    border-left: none;
+    border-right: none;
 }
 
 .buttonGroup{

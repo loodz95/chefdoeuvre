@@ -1,12 +1,20 @@
 import sigle from "../assets/fut.png";
-import { NavLink } from "react-router-dom";
+import { BrowserRouter, NavLink, Route, Routes } from "react-router-dom";
 import "./NavBar.css"
+import Accueil from "../pages/Accueil";
+import FaisTaTeam from "../pages/FaisTaTeam";
+import JoueursDeLaSemaine from "../pages/JoueursDeLaSemaine";
+import JoueursParStats from "../pages/JoueursParStats";
+import ActusFifa from "../pages/ActusFifa";
 
 const NavBar = () => {
 
   return (
+  
+   
+ 
     <div className="navBar">
-      <nav className="navbar navbar-expand-lg bg-body-tertiary  ">
+      <nav className="navbar navbar-expand-lg  bg-body-tertiary  " >
         <div className="container-fluid">
           <img className="logo" src={sigle} alt="" />
           <a className="navbar-brand myFont" href="#">
@@ -31,17 +39,17 @@ const NavBar = () => {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink to="faistateam" className="nav-link myFont">
+                <NavLink to="faistateam" className="nav-link active myFont">
                   Fais ta team
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink to="joueursparstats" className="nav-link myFont">
+                <NavLink to="/joueursparstats" className="nav-link myFont">
                   Joueurs par stats
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink to="joueursdelasemaine" className="nav-link myFont">
+                <NavLink to="/joueursdelasemaine" className="nav-link myFont">
                   Joueurs de la semaine
                 </NavLink>
               </li>
@@ -56,6 +64,7 @@ const NavBar = () => {
         </div>
       </nav>
     </div>
+
   );
 
   }

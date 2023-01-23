@@ -56,13 +56,7 @@
 }
 
 
-
-
-
-
-
-
-
+/* ------------------------------------------------------config desktop-------------------------------------------------------- */
 
 
 @media screen and (min-width: 1224px) {
@@ -115,11 +109,30 @@
 }
 
 .phraseModal{
-  padding-right: 25%;
+  padding-right: 27%;
+  background-color: white;
+  border-style: none;
+ 
+}
+
+.phraseModal:hover{
+  color:rgb(190, 162, 7)
 }
 
 .buttonForm{
-  margin-left: 50%;
+  margin-top: 5%;
+  margin-left: 40%;
+  width: 100px;
+}
+
+.motdepasse{
+  width: 465px;
+  border-radius: 6px;
+}
+
+.pseudo{
+   width: 465px;
+   border-radius: 6px;
 }
 }
 

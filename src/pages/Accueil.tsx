@@ -19,8 +19,6 @@ const Accueil = () =>{
 
 return (
       <div className="accueil">
-        <Header/>
-         <NavBar />
         <Bann/>
         <div className="container1">
             <div className="textImage1">

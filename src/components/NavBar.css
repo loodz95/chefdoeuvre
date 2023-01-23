@@ -1,4 +1,5 @@
 .fut{
+  
   font-family: 'Sedgwick Ave Display', cursive;
   text-shadow:#e7f6ff 0 -1px 0,
 black 1px 1px 0,
@@ -11,6 +12,36 @@ black 5px 5px 0,
 
 .myFont{
 font-family: 'Sedgwick Ave Display', cursive;
+color:white !important;
+}
+
+.navbar{
+  background-image:url(../assets/etoiles.jpeg);
+background-size: 100%;
+background-repeat: no-repeat;
+background-attachment: fixed;
+box-shadow: 0px 4px 5px white ;
+
+}
+
+
+.navbar-collapse{
+  background-color:black;
+  width:1000px
+}
+
+.navbar-toggler{
+  color:white;
+
+
+}
+
+.navbar-toggler-icon{
+  background-color:white;
+  border-style: solid;
+  border-color:rgb(190, 162, 7);
+  border-radius:10px;
+  color:white;
 }
 
 
