@@ -14,24 +14,28 @@ export interface Joueurs {
 }
 
 const Accueil = () =>{
-
+const valeur = "Bienvenue sur FUT Starz, le site sur les cartes FUT par"
     
 
 return (
       <div className="accueil">
-        <Bann/>
+        <Bann banValue= {valeur}/>
         <div className="container1">
             <div className="textImage1">
+              <NavLink className="navlinkk" to ="joueursparstats">
               <MediaQuery maxWidth={1224}> <p className ="title">Recherche tes cartes FUT  Favorites et les meilleurs joueurs</p></MediaQuery>
+                </NavLink>
+                <NavLink className="navlinkk" to ="joueursparstats">
               <MediaQuery minWidth={1224}> <p className ="title">Recherche tes cartes FUT <br />  Favorites et les meilleurs joueurs</p></MediaQuery>
-        
+        </NavLink>
           <p className="explanation">Tu cherches des casseurs de reins ? Les meilleurs passeurs ? Sers-toi <br /> de notre outil de recherche pour bâtir une team 
           imbattable en fonction <br /> de tes critères.</p>
          </div>
-         <NavLink to ="joueursparstats">
+         <Link to="joueursparstats">
         <div className="premiereImage">
         </div>
-        </NavLink>
+        </Link>
+        
          </div>
 
           <div className="container2">
@@ -40,7 +44,7 @@ return (
 <p className="explanation2">Inscris-toi sur le site et sauvegarde ta wish list de players grâce 
 <br /> à l'outil Fais ta Team.</p>
 </div>
-<NavLink to ="faistateam">
+<NavLink className="navlinkk" to ="faistateam">
  <div className="deuxiemeImage">
         </div>
         </NavLink>
@@ -52,7 +56,7 @@ return (
         <p className="explanation3">Qui sont les joueurs qui ont performé cette semaine ? On te liste tout ça !
 </p>
 </div>
-<NavLink to ="joueursdelasemaine">
+<NavLink className="navlinkk" to ="joueursdelasemaine">
              <div className="troisiemeImage">
         </div>
         </NavLink>

@@ -2,6 +2,44 @@
     background-image: url(../assets/marble.jpg);
    background-size: cover;
    background-attachment:fixed;
-   height:120em
+   height:120em;
+   display:flex
+}
+
+.sidebar{
+     background-image: url(../assets/marble.jpg);
+     background-size: cover;
+   background-attachment:fixed;
+ 
+}
+
+.vivacite:hover{
+color:rgb(190, 162, 7);
+}
+
+.label{
+   background-image: url(../assets/marble.jpg);
+   background-size: cover;
+   background-attachment:fixed;   
+}
+
+.label:hover{
+color:rgb(190, 162, 7);
+}
+
+.fontsidebar{
+    font-size: 20px;
+}
+
+.joueurs{
+    padding-left: 400px;
+}
+
+.playerexplanation{
+padding-left: 180px;
+}
+
+.stat{
+    color:blanc;
 }
 

@@ -1,11 +1,15 @@
 import "./Bann.css"
 
-const Bann =()=>{
+export interface Props{
+  banValue: string
+}
+
+const Bann =(props: Props)=>{
     return(
         <div>
 <div className="banner">
-  <span className="fontStyle">Bienvenue sur FUTSTARZ, LE site sur les cartes FUT par excellence ! </span>
-  <span className="fontStyle">Bienvenue sur FUTSTARZ, LE site sur les cartes FUT par excellence !  </span>
+  <span className="fontStyle">{props.banValue} </span>
+  <span className="fontStyle">{props.banValue}  </span>
 </div>
         </div>
     )

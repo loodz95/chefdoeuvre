@@ -7,6 +7,7 @@ import Accueil from "./Accueil";
 import JoueursDeLaSemaine from "./JoueursDeLaSemaine";
 import JoueursParStats from "./JoueursParStats";
 import ActusFifa from "./ActusFifa";
+import Bann from "../components/Bann";
 export interface Joueurs {
   name: string;
   nickname: string;
@@ -14,10 +15,11 @@ export interface Joueurs {
 }
 
 const FaisTaTeam = () => {
-
+const message= "Tu peux visualiser la team que tu as sauvegardé et les tester dans plusieurs compositions "
 
 return( 
   <div className="team">
+   <Bann banValue={message}/>
     <div className="h1Titre">
          <h1 className="titre" >Ta compo</h1>
          <h1 className="titre2">Check ta liste de joueurs</h1>
