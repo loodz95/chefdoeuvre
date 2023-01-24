@@ -4,10 +4,12 @@ import "./JoueursParStats.css";
 
 const JoueursParStats = () => {
 
-const message = "Bienvenue sur FUT Starz, le site sur les cartes FUT par excellence"
+const message = "Trouve ta pépite ici en définissant tes critères de recherche ! Les joueurs sont classés dans l'ordre décroissant."
   return (
   <div className="stat">
+    <div className="bannière">
     <Bann banValue={message}></Bann>
+    </div>
   <div className=" background2">
     <div>
       <Bann banValue={message}></Bann>
@@ -23,19 +25,27 @@ const message = "Bienvenue sur FUT Starz, le site sur les cartes FUT par excelle
             
             </MenuItem>
       <MenuItem className= "label">
-        <input name="origin" type="checkbox" value="dribbleur" />
-              <label htmlFor="dribbleur">Flèches</label>
+        <input name="origin" type="checkbox" value="flèches" />
+              <label htmlFor="flèches">Flèches</label>
       </MenuItem>
     </SubMenu>
-    <MenuItem className= "vivacite"> <p className= "vivacite" >Force de la nature</p>   </MenuItem>
-    <MenuItem> Note générale </MenuItem>
-    <MenuItem> Rocs défensifs </MenuItem>
+    <MenuItem className= "vivacite">
+      <input name="origin" type="checkbox" value="force" />
+              <label htmlFor="force">Force de la nature </label>   
+    </MenuItem>
+    <MenuItem> 
+    <input name="origin" type="checkbox" value="note" />
+              <label htmlFor="note"> Note générale</label>
+     </MenuItem>
+    <MenuItem>
+    <input name="origin" type="checkbox" value="roc" />
+              <label htmlFor="roc">Rocs défensifs</label>
+    </MenuItem>
   </Menu>
 </Sidebar>
 </div>
  <div>
   <h1 className="joueurs">Liste des joueurs</h1>
- <p className="playerexplanation">Cet outil te permet de classer dans l'ordre décroissant les joueurs en fonction de la spécialité choisie</p>
     </div>
 
   </div>
