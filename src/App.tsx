@@ -13,10 +13,17 @@ import Footer from "./components/Footer";
 import ActusFifa from "./pages/ActusFifa";
 import Header from "./components/Header";
 
-
+export interface PayloadToken{
+    exp: number;
+  iat: number;
+  id: string;
+  role: string;
+  username: string;
+}
 
 const App = () => {
 
+  
   
 return (
   <div >

@@ -5,15 +5,18 @@ import App from './App';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { ProSidebarProvider } from 'react-pro-sidebar';
+import { AuthContextProvider } from './context/AuthContext';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
+    <AuthContextProvider>
     <ProSidebarProvider>
     <App />
     </ProSidebarProvider>
+    </AuthContextProvider>
   </React.StrictMode>
 );
 

@@ -8,6 +8,7 @@ import JoueursDeLaSemaine from "./JoueursDeLaSemaine";
 import JoueursParStats from "./JoueursParStats";
 import ActusFifa from "./ActusFifa";
 import Bann from "../components/Bann";
+import MediaQuery from  "react-responsive";
 export interface Joueurs {
   name: string;
   nickname: string;
@@ -20,10 +21,22 @@ const message= "Tu peux visualiser la team que tu as sauvegardé et les tester d
 return( 
   <div className="team">
    <Bann banValue={message}/>
+
+   {/* Affichage pour ordi */}
+    <MediaQuery minWidth={1225}>
     <div className="h1Titre">
          <h1 className="titre" >Ta compo</h1>
          <h1 className="titre2">Check ta liste de joueurs</h1>
          </div>
+         </MediaQuery>
+
+{/* Affichage pour mobile */}
+    <MediaQuery maxWidth={1224}>
+    <div>
+         <h1 className="titre2Mobile">Check ta liste de joueurs</h1>
+         <h1 className="titreMobile" >Ta compo</h1>
+         </div>
+         </MediaQuery>
          
 {/* <div className="options">
 <p>Check ta liste de joueurs</p>

@@ -29,6 +29,7 @@ border-style: double;
 /* ------------------------------------------------config desktop----------------------------------------------------------------------------- */
 
 @media screen and (min-width: 1224px) {
+    
  .buttonGroup{
  display:inline-flex; 
  padding-left:1300px;
@@ -39,20 +40,30 @@ border-style: double;
 }
 
 
-.icone{
-    margin-left: 1460px;
-    padding-top: 10px;
-}
+
 
 .profil{
     display: flex;
-    margin-left: 90%;
+    margin-left: 88%;
+    color: white;
 }
 
 .moncompte{
-    margin-top: 10px;
-    margin-right: 5px;
+text-decoration: none !important;
+    color: white !important
+
 }
+.comptegroupe{
+    display: flex;
+    padding-right: 100px;
 }
 
+.dropdown{
+   text-decoration: none !important;
+   color: white !important
+}
+
+
+
+}
 

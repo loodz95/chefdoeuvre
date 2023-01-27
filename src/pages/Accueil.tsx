@@ -1,11 +1,12 @@
 import SearchBar from "../components/SearchBar";
 import MediaQuery from  "react-responsive";
-import React, {useState} from "react"
+import React, {useContext, useEffect, useState} from "react"
 import "./Accueil.css"
 import Header from "../components/Header";
 import Bann from "../components/Bann";
 import NavBar from "../components/NavBar";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 
 export interface Joueurs {
   name: string;
@@ -14,8 +15,7 @@ export interface Joueurs {
 }
 
 const Accueil = () =>{
-const valeur = "Bienvenue sur FUT Starz, le site sur les cartes FUT par"
-    
+const valeur = "Bienvenue sur FUT Starz, le site sur les cartes FUT par excellence !"
 
 return (
       <div className="accueil">
@@ -26,7 +26,7 @@ return (
               <MediaQuery maxWidth={1224}> <p className ="title">Recherche tes cartes FUT  Favorites et les meilleurs joueurs</p></MediaQuery>
                 </NavLink>
                 <NavLink className="navlinkk" to ="joueursparstats">
-              <MediaQuery minWidth={1224}> <p className ="title">Recherche tes cartes FUT <br />  Favorites et les meilleurs joueurs</p></MediaQuery>
+              <MediaQuery minWidth={1225}> <p className ="title">Recherche tes cartes FUT <br />  Favorites et les meilleurs joueurs</p></MediaQuery>
         </NavLink>
           <p className="explanation">Tu cherches des casseurs de reins ? Les meilleurs passeurs ? Sers-toi <br /> de notre outil de recherche pour bâtir une team 
           imbattable en fonction <br /> de tes critères.</p>

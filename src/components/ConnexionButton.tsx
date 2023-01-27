@@ -1,18 +1,29 @@
-import { ReactComponentElement, ReactElement, useState } from "react"
+import React, { ReactComponentElement, ReactElement, useState } from "react"
 import "./ConnexionButton.css"
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import userEvent from "@testing-library/user-event";
 
 
 const ConnexionButton =()=>{
+  const navigate = useNavigate()
  const [show, setShow] = useState(false);  //state pour ouverture modal connexion//
  const [showSuscribe, setShowSuscribe] = useState(false); //state pour ouverture modal inscription//
+ const [message,setMessage] =useState<string>()
+ const [pseudoState, setPseudoState]=useState<string>()
+ const [passState, setPassState]=useState<string>()
+ const [passVerifState, setPassVerifState]=useState<string>()
+ const [MailState, setMailState]=useState<string>()
+ 
 
   const handleClose = () =>{    //Fonction fermeture modal connexion au click//
     setShow(false)                          
   };
 
   const handleShow = () => {
+    setMessage("")
   setShow(true); //Fonction ouverture modal connexion au click//
   };
 
@@ -25,6 +36,7 @@ const ConnexionButton =()=>{
    setShowSuscribe(true)
   }
   const alreadySign=()=>{      //Fonction pour ouvrir page de connexion avec le lien déjà inscrit//
+     setMessage("")
     setShowSuscribe(false)
    setShow(true)
   }
@@ -33,6 +45,71 @@ const ConnexionButton =()=>{
 alert('ok')
   }
 
+  const handlePseudo =(e:React.ChangeEvent<HTMLInputElement>)=>{
+    console.log("changePseudo",e.currentTarget.value)
+    setPseudoState(e.currentTarget.value)
+  }
+  const handleMail =(e:React.ChangeEvent<HTMLInputElement>)=>{
+    console.log("changeMail",e.currentTarget.value)
+    setMailState(e.currentTarget.value)
+  }
+  const handlePass =(e:React.ChangeEvent<HTMLInputElement>)=>{
+ console.log("changePass",e.currentTarget.value)
+  setPassState(e.currentTarget.value)
+  }
+  const handleVerifPass =(e:React.ChangeEvent<HTMLInputElement>)=>{
+ console.log("changePass",e.currentTarget.value)
+  setPassVerifState(e.currentTarget.value)
+  }
+
+  const connectFunction=(e: React.MouseEvent)=>{
+
+         axios
+      .post("http://localhost:8080/api/auth/login", {
+        userName: pseudoState,
+        password: passState,
+        
+      })
+      .then((token) => {
+        const tokens = token.data.accessToken;
+        localStorage.setItem("accesstoken", tokens);
+         console.log(token.data.accessToken);
+           setTimeout(() => {
+          handleClose();
+        }, 1000);
+        setMessage("Connexion réussie !");
+      })
+      .catch((error) => {
+        console.log("connexion impossible", error);
+         setMessage("Connexion impossible !")
+      });
+  }
+
+    const suscribeFunction=(e: React.MouseEvent)=>{
+        if (passState !== passVerifState){
+        setMessage("Les mots de passe ne correspondent pas !")
+       }else{
+
+         axios
+      .post("http://localhost:8080/api/auth/signin", {
+        userName: pseudoState,
+        email: MailState,
+        password: passState,
+        role: "user"
+        
+      })
+      .then((res) => {
+           setTimeout(() => {
+          handleCloseSuscribe();
+        }, 1000);
+        setMessage("Inscription réussie !");
+      })
+      .catch((err) => {
+        console.log("Inscription impossible", err);
+         setMessage("Inscription impossible !")
+      });
+}
+  }
 
     return(
         <div>
@@ -45,20 +122,21 @@ alert('ok')
       
         <form onSubmit={handleLoginForm}>
   <div className="form-group column">
-    <label htmlFor="email" className="col-sm-2 col-form-label">Email</label>
+    <label htmlFor="pseudo" className="col-sm-2 col-form-label">Pseudo</label>
     <div className="col-sm-10">
-      <input type="mail"   className="pseudo" id="email"/>
+      <input type="string"   className="pseudo" id="pseudo" onChange ={handlePseudo}/>
     </div>
   </div>
   <div className="form-group column">
     <label htmlFor="inputPassword" className=" col-form-label">Mot de passe</label>
     <div className="col-sm-10">
-      <input type="password" className=" motdepasse" id="inputPassword" />
+      <input type="password" className=" motdepasse" id="inputPassword"  onChange ={handlePass} />
     </div>
   </div>
-     <Button variant="dark" className="buttonForm" >
+     <Button onClick={connectFunction} variant="dark" className="buttonForm" >
           Go !
         </Button>
+        <p>{message}</p>
 </form>
       </Modal.Body>
       <Modal.Footer className="colorFooter">
@@ -76,30 +154,31 @@ alert('ok')
   <div className="form-group column">
     <label htmlFor="email" className="col-sm-2 col-form-label">Email</label>
     <div className="col-sm-10">
-      <input type="mail"   className="pseudo" id="email"/>
+      <input onChange={handleMail} type="mail"   className="pseudo" id="email"/>
     </div>
   </div>
   <div className="form-group column">
     <label htmlFor="pseudo" className="col-sm-2 col-form-label">Pseudo</label>
     <div className="col-sm-10">
-      <input type="text"   className="pseudo" id="pseudo"/>
+      <input onChange={handlePseudo} type="text"    className="pseudo" id="pseudo"/>
     </div>
   </div>
   <div className="form-group column">
     <label htmlFor="motdepasse" className="col-form-label">Mot de passe</label>
     <div className="col-sm-10">
-      <input type="password"   className="pseudo" id="motdepasse "/>
+      <input type="password" onChange={handlePass}  className="pseudo" id="motdepasse "/>
     </div>
   </div>
   <div className="form-group column">
     <label htmlFor="inputPassword" className=" col-form-label">Confirme ton mot de passe</label>
     <div className="col-sm-10">
-      <input type="password" className=" motdepasse" id="inputPassword" />
+      <input onChange={handleVerifPass} type="password" className=" motdepasse" id="inputPassword" />
     </div>
   </div>
-     <Button variant="dark" className="buttonForm" >
+     <Button onClick={suscribeFunction} variant="dark" className="buttonForm" >
           Go !
         </Button>
+        {message}
 </form>
       </Modal.Body>
       <Modal.Footer className="colorFooter">

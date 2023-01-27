@@ -1,4 +1,57 @@
-    
+       .team{
+      background-image: url(../assets/etoiles.jpeg);
+    height: 60em;
+    width: 100%;
+   background-attachment:fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    z-index: 1;   
+}
+
+.titreMobile{
+        padding-top:30px  ;
+        text-align: center;
+        
+         
+}
+.titre2Mobile:hover{
+    color: rgb(190, 162, 7)  
+}
+.titre2Mobile{
+        padding-top:40px  ;
+        text-align: center;
+        cursor:pointer;
+}
+
+.rpc{
+  
+    margin-top:300px    
+}
+
+.carteFUT{
+    background-image: url(../assets/carteFUT.png);
+    background-repeat: no-repeat; 
+}
+
+.terrainGlobal{
+  
+ background-image:url(../assets/terrain_foot.svg);
+ background-repeat:no-repeat;
+padding-top: 5px;
+ background-size:100%;
+}
+
+.h1Titre{
+    display:flex;
+}
+
+
+
+   
+   /* ------------------------------------------------config desktop----------------------------------------------------------------------------- */
+
+@media screen and (min-width: 1224px) {
     .team{
       background-image: url(../assets/etoiles.jpeg);
     height: 70em;
@@ -45,5 +98,5 @@
 .h1Titre{
     display:flex;
 }
-
+}
 

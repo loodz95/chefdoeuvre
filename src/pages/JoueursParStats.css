@@ -46,3 +46,45 @@ padding-left: 180px;
 .bannière{
     color: white;
 }
+
+.mobileMenu{
+    padding-left: 20px;
+    padding-top: 20px;
+    height: 1px;
+display:flex;
+flex-direction: row;
+flex-wrap: wrap;
+}
+
+.joueursMobile{
+    padding-top: 50px;
+   padding-left: 50px;
+}
+
+label{
+  padding-right: 10px  ;
+}
+
+
+.dribbleurs{
+    width: 30px;
+    height: 30px;
+  padding-bottom: 15px;  
+}
+.flèches{
+     height: 30px;
+     width: 30px;
+padding-bottom: 15px;
+}
+.forcedelanature{
+    width: 30px;
+padding-bottom: 15px;
+}
+.notegenerale{
+     width: 30px;
+padding-bottom: 15px;
+}
+.rocs{
+padding-bottom: 40px;
+}
+

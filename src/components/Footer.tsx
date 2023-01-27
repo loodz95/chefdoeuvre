@@ -6,6 +6,8 @@ const Footer =()=>{
         <p>A propos</p>
         <p>Nous contacter</p>
         <p>Toutes les images FIFA appartiennent à EA Sports</p>
+    
+
         </div>
 
         </div>

@@ -2,3 +2,19 @@
 height: 50em;
 color: white;
 }
+
+.items{
+    display:flex;
+    justify-content: space-around   ;
+
+}
+
+.card{
+ 
+color: black;
+}
+
+.cardbody{
+   color: black;
+   height: 550px;
+}

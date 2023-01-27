@@ -1,19 +1,23 @@
+import { assertExpressionStatement } from "@babel/types";
+import { useEffect } from "react";
 import { Menu, MenuItem, Sidebar, SubMenu } from "react-pro-sidebar";
+import MediaQuery from "react-responsive";
 import Bann from "../components/Bann";
 import "./JoueursParStats.css";
 
 const JoueursParStats = () => {
 
 const message = "Trouve ta pépite ici en définissant tes critères de recherche ! Les joueurs sont classés dans l'ordre décroissant."
+
+
   return (
   <div className="stat">
     <div className="bannière">
     <Bann banValue={message}></Bann>
     </div>
   <div className=" background2">
-    <div>
-      <Bann banValue={message}></Bann>
-    </div>
+  
+  <MediaQuery minWidth={1225}>
       <div >   
   <Sidebar className="fontsidebar">
   <Menu className="sidebar">
@@ -44,9 +48,32 @@ const message = "Trouve ta pépite ici en définissant tes critères de recherch
   </Menu>
 </Sidebar>
 </div>
- <div>
-  <h1 className="joueurs">Liste des joueurs</h1>
+<div>
+  
+  <h1 className="joueurs">Liste des joueurs :</h1>
     </div>
+</MediaQuery>
+
+<MediaQuery maxWidth={1224}>
+  <div className="mobileMenu">
+  <input name="origin" type="checkbox" value="dribbleur" />
+              <label htmlFor="dribbleur">Dribbleurs</label>
+             
+            
+   <input name="origin" type="checkbox" value="flèches" />
+              <label htmlFor="flèches">Flèches</label>            
+               <input name="origin" type="checkbox" value="force" />
+              <label htmlFor="force">Force de la nature </label>              
+               <input name="origin" type="checkbox" value="note" />
+              <label htmlFor="note"> Note générale</label>            
+                <input name="origin" type="checkbox" value="roc" />
+              <label htmlFor="roc">Rocs défensifs</label>  
+  <div>
+  <h1 className="joueursMobile">Liste des joueurs :</h1>
+    </div>
+    </div>
+</MediaQuery>
+ 
 
   </div>
   </div>
