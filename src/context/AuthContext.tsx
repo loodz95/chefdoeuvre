@@ -33,12 +33,12 @@ export const AuthContextProvider = ({ children }: AuthContextProps) => {
   const [token, setToken] = useState<string | null>(recupToken ? recupToken : null );
  const [tokenExpired, setTokenExpired] =useState<string|null>(null)
     
-const updateToken = (token: string | null) => {
+const updateToken =   (token: string | null) => {
     setToken(token);
   };
 
 // Fonction contextuelle permettant de vérifier l'expiration d'un token
-const tokenExpirationFunction=( token : string|null)=> {
+const  tokenExpirationFunction= async ( token : string|null)=> {
     if (token) {
       const decoded: PayloadToken = jwt_decode(token);
       if (Date.now() <= decoded.exp * 1000){
@@ -48,11 +48,16 @@ const tokenExpirationFunction=( token : string|null)=> {
         setTokenExpired("token expiré") 
         return false 
       }   
+    }else if(!token){
+setTokenExpired(null)
     }
   }
 
 // Récupération d'une variable utilisable de token expiré
   console.log("état d'expiration du token",tokenExpired)
+  console.log("token dans context",token)
+  console.log("recuptoken dans context",recupToken)
+  console.log("acess dans context",localStorage.getItem("accesstoken"))
 
   const contextValue = {
     savedToken: token,

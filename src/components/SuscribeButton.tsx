@@ -90,7 +90,7 @@ if(passState === passVerifState){
     }
   }
 
-    const connectFunction=(e: React.MouseEvent)=>{
+    const connectFunction2=(e: React.MouseEvent)=>{
 
          axios
       .post("http://localhost:8080/api/auth/login", {
@@ -135,7 +135,7 @@ if(passState === passVerifState){
       <input onChange={handlePassword} type="password" className=" motdepasse" id="inputPassword" />
     </div>
   </div>
-     <Button onClick={connectFunction} variant="dark" className="buttonForm" >
+     <Button onClick={connectFunction2} variant="dark" className="buttonForm" >
           Go !
         </Button>
 <p>{message}</p>

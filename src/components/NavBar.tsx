@@ -1,13 +1,41 @@
 import sigle from "../assets/fut.png";
-import { BrowserRouter, NavLink, Route, Routes } from "react-router-dom";
+import { BrowserRouter, NavLink, Route, Routes, useNavigate } from "react-router-dom";
 import "./NavBar.css"
 import Accueil from "../pages/Accueil";
 import FaisTaTeam from "../pages/FaisTaTeam";
 import JoueursDeLaSemaine from "../pages/JoueursDeLaSemaine";
 import JoueursParStats from "../pages/JoueursParStats";
 import ActusFifa from "../pages/ActusFifa";
+import { AuthContext } from "../context/AuthContext";
+import {useContext, useEffect} from "react"
 
 const NavBar = () => {
+const {savedToken, UpdateToken, TokenExpirationFunction, tokenExpired} = useContext(AuthContext)
+
+const navigate = useNavigate()
+
+useEffect(()=>{
+  UpdateToken(localStorage.getItem("accesstoken"))
+  TokenExpirationFunction(localStorage.getItem("accesstoken"))
+  
+  console.log("token navbar useeffect",savedToken)
+  console.log("expirationToken",tokenExpired)
+})
+
+  const tokenVerify= async (e:React.MouseEvent)=>{
+    UpdateToken(localStorage.getItem("accesstoken"))
+   if(savedToken === null)
+  try{
+ await
+ 
+   console.log("token navbar",localStorage.getItem("accesstoken"))
+console.log("navigate try")
+navigate("/")
+  }catch(error){
+console.log("navigate error")
+  }
+}
+
 
   return (
   
@@ -38,11 +66,13 @@ const NavBar = () => {
                   Accueil
                 </NavLink>
               </li>
+              {(savedToken&& (
               <li className="nav-item">
-                <NavLink to="faistateam" className="nav-link active myFont">
+                <NavLink to="faistateam" className="nav-link active myFont" onClick={tokenVerify}>
                   Fais ta team
                 </NavLink>
               </li>
+              ))}
               <li className="nav-item">
                 <NavLink to="/joueursparstats" className="nav-link myFont">
                   Joueurs par stats

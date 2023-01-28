@@ -7,6 +7,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import Dropdown from 'react-bootstrap/Dropdown';
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -16,20 +17,26 @@ import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 
 const Header =()=>{
     const isConnected = true;
-
+const navigate =useNavigate()
 const {UpdateToken, savedToken}=useContext(AuthContext)
  
 useEffect(()=>{
-  UpdateToken(savedToken)
+  UpdateToken(localStorage.getItem("accesstoken"))
+  console.log("header token",savedToken)
 })
 
+const deconnectFunction=(e:React.MouseEvent)=>{
+  localStorage.removeItem("accesstoken")
+  UpdateToken(localStorage.getItem("accesstoken"))
+  navigate("/")
+}
 
 
 
 
 return(
 <div className="header">
-    {(!savedToken &&(
+    {(!localStorage.getItem("accesstoken")   &&(
 <div className="buttonGroup">
     <div className="suscribeButton">      
 <SuscribeButton/>
@@ -38,8 +45,9 @@ return(
 <ConnexionButton />
 </div>
 </div>
- ))||(
+ ))}
 
+{(localStorage.getItem("accesstoken") && (
 <div className="profil"> 
 <MediaQuery maxWidth={1224}> <VscAccount className="mobile" style={{marginLeft:"50%", marginTop:5,  fontSize:30}}/></MediaQuery>
  <MediaQuery minWidth={1224}>
@@ -50,7 +58,7 @@ return(
       
       
  <div className="dropdown">
-              <Nav>
+              <Nav className="moncompte" >
             <NavDropdown
               id="nav-dropdown-dark-example"
               title="mon compte"
@@ -63,20 +71,16 @@ return(
               </NavDropdown.Item>
              
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
+              <NavDropdown.Item onClick={deconnectFunction} href="#deconnexion">
                 Se déconnecter
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
      </div>
-      
-    
-
-    
-   
     </MediaQuery>
 </div>
- )}
+))}
+
      
 </div>
     )

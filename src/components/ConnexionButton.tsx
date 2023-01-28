@@ -1,10 +1,11 @@
-import React, { ReactComponentElement, ReactElement, useState } from "react"
+import React, { ReactComponentElement, ReactElement, useContext, useState } from "react"
 import "./ConnexionButton.css"
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
+import { AuthContext } from "../context/AuthContext";
 
 
 const ConnexionButton =()=>{
@@ -16,6 +17,7 @@ const ConnexionButton =()=>{
  const [passState, setPassState]=useState<string>()
  const [passVerifState, setPassVerifState]=useState<string>()
  const [MailState, setMailState]=useState<string>()
+ const {UpdateToken, savedToken} = useContext(AuthContext)
  
 
   const handleClose = () =>{    //Fonction fermeture modal connexion au click//
@@ -62,9 +64,10 @@ alert('ok')
   setPassVerifState(e.currentTarget.value)
   }
 
-  const connectFunction=(e: React.MouseEvent)=>{
-
-         axios
+  const connectFunction= async  (e: React.MouseEvent)=>{
+    
+console.log("token dans connection",savedToken)
+       await   axios
       .post("http://localhost:8080/api/auth/login", {
         userName: pseudoState,
         password: passState,
@@ -73,11 +76,13 @@ alert('ok')
       .then((token) => {
         const tokens = token.data.accessToken;
         localStorage.setItem("accesstoken", tokens);
+        
          console.log(token.data.accessToken);
+         
            setTimeout(() => {
-          handleClose();
+           handleClose(); UpdateToken(localStorage.getItem("accesstoken"));
         }, 1000);
-        setMessage("Connexion réussie !");
+        setMessage("Connexion réussie !"); 
       })
       .catch((error) => {
         console.log("connexion impossible", error);
@@ -85,12 +90,12 @@ alert('ok')
       });
   }
 
-    const suscribeFunction=(e: React.MouseEvent)=>{
+    const suscribeFunction= async (e: React.MouseEvent)=>{
         if (passState !== passVerifState){
         setMessage("Les mots de passe ne correspondent pas !")
        }else{
 
-         axios
+        await axios
       .post("http://localhost:8080/api/auth/signin", {
         userName: pseudoState,
         email: MailState,
