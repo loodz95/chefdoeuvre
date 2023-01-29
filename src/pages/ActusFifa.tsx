@@ -5,6 +5,7 @@ import axios from 'axios';
 import { Card } from "react-bootstrap";
 import { AuthContext } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
+import MediaQuery from "react-responsive";
 
 
 
@@ -53,12 +54,26 @@ console.log("Mon token",savedToken)
         <div className="cardbody">
         <Card.Body >
           <Card.Text>
+
+     <MediaQuery minWidth={1225}>      
                    <div>
 {item.contain?.substring(0,200)}
 <Link to={`/items/${item.id}`}>
 <button  className = "readmore" > ... Lire plus </button>
 </Link>
-        </div>    
+        </div>  
+        </MediaQuery> 
+
+     <MediaQuery maxWidth={1224.9}>      
+                   <div>
+{item.contain?.substring(0,100)}
+<Link to={`/items/${item.id}`}>
+<button  className = "readmore" > ... Lire plus </button>
+</Link>
+        </div>  
+        </MediaQuery> 
+
+
           </Card.Text>
         </Card.Body>
         </div>

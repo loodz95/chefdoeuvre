@@ -1,0 +1,176 @@
+.background2{
+    background-image: url(../assets/marble.jpg);
+   background-size: cover;
+   background-attachment:fixed;
+   height:10em;
+   display:flex
+}
+
+.sidebar{
+     background-image: url(../assets/marble.jpg);
+     background-size: cover;
+   background-attachment:fixed;
+ 
+}
+
+.vivacite:hover{
+color:rgb(190, 162, 7);
+}
+
+.label{
+   background-image: url(../assets/marble.jpg);
+   background-size: cover;
+   background-attachment:fixed;   
+}
+
+.label:hover{
+color:rgb(190, 162, 7);
+}
+
+.fontsidebar{
+    font-size: 20px;
+}
+
+.joueurs{
+    padding-left: 400px;
+}
+
+.playerexplanation{
+padding-left: 180px;
+}
+
+.stat{
+    color:blanc;
+}
+
+.bannière{
+    color: white;
+}
+
+.mobileMenu{
+    padding-left: 20px;
+    padding-top: 20px;
+    height: 1px;
+display:flex;
+flex-direction: row;
+flex-wrap: wrap;
+}
+
+.joueursMobile{
+    padding-top: 50px;
+   padding-left: 50px;
+}
+
+label{
+  padding-right: 10px  ;
+}
+
+
+.dribbleurs{
+    width: 30px;
+    height: 30px;
+  padding-bottom: 15px;  
+}
+.flèches{
+     height: 30px;
+     width: 30px;
+padding-bottom: 15px;
+}
+.forcedelanature{
+    width: 30px;
+padding-bottom: 15px;
+}
+.notegenerale{
+     width: 30px;
+padding-bottom: 15px;
+}
+.rocs{
+padding-bottom: 40px;
+}
+
+.carteFut{
+    
+  display: grid;
+  
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(200px, auto);
+  
+    background-image: url(../assets/carteFUT.png);
+    background-size: 250px;
+    height:400px;
+    width: 300px;
+    background-repeat: no-repeat;
+   
+    padding-right: 10px;
+}
+
+.backgroundCarte{
+    
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+       background-image: url(../assets/marble.jpg);
+     background-size: cover;
+   background-attachment:fixed;  
+   padding-left: 330px;
+}
+
+
+.lastname{
+    
+    grid-column: 2;
+  grid-row: 1;
+  margin-top: 180px;
+width: 100%;
+font-family: 'Barlow', sans-serif;
+font-size: 30px; 
+  
+
+}
+
+.country{
+grid-column: 1;
+  grid-row: 1;
+}
+.pass{
+ grid-column: 1;
+  grid-row: 1;
+ 
+}
+.shots{
+  grid-column: 1;
+  grid-row: 1;
+ 
+  
+}
+.dribbles{
+grid-column: 1;
+  grid-row: 1;
+}
+.power{
+   grid-column: 1;
+  grid-row: 1;
+}
+.position{
+   grid-column: 1;
+  grid-row: 1;
+  margin-top: 70px;
+margin-left: 45px; 
+font-family: 'Barlow', sans-serif;
+font-size: 30px; 
+}
+.rate{
+     grid-column: 1;
+  grid-row: 1;
+margin-top: 20px;
+margin-left: 40px;
+font-family: 'Barlow', sans-serif;
+font-weight: bold ;
+font-size: 43px;
+}
+.defence{
+grid-column: 1;
+  grid-row: 1;
+}
+

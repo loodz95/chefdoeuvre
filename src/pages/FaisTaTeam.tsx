@@ -5,7 +5,7 @@ import NavBar from "../components/NavBar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Accueil from "./Accueil";
 import JoueursDeLaSemaine from "./JoueursDeLaSemaine";
-import JoueursParStats from "./JoueursParStats";
+import JoueursParStats from "./RechercheDeJoueurs";
 import ActusFifa from "./ActusFifa";
 import Bann from "../components/Bann";
 import MediaQuery from  "react-responsive";

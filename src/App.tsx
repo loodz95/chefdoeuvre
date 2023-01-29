@@ -8,11 +8,12 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Accueil from "./pages/Accueil";
 import FaisTaTeam from "./pages/FaisTaTeam";
 import JoueursDeLaSemaine from "./pages/JoueursDeLaSemaine";
-import JoueursParStats from "./pages/JoueursParStats";
+import RechercheDeJoueurs from "./pages/RechercheDeJoueurs";
 import Footer from "./components/Footer";
 import ActusFifa from "./pages/ActusFifa";
 import Header from "./components/Header";
 import ActuSelection from "./pages/ActuSelection";
+
 
 export interface PayloadToken{
     exp: number;
@@ -36,7 +37,7 @@ return (
         <Route path="/" element={<Accueil />} />
         <Route path="/faistateam" element={<FaisTaTeam />} />
         <Route path="/joueursdelasemaine" element={<JoueursDeLaSemaine />} />
-        <Route path="/joueursparstats" element={<JoueursParStats />} />
+        <Route path="/joueursparstats" element={<RechercheDeJoueurs />} />
         <Route path="/actusfifa" element={<ActusFifa />} />
         <Route path="/items/:id" element={<ActuSelection />} />
       </Routes>

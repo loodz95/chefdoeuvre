@@ -1,6 +1,6 @@
 import axios from "axios";
-import { useEffect, useContext, useState } from "react";
-import { useParams } from "react-router-dom";
+import React, { useEffect, useContext, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { Item } from "./ActusFifa";
 import "./ActuSelection.css"
@@ -25,11 +25,18 @@ console.log("Mon token",savedToken)
   })
 },[]) 
 
+
+
     return(
         <div className="actu">
             {Itemtab?.title} <hr />
             <div className="contain">
-{Itemtab?.contain}
+{Itemtab?.contain} 
+</div>
+<div>
+  <Link className="link" to ="/actusfifa">
+<p className="retour">Retour</p>
+</Link>
 </div>
         </div>
     )

@@ -4,7 +4,7 @@ import "./NavBar.css"
 import Accueil from "../pages/Accueil";
 import FaisTaTeam from "../pages/FaisTaTeam";
 import JoueursDeLaSemaine from "../pages/JoueursDeLaSemaine";
-import JoueursParStats from "../pages/JoueursParStats";
+import JoueursParStats from "../pages/RechercheDeJoueurs";
 import ActusFifa from "../pages/ActusFifa";
 import { AuthContext } from "../context/AuthContext";
 import {useContext, useEffect} from "react"
@@ -75,7 +75,7 @@ console.log("navigate error")
               ))}
               <li className="nav-item">
                 <NavLink to="/joueursparstats" className="nav-link myFont">
-                  Joueurs par stats
+                  Recherche de joueurs
                 </NavLink>
               </li>
               <li className="nav-item">

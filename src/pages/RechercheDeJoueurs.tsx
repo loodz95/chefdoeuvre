@@ -1,14 +1,48 @@
 import { assertExpressionStatement } from "@babel/types";
-import { useEffect } from "react";
+import axios from "axios";
+import { useEffect,useContext, useState } from "react";
 import { Menu, MenuItem, Sidebar, SubMenu } from "react-pro-sidebar";
 import MediaQuery from "react-responsive";
 import Bann from "../components/Bann";
-import "./JoueursParStats.css";
+import { AuthContext } from "../context/AuthContext";
+import "./RechercheDeJoueurs.css";
 
-const JoueursParStats = () => {
+export interface Players{
+   
+        
+        lastName: string,
+        firstName: string,
+        age: number,
+        country: string,
+        position: string,
+        rate: number,
+        speed: number,
+        shots: number,
+        pass: number,
+        dribbles: number,
+        defence: number,
+        power: number,
+        typeplayer: number
+        
+}
 
+const RechercheDeJoueurs = () => {
+const {tokenExpired, TokenExpirationFunction, UpdateToken,savedToken} =useContext(AuthContext)
 const message = "Trouve ta pépite ici en définissant tes critères de recherche ! Les joueurs sont classés dans l'ordre décroissant."
+const [playersTab,setPlayersTab] =useState<Players[]>()
 
+      useEffect(()=>{
+        TokenExpirationFunction(savedToken)
+
+
+  axios.get(`http://localhost:8080/api/players`)
+  .then((res)=>{
+    console.log("la réponse des joueurs",res.data)
+    setPlayersTab(res.data)
+  }).catch((err)=>{
+    console.log("something wrent wrong", err)
+  })
+},[]) 
 
   return (
   <div className="stat">
@@ -73,11 +107,31 @@ const message = "Trouve ta pépite ici en définissant tes critères de recherch
     </div>
     </div>
 </MediaQuery>
- 
-
   </div>
+  <div className="backgroundCarte">
+  {playersTab?.map((player)=>(
+<div>
+  <li className="carteFut">
+    <p className="lastname">{player.lastName}</p>
+    <p className="position">{player.position}</p>
+    <p className="pass">{player.pass}</p>
+    <p className="passName">{player.pass}</p>
+    <p className="shots">{player.shots}</p>
+    <p className="shotsName">{player.shots}</p>
+    <p className="dribbles">{player.dribbles}</p>
+    <p className="dribblesName">{player.dribbles}</p>
+    <p className="defence">{player.defence}</p>
+    <p className="defenceName">{player.defence}</p>
+    <p className="power">{player.power}</p>
+    <p className="powerName">{player.power}</p>
+    <p className="country">{player.country}</p>
+    <p className="rate">{player.rate}</p>
+    </li>
+  </div>
+))}
+</div>
   </div>
   )
 };
 
-export default JoueursParStats;
+export default RechercheDeJoueurs;

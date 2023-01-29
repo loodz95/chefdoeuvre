@@ -10,6 +10,46 @@ color: white;
 .items{
     display: flex;
   flex-direction: row;
+}
+
+.card{
+     background-image: url(../assets/marble.jpg);
+   background-size: cover;
+   background-attachment:fixed;
+   height:120em;
+color: black;
+}
+
+.cardbody{
+   color: black;
+  
+}
+
+.readmore{
+    border: none;
+      background-image: url(../assets/marble.jpg);
+   background-size: cover;
+   background-attachment:fixed;
+   color:rgb(190, 162, 7)
+}
+
+
+   /* ------------------------------------------------config desktop----------------------------------------------------------------------------- */
+
+@media screen and (min-width: 1224px) {
+
+  .actufifa{
+        background-image: url(../assets/marble.jpg);
+   background-size: cover;
+   background-attachment:fixed;
+   height:120em;
+height: 50em;
+color: white;
+}
+
+.items{
+    display: flex;
+  flex-direction: row;
 
 }
 
@@ -32,4 +72,5 @@ color: black;
    background-size: cover;
    background-attachment:fixed;
    color:rgb(190, 162, 7)
+} 
 }
