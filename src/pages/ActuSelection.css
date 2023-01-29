@@ -1,0 +1,13 @@
+.actu{
+    height: 1000px;
+    background-image: url(../assets/mbappe2.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    color: blanchedalmond;
+     padding-top: 30px;
+     padding-left: 20px;
+}
+
+.contain{
+    width: 50%;
+}

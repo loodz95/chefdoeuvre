@@ -4,8 +4,13 @@ import "./ActusFifa.css"
 import axios from 'axios';
 import { Card } from "react-bootstrap";
 import { AuthContext } from "../context/AuthContext";
+import { Link, useNavigate } from "react-router-dom";
+
+
+
 
 export interface Item{
+  id:number
     title: string;
     contain: string;
     date : string
@@ -15,7 +20,12 @@ const ActusFifa =()=>{
 const {savedToken,UpdateToken, TokenExpirationFunction, tokenExpired} = useContext(AuthContext)
     const message= "";
     const [itemTab, setItemTab] = useState<Item[]>();
- 
+    const [isReadMore, setIsReadMore] =useState<boolean>(false)
+ const navigate = useNavigate()
+
+
+
+   
 
       useEffect(()=>{
         TokenExpirationFunction(savedToken)
@@ -43,7 +53,12 @@ console.log("Mon token",savedToken)
         <div className="cardbody">
         <Card.Body >
           <Card.Text>
-      {item.contain}
+                   <div>
+{item.contain?.substring(0,200)}
+<Link to={`/items/${item.id}`}>
+<button  className = "readmore" > ... Lire plus </button>
+</Link>
+        </div>    
           </Card.Text>
         </Card.Body>
         </div>

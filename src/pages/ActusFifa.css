@@ -1,20 +1,35 @@
 .actufifa{
+        background-image: url(../assets/marble.jpg);
+   background-size: cover;
+   background-attachment:fixed;
+   height:120em;
 height: 50em;
 color: white;
 }
 
 .items{
-    display:flex;
-    justify-content: space-around   ;
+    display: flex;
+  flex-direction: row;
 
 }
 
 .card{
- 
+     background-image: url(../assets/marble.jpg);
+   background-size: cover;
+   background-attachment:fixed;
+   height:120em;
 color: black;
 }
 
 .cardbody{
    color: black;
-   height: 550px;
+  
+}
+
+.readmore{
+    border: none;
+      background-image: url(../assets/marble.jpg);
+   background-size: cover;
+   background-attachment:fixed;
+   color:rgb(190, 162, 7)
 }

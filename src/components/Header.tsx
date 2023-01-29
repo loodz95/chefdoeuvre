@@ -18,10 +18,12 @@ import { useNavigate } from "react-router-dom";
 const Header =()=>{
     const isConnected = true;
 const navigate =useNavigate()
-const {UpdateToken, savedToken}=useContext(AuthContext)
+const {UpdateToken, savedToken, tokenExpired, TokenExpirationFunction}=useContext(AuthContext)
  
+
 useEffect(()=>{
   UpdateToken(localStorage.getItem("accesstoken"))
+  TokenExpirationFunction(localStorage.getItem("accesstoken"))
   console.log("header token",savedToken)
 })
 
@@ -36,7 +38,7 @@ const deconnectFunction=(e:React.MouseEvent)=>{
 
 return(
 <div className="header">
-    {(!localStorage.getItem("accesstoken")   &&(
+    {((!savedToken || tokenExpired === "token expiré" )  &&(
 <div className="buttonGroup">
     <div className="suscribeButton">      
 <SuscribeButton/>
@@ -47,7 +49,7 @@ return(
 </div>
  ))}
 
-{(localStorage.getItem("accesstoken") && (
+{((savedToken && tokenExpired === "token non expiré")  &&  (
 <div className="profil"> 
 <MediaQuery maxWidth={1224}> <VscAccount className="mobile" style={{marginLeft:"50%", marginTop:5,  fontSize:30}}/></MediaQuery>
  <MediaQuery minWidth={1224}>

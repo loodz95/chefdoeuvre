@@ -12,6 +12,7 @@ import JoueursParStats from "./pages/JoueursParStats";
 import Footer from "./components/Footer";
 import ActusFifa from "./pages/ActusFifa";
 import Header from "./components/Header";
+import ActuSelection from "./pages/ActuSelection";
 
 export interface PayloadToken{
     exp: number;
@@ -37,6 +38,7 @@ return (
         <Route path="/joueursdelasemaine" element={<JoueursDeLaSemaine />} />
         <Route path="/joueursparstats" element={<JoueursParStats />} />
         <Route path="/actusfifa" element={<ActusFifa />} />
+        <Route path="/items/:id" element={<ActuSelection />} />
       </Routes>
     </BrowserRouter>
     <Footer/>

@@ -66,7 +66,7 @@ console.log("navigate error")
                   Accueil
                 </NavLink>
               </li>
-              {(savedToken&& (
+              {((savedToken && tokenExpired === "token non expiré") && (
               <li className="nav-item">
                 <NavLink to="faistateam" className="nav-link active myFont" onClick={tokenVerify}>
                   Fais ta team
