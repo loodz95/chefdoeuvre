@@ -17,8 +17,8 @@ tokenExpired: string|null
 
 export const AuthContext = createContext<AuthContextInterface>({
   savedToken: null,
-  UpdateToken: (token: string | null) => {},
-  TokenExpirationFunction: (token: string | null) => {},
+  UpdateToken: () => {},
+  TokenExpirationFunction: () => {},
   tokenExpired: null
 });
 export const AuthContextProvider = ({ children }: AuthContextProps) => {

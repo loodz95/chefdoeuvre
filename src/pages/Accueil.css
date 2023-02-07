@@ -182,8 +182,8 @@ margin-top: 60px;
 
 
 /* ------------------------------------------------config desktop----------------------------------------------------------------------------- */
-
 @media screen and (min-width: 1224px) {
+
 .accueil{
     
     background-image: url(../assets/marble.jpg);

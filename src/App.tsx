@@ -13,6 +13,7 @@ import Footer from "./components/Footer";
 import ActusFifa from "./pages/ActusFifa";
 import Header from "./components/Header";
 import ActuSelection from "./pages/ActuSelection";
+import CarteParId from "./pages/CarteParId";
 
 
 export interface PayloadToken{
@@ -40,6 +41,7 @@ return (
         <Route path="/joueursparstats" element={<RechercheDeJoueurs />} />
         <Route path="/actusfifa" element={<ActusFifa />} />
         <Route path="/items/:id" element={<ActuSelection />} />
+        <Route path="/players/:id" element={<CarteParId />} />
       </Routes>
     </BrowserRouter>
     <Footer/>

@@ -37,6 +37,7 @@ console.log("Mon token",savedToken)
   .then((res)=>{
     console.log("la réponse",res.data)
     setItemTab(res.data)
+    console.log("item tab use effect", itemTab)
   }).catch((err)=>{
     console.log("something wrent wrong", err)
   })
