@@ -7,10 +7,77 @@
     background-repeat: no-repeat;
     color: white;
     z-index: 1;  
+	display: flex;
+	
+}
+
+.ajouter{
+	  font-family: 'Sedgwick Ave Display', cursive;
+  text-shadow:#e7f6ff 0 -1px 0,
+black 1px 1px 0,
+white 2px 2px 0,
+brown 3px 3px 0,
+white 4px 4px 0,
+black 5px 5px 0,
+#333 5px 5px 10px;color:rgb(190, 162, 7);
+font-size: 50px;
+padding-top: 200px;
+padding-left: 70px;
+
+}
+
+.bouton{
+	background-color: transparent;
+   color: rgb(190, 162, 7);
+   width: 100px;
+   height: 100px;
+    text-align: center;
+    border: none;
+	margin-left: 200px;
+	
+		  font-family: 'Sedgwick Ave Display', cursive;
+  text-shadow:#e7f6ff 0 -1px 0,
+black 1px 1px 0,
+white 2px 2px 0,
+brown 3px 3px 0,
+white 4px 4px 0,
+black 5px 5px 0,
+#333 5px 5px 10px;color:rgb(190, 162, 7);
+font-size: 50px;
+
+	
+}
+
+.bouton:hover {
+-ms-transform: scale(1.5); /* IE 9 */
+-webkit-transform: scale(1.5); /* Safari 3-8 */
+transform: scale(1.5);
+}
+
+.toastText{
+	  font-family: 'Sedgwick Ave Display', cursive;
+  text-shadow:#e7f6ff 0 -1px 0,
+
+#333 5px 5px 10px;color:rgb(190, 162, 7);
+font-size: 20px;	
+
 }
 
 
+/* ----------------------------------------------------Carte FUT----------------------------------------------------------------------------- */
+  @keyframes slide-in {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0%);
+    }
+  }
+
+
+
 .fut-player-cardId {
+	animation: slide-in 1000ms;
 	position: relative;
 	width: 300px;
 	height: 485px;
@@ -23,12 +90,11 @@
 	-webkit-transition: 200ms ease-in;
 	-o-transition: 200ms ease-in;
 	transition: 200ms ease-in;
+	
 }
-.fut-player-cardId:hover {
--ms-transform: scale(1.1); /* IE 9 */
--webkit-transform: scale(1.1); /* Safari 3-8 */
-transform: scale(1.1);
-}
+
+
+
 
 .fut-player-cardId .player-card-topId {
 	position: relative;

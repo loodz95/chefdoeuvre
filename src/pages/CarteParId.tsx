@@ -5,15 +5,22 @@ import { AuthContext } from "../context/AuthContext"
 import { Item } from "./ActusFifa"
 import { Players } from "./RechercheDeJoueurs"
 import "./CarteParId.css"
+import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import Toast from 'react-bootstrap/Toast';
 
 const CarteParId=()=>{
 
 const {TokenExpirationFunction, tokenExpired, UpdateToken,savedToken} = useContext(AuthContext)
 const [Itemtab, setItemTab] =useState<Players>()
 const {id} = useParams()
+const [show, setShow] = useState(false);
+
 
    useEffect(()=>{ 
         TokenExpirationFunction(savedToken)
+		UpdateToken(savedToken)
         console.log("token expiration", tokenExpired)
 console.log("Mon token",savedToken)
 
@@ -28,6 +35,33 @@ console.log("Mon token",savedToken)
 },[]) 
 
 
+const refuseFunction=()=>{
+	setShow(true)
+}
+
+const addPlayer = ()=>{
+if(savedToken || tokenExpired === "token non expiré"){
+window.alert("c'est good")
+
+ axios.post(`http://localhost:8080/api/savedplayers/`,
+ {
+	player_id: Itemtab?.id
+},
+{
+	headers:{
+		Authorization: `Bearer ${localStorage.getItem('accesstoken')}`,
+	}})
+  
+	
+	.then((res)=>{
+   window.alert("joueur ajouté") 
+  }).catch((err)=>{
+    console.log("something wrent wrong", err)
+  })
+}else{
+window.alert("c'est pas good")	
+}
+}
 
 
 
@@ -97,7 +131,35 @@ console.log("Mon token",savedToken)
 	</div>
  
 </div>
-        </div>
+<div>
+	<p className="ajouter"> Veux-tu ajouter {Itemtab?.firstName} {Itemtab?.lastName} à ta liste de joueurs?</p>
+	<div className="mesboutons">
+	<button onClick={addPlayer} className="bouton">Oui</button>
+<button onClick={refuseFunction} className="bouton">Non</button>
+</div>
+</div>
+
+   <Row className="toRow" >
+      <Col xs={7}>
+        <Toast className="to" onClose={() => setShow(false)} show={show} delay={3000} autohide>
+          <Toast.Header>
+            <img
+              src="holder.js/20x20?text=%20"
+              className="rounded me-2"
+              alt=""
+            />
+            <strong className="me-auto ">1 message reçu</strong>
+          </Toast.Header>
+          <Toast.Body>
+		<p className="toastText">Bien ajouté à ta liste, coach...</p>	</Toast.Body>
+        </Toast>
+      </Col>
+      <Col xs={7}>
+    
+      </Col>
+    </Row>
+</div>
+      
     )
 }
 export default CarteParId;

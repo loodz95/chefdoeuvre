@@ -211,13 +211,14 @@ padding-top:30px ;
 	background-color: black;
 	color: white;
 display:flex;
-	z-index: 5;
+
+	
 }
 
 .backrecherche{
-z-index: 1;
+
 background-color: black;
-	height: 100%;
+
 	width: 20%;
 	margin-left: 1166px;
 	
@@ -227,7 +228,7 @@ background-color: black;
 	padding-left:20px;
 	  font-family: 'Sedgwick Ave Display', cursive;
 	  text-decoration: none;
-	  z-index: 5;
+	
 }
 
 .miseenpage{
@@ -236,7 +237,9 @@ display: flex;
 }
 
 .affichage{
+	
 	margin-left: 0;
+	
 }
 
 .boutonaffichage{
@@ -502,6 +505,8 @@ flex-direction: column;
 .titre{
 height: 130px;
 width: 100%;
+margin-top: 100px;
+
 }
 
 
@@ -511,6 +516,8 @@ width: 100%;
 padding-left: 80px;
 
 }
+
+
 
 .link{
 	text-decoration: none;
