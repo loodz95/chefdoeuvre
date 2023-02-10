@@ -56,6 +56,7 @@ const [tous,setTous] = useState<string>()
   // ---------------------pagination------------------------------
   const [people, setPeople] = useState<Players[]>();
   
+
   
 
   const {
@@ -76,7 +77,8 @@ const [tous,setTous] = useState<string>()
 
 
    useEffect(()=>{
-   
+  
+
         TokenExpirationFunction(savedToken)
         
   axios.get(`http://localhost:8080/api/players`)
@@ -183,6 +185,7 @@ tab = tab?.filter((player)=>player.position.includes("Ad") || player.position.in
 }
 
 setTabDisplayed(tab)
+
   }
 
 const searchProps =(e:string)=>{ 
