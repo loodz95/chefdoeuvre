@@ -20,15 +20,12 @@ props.searchProps(e.currentTarget.value)
     return (
       <div>
    
-        <form className="myFont " role="search">
-          <input className="inputsize" onChange={searchChange}
+        
+          <input className="inputsize myFont" onChange={searchChange}
             type="search"
             placeholder="Recherche un joueur"
-      
           />
-          <button className="btn btn-outline-success myFont" type="submit"   >Go!
-          </button>
-        </form>
+    
       </div>
     );
 }

@@ -63,6 +63,31 @@ font-size: 20px;
 
 }
 
+  @keyframes slide-in1 {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0%);
+    }
+
+  }
+
+
+.divAjout{
+animation: slide-in1 1000ms;
+
+}
+
+.mesboutons{
+	margin-left: 140px;
+}
+
+.toRow{
+	position: fixed;
+	top: 5;
+	right: 0;
+}
 
 /* ----------------------------------------------------Carte FUT----------------------------------------------------------------------------- */
   @keyframes slide-in {
@@ -72,7 +97,10 @@ font-size: 20px;
     to {
       transform: translateX(0%);
     }
+	
   }
+
+
 
 
 

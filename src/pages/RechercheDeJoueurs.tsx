@@ -68,7 +68,7 @@ const [tous,setTous] = useState<string>()
     setPage,
     totalPages,
   } = usePagination({
-    contentPerPage: 8,
+    contentPerPage: 1,
     count: tabDisplayed?.length,
   });
    
@@ -125,6 +125,7 @@ console.log("value dans handle change",valueChange)
 
 
   const filterFunction=()=>{
+    {setPage(1)}
     let tab =playersTab
 
     if( tous === "tous" && test === "sans"){

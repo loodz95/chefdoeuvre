@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useContext, useState, useEffect } from "react"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { AuthContext } from "../context/AuthContext"
 import { Item } from "./ActusFifa"
 import { Players } from "./RechercheDeJoueurs"
@@ -16,6 +16,8 @@ const {TokenExpirationFunction, tokenExpired, UpdateToken,savedToken} = useConte
 const [Itemtab, setItemTab] =useState<Players>()
 const {id} = useParams()
 const [show, setShow] = useState(false);
+const navigate = useNavigate()
+const [toastMessage,setToastMessage] = useState<string>()
 
 
    useEffect(()=>{ 
@@ -37,11 +39,12 @@ console.log("Mon token",savedToken)
 
 const refuseFunction=()=>{
 	setShow(true)
+	setToastMessage(`${Itemtab?.lastName} va devoir se trouver un autre coach...`)
 }
 
 const addPlayer = ()=>{
-if(savedToken || tokenExpired === "token non expiré"){
-window.alert("c'est good")
+if(savedToken && tokenExpired === "token non expiré"){
+
 
  axios.post(`http://localhost:8080/api/savedplayers/`,
  {
@@ -54,12 +57,39 @@ window.alert("c'est good")
   
 	
 	.then((res)=>{
-   window.alert("joueur ajouté") 
+   setShow(true)
+   setToastMessage(`${Itemtab?.lastName} est bien ajouté à ta dream team coach...` )
+ setTimeout(() => {
+          navigate("/joueursparstats");
+        }, 3000);
   }).catch((err)=>{
+	
     console.log("something wrent wrong", err)
+	console.log(err.response.data.statusCode)
+	if(err.response.data.statusCode === 400){
+	setShow(true)
+	setToastMessage(`${Itemtab?.lastName} est déja dans ta team coach...` )
+	setTimeout(() => {
+          navigate("/joueursparstats");
+        }, 3000);
+	}
+	if(err.response.data.statusCode === 401){
+	localStorage.removeItem("accesstoken")
+	    TokenExpirationFunction(savedToken)
+		UpdateToken(savedToken)
+			setShow(true)
+	setToastMessage(`Connecte-toi ou inscris-toi pour rajouter ${Itemtab?.lastName} dans ta team...` )
+	setTimeout(() => {
+          navigate("/");
+        }, 3000);
+	}
   })
 }else{
-window.alert("c'est pas good")	
+	setShow(true)
+setToastMessage(`Connecte-toi ou inscris-toi pour rajouter ${Itemtab?.lastName} dans ta team...` )	
+setTimeout(() => {
+          navigate("/");
+        }, 3000);
 }
 }
 
@@ -131,17 +161,17 @@ window.alert("c'est pas good")
 	</div>
  
 </div>
-<div>
+<div className="divAjout">
 	<p className="ajouter"> Veux-tu ajouter {Itemtab?.firstName} {Itemtab?.lastName} à ta liste de joueurs?</p>
 	<div className="mesboutons">
 	<button onClick={addPlayer} className="bouton">Oui</button>
 <button onClick={refuseFunction} className="bouton">Non</button>
 </div>
 </div>
-
-   <Row className="toRow" >
-      <Col xs={7}>
-        <Toast className="to" onClose={() => setShow(false)} show={show} delay={3000} autohide>
+<div className='toRow'>
+   <Row >
+      
+        <Toast className="to" onClose={() => setShow(false)} show={show} delay={3000}>
           <Toast.Header>
             <img
               src="holder.js/20x20?text=%20"
@@ -151,13 +181,12 @@ window.alert("c'est pas good")
             <strong className="me-auto ">1 message reçu</strong>
           </Toast.Header>
           <Toast.Body>
-		<p className="toastText">Bien ajouté à ta liste, coach...</p>	</Toast.Body>
+		<p className="toastText">{toastMessage}</p>	</Toast.Body>
         </Toast>
-      </Col>
-      <Col xs={7}>
+      
     
-      </Col>
     </Row>
+	</div>
 </div>
       
     )
