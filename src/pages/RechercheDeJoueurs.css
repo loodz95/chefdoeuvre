@@ -58,9 +58,7 @@ color:rgb(190, 162, 7);
 padding-left: 180px;
 }
 
-.stat{
-    color:blanc;
-}
+
 
 .bannière{
     color: white;
@@ -172,7 +170,8 @@ padding-top:30px ;
 .link{
 	text-decoration: none;
 	color: black;
-	
+	z-index:1;
+
 }
 
 .link:hover{
@@ -207,27 +206,37 @@ padding-top:30px ;
 
 }
 
+
+
 .recherche{
-	background-color: black;
+	
 	color: white;
 display:flex;
-
-	
+height:100%;
+width:50px	;
+	 
 }
 
 .backrecherche{
 
-background-color: black;
 
+background-color:black;
 	width: 20%;
-	margin-left: 1166px;
+	margin-left: 1216px;
+	z-index: 9;
 	
-	padding-left: 20px;
+
+	float:right
 }
 .listerecherche{
-	padding-left:20px;
+
+	padding-left:40px;
 	  font-family: 'Sedgwick Ave Display', cursive;
 	  text-decoration: none;
+	  height:100%;
+	  margin-top:20px;
+	 z-index: 9;
+	 
 	
 }
 
@@ -281,6 +290,8 @@ display: flex;
 	   background-image: url(../assets/marble.jpg);
    background-size: cover;
    background-attachment:fixed;
+   padding-bottom: 10px;
+   border-radius: 10px;
 }
 
 .boutonresultat{
@@ -486,60 +497,127 @@ transform: scale(1.1);
 
 .styleListe {
 	list-style-type: none;
+	text-decoration: none;
 	
-	border-bottom: solid 5px;
 	width: 120%;
 	
 	margin-bottom: 20px;
-	
+	border-left:1px;  
 }
 
 
 .listPlayers{
-	
+	text-decoration: none;
 display: flex;
 flex-direction: column;
+background-position: center;
+font-family: 'Sedgwick Ave Display', cursive;
+
 
 }
 
 .titre{
 height: 130px;
 width: 100%;
-margin-top: 100px;
+
+
 
 }
 
 
 
 .colomnejoueur{
-	
-padding-left: 80px;
+	position: absolute;
+left:300px;	
+
+text-decoration: none;
+}
+.colomnenomjoueur{
+	position: absolute ;
+	left:425px;
+
+text-decoration: none;
+}
+.colomnenotejoueur{
+	position: absolute;
+left:543px;
+
+text-decoration: none;
+}
+.colomnepositionjoueur{
+	position: absolute;
+left:660px
 
 }
+
+.colomnepaysjoueur{
+position: absolute;
+left:775px
+
+}
+
+.colomnedribblesjoueur{
+position: absolute;
+left:900px
+}
+.colomnevitessejoueur{
+position: absolute;
+left:1045px
+}
+.colomnepuissancejoueur{
+position: absolute;
+left:1170px
+}
+
+.colomnedefensejoueur{
+position: absolute;
+left:1295px
+}
+
+.div-pass{
+	width: 1px;
+margin-left: 1000px
+;
+}
+
+.colomnepassejoueur{
+
+
+margin-left: 190px
+}
+
 
 
 
 .link{
-	text-decoration: none;
-	color: black;
+	text-decoration: none !important;
+	color:  black;
+		
 	
+
 }
 
 
 .link:hover{
-	cursor: pointer;
+	
+		color: rgb(190, 162, 7);
 }
 
 .attributsfiltre{
 	display:flex;
-	margin-left: 0px;
+	border: solid;
+	border-radius: 5px;
+
+	
 }
 
 .att {
-margin-left: 70px;
+margin-left: 43px;
+margin-right: 43px;
   font-family: 'Sedgwick Ave Display', cursive;
   background-color: transparent;
   border: none;
+  margin-top: 10px;
 }
 
 

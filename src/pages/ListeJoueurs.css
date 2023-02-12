@@ -1,0 +1,6 @@
+.div-principale{
+      background-image: url(../assets/marble.jpg);
+   background-size: cover;
+   background-attachment:fixed;
+    height: 100%;
+}

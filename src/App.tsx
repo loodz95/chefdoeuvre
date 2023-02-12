@@ -14,6 +14,7 @@ import ActusFifa from "./pages/ActusFifa";
 import Header from "./components/Header";
 import ActuSelection from "./pages/ActuSelection";
 import CarteParId from "./pages/CarteParId";
+import ListeJoueurs from "./pages/ListeJoueurs";
 
 
 export interface PayloadToken{
@@ -42,6 +43,7 @@ return (
         <Route path="/actusfifa" element={<ActusFifa />} />
         <Route path="/items/:id" element={<ActuSelection />} />
         <Route path="/players/:id" element={<CarteParId />} />
+        <Route path="/liste-joueurs/" element={<ListeJoueurs />} />
       </Routes>
     </BrowserRouter>
     <Footer/>

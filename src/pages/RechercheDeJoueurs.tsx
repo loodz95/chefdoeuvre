@@ -69,7 +69,7 @@ const [tous,setTous] = useState<string>()
     setPage,
     totalPages,
   } = usePagination({
-    contentPerPage: 1,
+    contentPerPage: 5,
     count: tabDisplayed?.length,
   });
    
@@ -197,7 +197,7 @@ const searchProps =(e:string)=>{
 
     console.log("aaaaaaaaaaah")
     let tableau = playersTab?.filter((player)=>player.firstName.toLocaleLowerCase().includes(valueSearch) || player.lastName.toLocaleLowerCase().includes(valueSearch ))
-    let tableau2 = tableau?.slice(0, 5)
+    let tableau2 = tableau?.slice(0, 4)
     setTabTampon(tableau2)
   }
 
@@ -217,15 +217,18 @@ const searchProps =(e:string)=>{
       <div className="searchbar">
      <SearchBar searchProps={searchProps}/>
     
+    
      { tabTampon?.map((player,i)=> search&&(
       <div className="backrecherche">
+      
       <Link className="listerecherche" key={i} to ={`/players/${player.id}`}>
      <div className="recherche">
+   
       <div className="listerecherche">{player.firstName}</div>
       <div className="listerecherche">{player.lastName}</div>
       <div className="listerecherche">{player.position}</div>
       <div className="listerecherche">{player.rate}</div>
-      
+    
       
      </div> 
      </Link> 
@@ -481,20 +484,26 @@ const searchProps =(e:string)=>{
               <div className="listPlayers">
              
                   <div className="styleListe">
-    
+    <div className="colomne-regle">
                     <p className="colomnejoueur ">{player.firstName}</p>
-                    
-                    <p className="colomnejoueur ">{player.lastName}</p>
-                   
-                    <p className="colomnejoueur ">{player.rate} </p>
-                    
-                    <p className="colomnejoueur ">{player.position} </p>
-                    <p className="colomnejoueur ">{player.country} </p>
-                         <p className="colomnejoueur ">{player.dribbles} </p>
-                    <p className="colomnejoueur ">{player.speed} </p>
-                    <p className="colomnejoueur ">{player.power} </p>
-                    <p className="colomnejoueur ">{player.defence} </p>
-                    <p  className="colomnejoueur  ">{player.pass} </p>
+            </div>        
+                    <p className="colomnenomjoueur ">{player.lastName}</p>
+                   <div className="colomne-regle">
+                    <p className="colomnenotejoueur ">{player.rate} </p>
+                    </div>
+                    <div className="colomne-regle">
+                    <p className="colomnepositionjoueur ">{player.position} </p>
+                    </div>
+                    <div className="colomne-regle" >
+                    <p className="colomnepaysjoueur ">{player.country} </p>
+                    </div>
+                         <p className="colomnedribblesjoueur ">{player.dribbles} </p>
+                    <p className="colomnevitessejoueur ">{player.speed} </p>
+                    <p className="colomnepuissancejoueur ">{player.power} </p>
+                    <p className="colomnedefensejoueur ">{player.defence} </p>
+                    <div className="div-pass">
+                    <p  className="colomnepassejoueur  ">{player.pass} </p>
+                   </div>
              
                   </div>
                 </div>

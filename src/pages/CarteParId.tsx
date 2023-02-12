@@ -40,6 +40,9 @@ console.log("Mon token",savedToken)
 const refuseFunction=()=>{
 	setShow(true)
 	setToastMessage(`${Itemtab?.lastName} va devoir se trouver un autre coach...`)
+	 setTimeout(() => {
+          navigate("/joueursparstats");
+        }, 2500);
 }
 
 const addPlayer = ()=>{
@@ -61,7 +64,7 @@ if(savedToken && tokenExpired === "token non expiré"){
    setToastMessage(`${Itemtab?.lastName} est bien ajouté à ta dream team coach...` )
  setTimeout(() => {
           navigate("/joueursparstats");
-        }, 3000);
+        }, 2500);
   }).catch((err)=>{
 	
     console.log("something wrent wrong", err)
@@ -71,7 +74,7 @@ if(savedToken && tokenExpired === "token non expiré"){
 	setToastMessage(`${Itemtab?.lastName} est déja dans ta team coach...` )
 	setTimeout(() => {
           navigate("/joueursparstats");
-        }, 3000);
+        }, 2500);
 	}
 	if(err.response.data.statusCode === 401){
 	localStorage.removeItem("accesstoken")
@@ -79,17 +82,12 @@ if(savedToken && tokenExpired === "token non expiré"){
 		UpdateToken(savedToken)
 			setShow(true)
 	setToastMessage(`Connecte-toi ou inscris-toi pour rajouter ${Itemtab?.lastName} dans ta team...` )
-	setTimeout(() => {
-          navigate("/");
-        }, 3000);
 	}
   })
 }else{
 	setShow(true)
 setToastMessage(`Connecte-toi ou inscris-toi pour rajouter ${Itemtab?.lastName} dans ta team...` )	
-setTimeout(() => {
-          navigate("/");
-        }, 3000);
+
 }
 }
 
@@ -161,7 +159,9 @@ setTimeout(() => {
 	</div>
  
 </div>
+
 <div className="divAjout">
+	
 	<p className="ajouter"> Veux-tu ajouter {Itemtab?.firstName} {Itemtab?.lastName} à ta liste de joueurs?</p>
 	<div className="mesboutons">
 	<button onClick={addPlayer} className="bouton">Oui</button>

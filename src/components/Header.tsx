@@ -7,7 +7,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import Dropdown from 'react-bootstrap/Dropdown';
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 
 
@@ -67,10 +67,15 @@ return(
               menuVariant="dark"
               className="moncompte"
             >
+              
               <NavDropdown.Item href="#action/3.1"> Mes informations</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
+             
+              <NavDropdown.Item >
+                 <NavLink className="dropdown" to="/liste-joueurs">
                 Mes joueurs
+                </NavLink>
               </NavDropdown.Item>
+              
              
               <NavDropdown.Divider />
               <NavDropdown.Item onClick={deconnectFunction} href="#deconnexion">

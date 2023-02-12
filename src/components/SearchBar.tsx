@@ -18,14 +18,16 @@ props.searchProps(e.currentTarget.value)
 
 
     return (
-      <div>
+      <div >
    
         
-          <input className="inputsize myFont" onChange={searchChange}
+          <input className="inputsize " onChange={searchChange}
             type="search"
             placeholder="Recherche un joueur"
+      
           />
-    
+         
+       
       </div>
     );
 }
