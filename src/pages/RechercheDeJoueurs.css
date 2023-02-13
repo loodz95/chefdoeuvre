@@ -1,4 +1,6 @@
-.stat{
+
+
+	.stat{
 	  background-image: url(../assets/marble.jpg);
    background-size: cover;
    background-attachment:fixed;
@@ -50,107 +52,9 @@ color:rgb(190, 162, 7);
    background-attachment:fixed;
 }
 
-.joueurs{
-    padding-left: 400px;
-}
-
-.playerexplanation{
-padding-left: 180px;
-}
-
-
-
 .bannière{
     color: white;
 }
-
-.mobileMenu{
-    padding-left: 20px;
-    padding-top: 20px;
-    height: 1px;
-display:flex;
-flex-direction: row;
-flex-wrap: wrap;
-}
-
-.joueursMobile{
-    padding-top: 25px;
-   padding-left: 50px;
-}
-
-label{
-  padding-right: 10px  ;
-}
-
-
-.dribbleurs{
-	background-color: transparent;
-    width: 30px;
-    height: 30px;
-  padding-bottom: 15px; 
-  border: none; 
-}
-
-.flèches{
-	background-color: transparent;
-     height: 30px;
-     width: 30px;
-padding-bottom: 15px;
-  border: none;
-}
-.force{
-	background-color: transparent;
-     height: 30px;
-     width: 30px;
-padding-bottom: 15px;
-  border: none;
-}
-.note{
-	
-background-color: transparent;
-padding-bottom: 0px;
-  border: none;
-}
-.roc{
-	background-color: transparent;
-     height: 30px;
-     width: 30px;
-padding-bottom: 15px;
-  border: none;
-}
-
-
-.joueursMobile{
-	color: black;
-	text-align: center;
-	padding-bottom: 50px;
-
-
-}
-
-.joueur{
-padding-left: 60px;	
-  font-family: 'Sedgwick Ave Display', cursive;
-}
-
-.poste{
-padding-left: 28px;	
-  font-family: 'Sedgwick Ave Display', cursive;
-}
-.pays{
-padding-left: 27px;	
-  font-family: 'Sedgwick Ave Display', cursive;
-}
-
-.attributs{
-
-padding-top:30px ;
-}
-
-
-
-
-
 
 .styleListe {
 	list-style-type: none;
@@ -161,42 +65,6 @@ padding-top:30px ;
 	
 	
 }
-
-
-.colomnejoueur{
-
-}
-
-.link{
-	text-decoration: none;
-	color: black;
-	z-index:1;
-
-}
-
-.link:hover{
-	cursor: pointer;
-}
-
-.playersproperty{
-/* agir sur les listes */
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ------------------------------------------------config desktop----------------------------------------------------------------------------- */
-@media screen and (min-width: 1225px) {
 
 /* ----------------------carte fut---------------------------------------------------------------- */
 .good{
@@ -677,4 +545,34 @@ margin-right: 43px;
 }
 
 
+@media screen and (max-width: 1224px) {
+.fontsidebar{
+position: inherit;
+}
+.sidebar{
+position: inherit;
+}
+.menuJoueurs{
+	width: 20px;
+	position: inherit;
+}
+.label{
+position: inherit;
+}
+
+.attributsfiltre{
+	display:flex;
+	border: solid;
+	border-radius: 5px;
+
+
+}
+.att{
+margin-left: 10px;
+margin-right: 10px;
+  font-family: 'Sedgwick Ave Display', cursive;
+  background-color: transparent;
+  border: none;
+  margin-top: 10px;	
+}
 }

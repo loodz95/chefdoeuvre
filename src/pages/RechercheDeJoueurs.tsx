@@ -214,6 +214,9 @@ const searchProps =(e:string)=>{
       <div className="bannière">
         <Bann banValue={message}></Bann>
       </div>
+
+      
+
       <div className="searchbar">
      <SearchBar searchProps={searchProps}/>
     
@@ -235,59 +238,36 @@ const searchProps =(e:string)=>{
      </div>
      ))}
      </div>
-  
- <MediaQuery maxWidth={1224}>
 
-          <div className="mobileMenu">
-
-            <input onChange={handleChange}  type="radio"  id="dribbleurs" value="dribbleurs"></input>
-            <label htmlFor="dribbleurs">Dribbleurs</label>
-
-
-
-            <input onChange={handleChange}   type="radio"  id="flèches" value="flèches"></input>
-<label htmlFor="flèches">Flèches</label>
-            <input onChange={handleChange}   type="radio" id="force" value="force"></input>
-            <label htmlFor="force">Force</label>
-
-
-            <input onChange={handleChange}   type="radio"  value="note"></input>
-            <label htmlFor="note">Note </label>
-
-            <input onChange={handleChange}   type="radio" className="roc"  value="roc"></input>
-            <label htmlFor="roc">Défense</label>
-
-            <div className="joueursMobile sidebar">
-              <h1>Joueurs :</h1>
-            </div>
-
-          </div>
-       
-               {tabDisplayed?.slice(firstContentIndex, lastContentIndex)
-            .map((player: any, i) =>  (
-                  <Link key={i} className="link" to={`/players/${player.id}`}>
-              <div className="listPlayers">
-                <div className="playersproperty">
-                  <div className="styleListe">
-                    {player.firstName}
-                    <p className="colomnejoueur colnom">{player.lastName}</p>
-                    <p className="colomnejoueur colnote">{player.rate} </p>
-                    <p className="colomnejoueur colposte">{player.position} </p>
-                    <p className="colomnejoueur colpays">{player.country} </p>
-               
-                  </div>
-                </div>
-              </div>
-            </Link> 
-            ))}
-            </MediaQuery>
-
+ {/* <MediaQuery minWidth={1225}>
+      <div className="searchbar">
+     <SearchBar searchProps={searchProps}/>
+    
+    
+     { tabTampon?.map((player,i)=> search&&(
+      <div className="backrecherche">
+      
+      <Link className="listerecherche" key={i} to ={`/players/${player.id}`}>
+     <div className="recherche">
+   
+      <div className="listerecherche">{player.firstName}</div>
+      <div className="listerecherche">{player.lastName}</div>
+      <div className="listerecherche">{player.position}</div>
+      <div className="listerecherche">{player.rate}</div>
+    
+      
+     </div> 
+     </Link> 
+     </div>
+     ))}
+     </div>
+  </MediaQuery> */}
 
 
 
 <div className="miseenpage">
   
-        <MediaQuery minWidth={1225}> 
+      <MediaQuery minWidth={1225}>
           <div className="menuJoueurs">
           <div>
             <Sidebar className="fontsidebar">
@@ -381,17 +361,11 @@ const searchProps =(e:string)=>{
           
              
           <div className="good">
-          
-          
-          
-          
-          
-          
           {/* ------------------------------------------------Disposition des éléments----------------------------------------- */}
-<MediaQuery minWidth={1225}>
+
   
-  
-      <div className="titre">
+  <MediaQuery minWidth={1225}>
+      <div className="titre">  
       {(cartIsClicked &&(
             <h1 className="affichage">Affichage :  <button className="fond" onClick={cartClicked}><TiThLargeOutline/> </button></h1>
             ))}
@@ -399,6 +373,26 @@ const searchProps =(e:string)=>{
             <h1 className="affichage">Affichage :  <button className="fond" onClick={cartClicked}><TiThListOutline/> </button> </h1>
             ))}
              </div>
+</MediaQuery>
+
+
+  <MediaQuery maxWidth={1224}>
+      <div className="titre">  
+      {(cartIsClicked &&(
+            <h1 className="affichage">Affichage :  <button className="fond" onClick={cartClicked}><TiThLargeOutline/> </button> <button>Filtre</button></h1>
+            ))}
+      {(!cartIsClicked &&(
+            <h1 className="affichage">Affichage :  <button className="fond" onClick={cartClicked}><TiThListOutline/> </button><button>Filtre</button> </h1>
+            ))}
+             </div>
+</MediaQuery>
+
+
+
+
+
+
+
           {tabDisplayed?.slice(firstContentIndex, lastContentIndex)
             .map((player: any, i) => !cartIsClicked&& (
               <div className="dispo"  key={i}>
@@ -469,7 +463,11 @@ const searchProps =(e:string)=>{
  </div>
  </div>
   ))}
- <div className="attributsfiltre"><p className="att">Prénom</p>
+
+  <MediaQuery minWidth={1225}>
+  {(cartIsClicked&&(
+ <div className="attributsfiltre">
+            <p className="att">Prénom</p>
             <p className="att">Nom</p>
             <p className="att">Note</p>
             <p className="att">Poste</p>
@@ -477,7 +475,14 @@ const searchProps =(e:string)=>{
             <p className="att">Dribbles</p><p className="att">Vitesse</p>
             <p className="att">Force</p>
             <p className="att">Défense</p>
-            <p className="att">Passes</p></div>
+            <p className="att">Passes</p>
+            </div>
+              ))}
+              </MediaQuery>
+
+
+
+  <MediaQuery minWidth={1225}>
           {tabDisplayed?.slice(firstContentIndex, lastContentIndex)
             .map((player: any, i) => cartIsClicked&& (
          <Link key={i} className="link" to={`/players/${player.id}`}>
@@ -511,8 +516,32 @@ const searchProps =(e:string)=>{
     
             </Link> 
                ))}
+</MediaQuery>
 
-               </MediaQuery>
+  <MediaQuery maxWidth={1224}>
+          {tabDisplayed?.slice(firstContentIndex, lastContentIndex)
+            .map((player: any, i) => cartIsClicked&& (
+         <Link key={i} className="link" to={`/players/${player.id}`}>
+              <div className="listPlayers">
+             
+                  <div className="styleListe">
+    <div className="colomne-regle">
+                    <p className="colomnejoueur ">{player.firstName}</p>
+            </div>        
+                    <p className="colomnenomjoueur ">{player.lastName}</p>
+                   <div className="colomne-regle">
+                    <p className="colomnenotejoueur ">{player.rate} </p>
+                    </div>
+              
+             
+                  </div>
+                </div>
+             
+    
+            </Link> 
+               ))}
+</MediaQuery>
+              
             </div> 
            </div>
             
