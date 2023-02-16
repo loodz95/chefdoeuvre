@@ -8,7 +8,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Accueil from "./pages/Accueil";
 import FaisTaTeam from "./pages/FaisTaTeam";
 import JoueursDeLaSemaine from "./pages/JoueursDeLaSemaine";
-import RechercheDeJoueurs from "./pages/RechercheDeJoueurs";
+import RechercheDeJoueurs, { Players } from "./pages/RechercheDeJoueurs";
 import Footer from "./components/Footer";
 import ActusFifa from "./pages/ActusFifa";
 import Header from "./components/Header";
@@ -25,6 +25,17 @@ export interface PayloadToken{
   username: string;
 }
 
+export interface User{
+  userName:string;
+  email:string;
+  role:string;
+}
+
+export interface SavedPlayers {
+  player_id:Players
+  user_id:User
+  players:Players
+}
 const App = () => {
 
   
@@ -43,7 +54,7 @@ return (
         <Route path="/actusfifa" element={<ActusFifa />} />
         <Route path="/items/:id" element={<ActuSelection />} />
         <Route path="/players/:id" element={<CarteParId />} />
-        <Route path="/liste-joueurs/" element={<ListeJoueurs />} />
+        <Route path="/liste-joueurs" element={<ListeJoueurs />} />
       </Routes>
     </BrowserRouter>
     <Footer/>

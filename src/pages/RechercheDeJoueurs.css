@@ -5,6 +5,7 @@
    background-size: cover;
    background-attachment:fixed;
     height: 100%;
+	width: 100%;
 }
 
 .background2{
@@ -21,6 +22,7 @@
 	   background-image: url(../assets/marble.jpg);
    background-size: cover;
    background-attachment:fixed;
+   
 }
 
 .sidebar{
@@ -46,10 +48,18 @@ color:rgb(190, 162, 7);
 }
 
 .fontsidebar{
-    font-size: 20px;
+   		  font-family: 'Sedgwick Ave Display', cursive;
+  text-shadow:#e7f6ff 0 -1px 0,
+rgb(190, 162, 7) 1px 1px 0,
+white 2px 2px 0,
+brown 3px 3px 0,
+#333 5px 5px 10px;
+color:black;
+font-size: 20px;
 	   background-image: url(../assets/marble.jpg);
    background-size: cover;
    background-attachment:fixed;
+
 }
 
 .bannière{
@@ -58,9 +68,26 @@ color:rgb(190, 162, 7);
 
 .styleListe {
 	list-style-type: none;
-	margin-top: 20px;
+	margin-top: 50px;
+	font-family: 'Sedgwick Ave Display', cursive;
+	
+	display:flex;
 	
 	
+}
+.styleListe-attributs {
+	list-style-type: none;
+	margin-top: 50px;
+		  font-family: 'Sedgwick Ave Display', cursive;
+  text-shadow:#e7f6ff 0 -1px 0,
+rgb(190, 162, 7) 1px 1px 0,
+white 2px 2px 0,
+brown 3px 3px 0,
+
+
+#333 5px 5px 10px;
+color:black;
+font-size: 25px;
 	display:flex;
 	
 	
@@ -114,9 +141,10 @@ display: flex;
 }
 
 .affichage{
-	
-	margin-left: 0;
-	
+	  font-family: 'Sedgwick Ave Display', cursive;
+	position: absolute;
+	left: 50%;
+	top:43%
 }
 
 .boutonaffichage{
@@ -192,6 +220,7 @@ margin-top: 20px;
 	-webkit-transition: 200ms ease-in;
 	-o-transition: 200ms ease-in;
 	transition: 200ms ease-in;	
+	margin-top: 100px;
 }
 
 .fut-player-card:hover {
@@ -367,10 +396,11 @@ transform: scale(1.1);
 	list-style-type: none;
 	text-decoration: none;
 	
-	width: 120%;
+	width: 100%;
 	
 	margin-bottom: 20px;
-	border-left:1px;  
+
+
 }
 
 
@@ -378,68 +408,64 @@ transform: scale(1.1);
 	text-decoration: none;
 display: flex;
 flex-direction: column;
-background-position: center;
-font-family: 'Sedgwick Ave Display', cursive;
 
+width: 100%;
 
 }
 
 .titre{
-height: 130px;
+
 width: 100%;
-
-
-
 }
 
 
 
 .colomnejoueur{
-	position: absolute;
-left:300px;	
+	position: static;
+left:20%;	
 
 text-decoration: none;
 }
 .colomnenomjoueur{
 	position: absolute ;
-	left:425px;
+	left:28%;
 
 text-decoration: none;
 }
 .colomnenotejoueur{
 	position: absolute;
-left:543px;
+left:36%;
 
 text-decoration: none;
 }
 .colomnepositionjoueur{
 	position: absolute;
-left:660px
+left:44%
 
 }
 
 .colomnepaysjoueur{
 position: absolute;
-left:775px
+left:51%
 
 }
 
 .colomnedribblesjoueur{
 position: absolute;
-left:900px
+left:60%
 }
 .colomnevitessejoueur{
 position: absolute;
-left:1045px
+left:69%
 }
 .colomnepuissancejoueur{
 position: absolute;
-left:1170px
+left:77%
 }
 
 .colomnedefensejoueur{
 position: absolute;
-left:1295px
+left:85%
 }
 
 .div-pass{
@@ -449,10 +475,12 @@ margin-left: 1000px
 }
 
 .colomnepassejoueur{
+position: absolute;
+left: 94%;
 
-
-margin-left: 190px
 }
+
+
 
 
 
@@ -460,7 +488,7 @@ margin-left: 190px
 .link{
 	text-decoration: none !important;
 	color:  black;
-		
+		width: 100%;
 	
 
 }
@@ -472,16 +500,23 @@ margin-left: 190px
 }
 
 .attributsfiltre{
+	
 	display:flex;
-	border: solid;
-	border-radius: 5px;
+	position: relative;
+font-family: 'Sedgwick Ave Display', cursive;
 
+	width: 100%;
+z-index: 9;
 	
 }
 
+	.container-filtre{
+		padding-top: 100px;
+	}
+
 .att {
-margin-left: 43px;
-margin-right: 43px;
+ margin-left: 0%;
+ margin-right: 3.3%;
   font-family: 'Sedgwick Ave Display', cursive;
   background-color: transparent;
   border: none;
@@ -544,35 +579,131 @@ margin-right: 43px;
 	
 }
 
+/* ------------------------------------------------------config mobile--------------------------------------------------------------- */
 
-@media screen and (max-width: 1224px) {
+
+@media screen and (max-width: 1023px) {
+
+
+.listPlayers{
+	text-decoration: none;
+display: flex;
+flex-direction: column;
+font-family: 'Sedgwick Ave Display', cursive;
+width: 100%;
+
+}
+
+
+
+.styleListeMobile {
+list-style-type: none;
+width: 100%;
+	text-align: center;
+	display:flex;
+	
+}
+
+.colomnejoueurMobile{
+
+position:absolute;
+left:20%
+}
+
+
+.colomnenomjoueurMobile{
+
+position:absolute;
+left:40%
+}
+
+.colomnenotejoueurMobile{
+position:absolute;
+left:60%;
+	
+}
+
+.colomnepositionjoueurMobile{
+position:relative;
+
+}
+
+.searchbar{
+text-align: center;
+
+margin-top: 20px;	
+}
+
+.backrecherche{
+
+
+background-color:black;
+	width: 100%;
+	
+	z-index: 9;
+	
+
+	float:right
+}
+.listerecherche{
+
+	
+	  font-family: 'Sedgwick Ave Display', cursive;
+	  text-decoration: none;
+	  height:100%;
+	  margin-top:20px;
+	 z-index: 9;
+	 
+	
+}
+
+.recherche{
+	
+	color: white;
+display:flex;
+height:100%;
+text-align: center;
+padding-left: 5px;
+ z-index: 9;	 
+}
+
+.titre{
+	padding-top: 50px;
+height: 130px;
+width: 100%;
+}
+
+.fond{
+background-color: white;
+   padding-bottom: 10px;
+   border-radius: 10px;
+}
+
+.affichage{
+	
+	top:52%;
+	font-size: 25px;
+}
+
+.filtre{
+margin-left: 10px;
+position: absolute;
+margin-top:5px ;
+background-color: transparent;
+  border-radius: 10px;
+}
 .fontsidebar{
-position: inherit;
+	background-color: white;
+
+background-color: white;
+width: 20%;
 }
 .sidebar{
-position: inherit;
-}
-.menuJoueurs{
-	width: 20px;
-	position: inherit;
-}
-.label{
-position: inherit;
+	background-color: white;
+   width: 1000px;
 }
 
-.attributsfiltre{
-	display:flex;
-	border: solid;
-	border-radius: 5px;
-
-
-}
-.att{
-margin-left: 10px;
-margin-right: 10px;
-  font-family: 'Sedgwick Ave Display', cursive;
-  background-color: transparent;
-  border: none;
-  margin-top: 10px;	
+.fut-player-card {
+	margin-left: 50px;
 }
 }

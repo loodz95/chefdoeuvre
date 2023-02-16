@@ -2,5 +2,249 @@
       background-image: url(../assets/marble.jpg);
    background-size: cover;
    background-attachment:fixed;
-    height: 100%;
+    height: 40em;
 }
+
+.ban{
+    color: white;
+}
+
+
+.style-nom-attributs {
+	list-style-type: none;
+	text-decoration: none;
+	
+	width: 100%;
+
+	margin-bottom: 30px;
+	margin-top: 20px;
+			  font-family: 'Sedgwick Ave Display', cursive;
+  text-shadow:#e7f6ff 0 -1px 0,
+rgb(190, 162, 7) 1px 1px 0,
+white 2px 2px 0,
+brown 3px 3px 0,
+
+
+#333 5px 5px 10px;
+color:black;
+font-size: 25px;	  
+}
+
+
+.style-attributs {
+	list-style-type: none;
+	text-decoration: none;
+	font-family: 'Sedgwick Ave Display', cursive;
+	width: 100%;
+
+	margin-bottom: 50px;
+  
+}
+
+.joueur{
+	position: absolute;
+	
+left:15%;	
+
+text-decoration: none;
+}
+.joueur-attribut{
+	position: absolute;
+	margin-top: 50px;
+left:15%;	
+
+text-decoration: none;
+}
+.nomjoueur{
+	position: absolute ;
+	left:23%;
+
+text-decoration: none;
+}
+.nomjoueur-attribut{
+	position: absolute ;
+	left:23%;
+margin-top: 50px;
+text-decoration: none;
+}
+.notejoueur{
+	position: absolute;
+left:29%;
+
+text-decoration: none;
+}
+.notejoueur-attribut{
+	position: absolute;
+left:29%;
+margin-top: 50px;
+text-decoration: none;
+}
+.positionjoueur{
+	position: absolute;
+left:35%
+
+}
+.positionjoueur-attribut{
+	position: absolute;
+left:35%;
+margin-top: 50px;
+}
+
+.paysjoueur{
+position: absolute;
+left:41%
+
+}
+.paysjoueur-attribut{
+position: absolute;
+left:41%;
+margin-top: 50px;
+}
+
+.dribblesjoueur{
+position: absolute;
+left:47%
+}
+.dribblesjoueur-attribut{
+position: absolute;
+left:47%;
+margin-top: 50px;
+}
+.vitessejoueur{
+position: absolute;
+left:53%;
+
+}
+.vitessejoueur-attribut{
+position: absolute;
+left:53%;
+margin-top: 50px;
+}
+.puissancejoueur{
+position: absolute;
+left:60%;
+
+}
+.puissancejoueur-attribut{
+position: absolute;
+left:60%;
+margin-top: 50px;
+}
+
+.defensejoueur{
+position: absolute;
+left:67%
+}
+.defensejoueur-attribut{
+position: absolute;
+left:67%;
+margin-top: 50px;
+}
+
+
+
+.passejoueur{
+position: absolute;
+left: 74%;
+
+}
+.passejoueur-attribut{
+position: absolute;
+left: 74%;
+margin-top: 50px;
+
+}
+
+.poubelle{
+	position: absolute;
+left: 9%;
+margin-top: 38px;
+font-size: 30px;
+border: none;
+background-color: transparent;
+}
+
+.toastText{
+	  font-family: 'Sedgwick Ave Display', cursive;
+  text-shadow:#e7f6ff 0 -1px 0,
+
+#333 5px 5px 10px;color:rgb(190, 162, 7);
+font-size: 20px;	
+
+}
+
+.toast-choix{
+	display:flex;
+	
+}
+
+.toast-button{
+	display: flex;
+}
+
+.toastText-oui{
+	  font-family: 'Sedgwick Ave Display', cursive;
+  text-shadow:#e7f6ff 0 -1px 0,
+
+#333 5px 5px 10px;color:rgb(190, 162, 7);
+font-size: 20px;
+margin-left: 20px;
+cursor: pointer;	
+}
+.toastText-non{
+	cursor: pointer;
+	  font-family: 'Sedgwick Ave Display', cursive;
+  text-shadow:#e7f6ff 0 -1px 0,
+
+#333 5px 5px 10px;color:rgb(190, 162, 7);
+font-size: 20px;
+margin-left: 20px;
+}
+
+
+
+.ListeMobile {
+list-style-type: none;
+width: 100%;
+	text-align: center;
+	display:flex;
+	flex-direction: row;
+	
+}
+
+.joueur-nom-Mobile{
+	position: absolute;
+	margin-top: 50px;
+	
+left:20%;
+}
+.joueur-nom-Mobile-attributs{
+	position: absolute;
+	margin-top: 50px;
+	
+
+}
+
+
+.joueurMobile{
+	
+	position: absolute;
+	margin-top: 50px;
+left:40%;
+}
+
+.joueur-note-Mobile{
+
+	position: absolute;
+	margin-top: 50px;
+left:60%;
+}
+
+.joueur-position-Mobile{
+position: relative;
+left:80%;
+	margin-top: 50px;
+}
+
+
+

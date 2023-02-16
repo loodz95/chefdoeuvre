@@ -5,6 +5,7 @@ border-style: double;
     border-top: none;
     border-left: none;
     border-right: none;
+    width: 100%;
 }
 
 .buttonGroup{
@@ -31,8 +32,8 @@ border-style: double;
 @media screen and (min-width: 1224px) {
     
  .buttonGroup{
- display:inline-flex; 
- padding-left:1300px;
+ 
+ margin-left:84%;
 }   
 
 .suscribeButton{

@@ -9,6 +9,7 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Toast from 'react-bootstrap/Toast';
+import MediaQuery from "react-responsive"
 
 const CarteParId=()=>{
 
@@ -96,6 +97,7 @@ setToastMessage(`Connecte-toi ou inscris-toi pour rajouter ${Itemtab?.lastName} 
 
     return(
         <div className="carteparid">
+ <MediaQuery minWidth={721}>			
 <div className="fut-player-cardId" >
   
 	<div className="player-card-topId">
@@ -187,6 +189,104 @@ setToastMessage(`Connecte-toi ou inscris-toi pour rajouter ${Itemtab?.lastName} 
     
     </Row>
 	</div>
+	</MediaQuery>
+
+
+ <MediaQuery maxWidth={720}>	
+ <div className="divAjout">
+	
+	<p className="ajouter"> Veux-tu ajouter {Itemtab?.firstName} {Itemtab?.lastName} à ta liste de joueurs?</p>
+	<div className="mesboutons">
+	<button onClick={addPlayer} className="bouton">Oui</button>
+<button onClick={refuseFunction} className="bouton">Non</button>
+</div>
+</div>
+
+<div className="fut-player-cardId" >
+  
+	<div className="player-card-topId">
+		<div className="player-master-infoId">
+			<div className="player-ratingId">
+				<span>{Itemtab?.rate}</span>
+			</div>
+			<div className="player-positionId">
+				<span>{Itemtab?.position}</span>
+			</div>
+			<div className="player-nationId">
+				{/* image du drapeau du pays du joueur à mettre ici */}
+			</div>
+			<div className="player-clubId">
+				{/* image drapeau club */}
+			</div>
+		</div>
+		<div className="player-pictureId">
+		{/* image photo du joueur */}
+		
+		</div>
+	</div>
+	<div className="player-card-bottomId">
+		<div className="player-infoId">
+			
+			<div className="player-nameId">
+				<span>{Itemtab?.lastName}</span>
+			</div>
+			
+			<div className="player-featuresId">
+				<div className="player-features-colId">
+					<span>
+						<div className="player-feature-valueId">{Itemtab?.speed}</div>
+						<div className="player-feature-titleId">VIT</div>
+					</span>
+					<span>
+						<div className="player-feature-valueId">{Itemtab?.shots}</div>
+						<div className="player-feature-titleId">TIR</div>
+					</span>
+					<span>
+						<div className="player-feature-valueId">{Itemtab?.pass}</div>
+						<div className="player-feature-titleId">PAS</div>
+					</span>
+				</div>
+				<div className="player-features-colId">
+					<span>
+						<div className="player-feature-valueId">{Itemtab?.dribbles}</div>
+						<div className="player-feature-titleId">DRI</div>
+					</span>
+					<span>
+						<div className="player-feature-valueId">{Itemtab?.defence}</div>
+						<div className="player-feature-titleId">DEF</div>
+					</span>
+					<span>
+						<div className="player-feature-valueId">{Itemtab?.power}</div>
+						<div className="player-feature-titleId">PHY</div>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+ 
+</div>
+
+
+<div className='toRow'>
+   <Row >
+      
+        <Toast className="to" onClose={() => setShow(false)} show={show} delay={3000}>
+          <Toast.Header>
+            <img
+              src="holder.js/20x20?text=%20"
+              className="rounded me-2"
+              alt=""
+            />
+            <strong className="me-auto ">1 message reçu</strong>
+          </Toast.Header>
+          <Toast.Body>
+		<p className="toastText">{toastMessage}</p>	</Toast.Body>
+        </Toast>
+      
+    
+    </Row>
+	</div>
+	</MediaQuery>
 </div>
       
     )

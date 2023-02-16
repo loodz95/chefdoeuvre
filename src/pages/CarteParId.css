@@ -1,6 +1,6 @@
 .carteparid{
      background-image: url(../assets/marble.jpg);
-    height: 40em;
+    height: 100%;
     width: 100%;
    background-attachment:fixed;
     background-size: cover;
@@ -21,7 +21,7 @@ white 4px 4px 0,
 black 5px 5px 0,
 #333 5px 5px 10px;color:rgb(190, 162, 7);
 font-size: 50px;
-padding-top: 200px;
+padding-top: 20%;
 padding-left: 70px;
 
 }
@@ -87,6 +87,7 @@ animation: slide-in1 1000ms;
 	position: fixed;
 	top: 5;
 	right: 0;
+	z-index: 9;
 }
 
 
@@ -280,4 +281,286 @@ animation: slide-in1 1000ms;
 
 .fut-player-cardId .player-card-bottomId .player-infoId .player-featuresId .player-features-colId:last-child {
 	border: 0;
+}
+
+
+/* ------------------------------------------------------config mobile--------------------------------------------------------------- */
+
+
+@media screen and (max-width: 720px) {
+
+.carteparid{
+     background-image: url(../assets/marble.jpg);
+    height: 100%;
+    width: 100%;
+   background-attachment:fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    z-index: 1;  
+	display:flex;
+	flex-direction: column;
+	
+}
+
+.to{
+	z-index: 9;
+}
+
+  /* @keyframes slide-in1 {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(40%);
+    }
+
+  } */
+
+
+.divAjout{
+/* animation: slide-in1 1000ms; */
+
+
+animation: none;
+}
+
+.ajouter{
+font-size: 30px;
+	
+}
+
+.mesboutons{
+	display: flex;
+	margin-left: 0px;
+
+}
+
+.bouton{
+		background-color: transparent;
+   color: rgb(190, 162, 7);
+   width: 100px;
+   height: 100px;
+   	margin-left: 15%;
+    border: none;
+	
+	
+		  font-family: 'Sedgwick Ave Display', cursive;
+  text-shadow:#e7f6ff 0 -1px 0,
+black 1px 1px 0,
+white 2px 2px 0,
+brown 3px 3px 0,
+white 4px 4px 0,
+black 5px 5px 0,
+#333 5px 5px 10px;color:rgb(190, 162, 7);
+font-size: 50px;
+}
+
+
+  @keyframes slide-in {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0%);
+    }
+	
+  }
+
+
+/* ----------------------------------------------------Carte FUT----------------------------------------------------------------------------- */
+  @keyframes slide-in {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0%);
+    }
+	
+  }
+
+
+
+
+
+.fut-player-cardId {
+	animation: slide-in 1000ms;
+	position: relative;
+	width: 300px;
+	height: 485px;
+	background-image: url(../assets/carteFUT.png);
+	background-position: center center;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	padding: 3.8rem 0;
+	z-index: 2;
+	-webkit-transition: 200ms ease-in;
+	-o-transition: 200ms ease-in;
+	transition: 200ms ease-in;
+	margin-left: 10%;
+	z-index: 1;
+	
+}
+
+
+
+
+.fut-player-cardId .player-card-topId {
+	position: relative;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	color: black;
+	padding: 0 1.5rem;
+}
+
+.fut-player-cardId .player-card-topId .player-master-infoId {
+	position: absolute;
+	line-height: 2.2rem;
+	font-weight: 300;
+	padding: 1.5rem 0;
+	text-transform: uppercase;
+}
+
+.fut-player-cardId .player-card-topId .player-master-infoId .player-ratingId {
+	font-size: 2rem;
+}
+
+.fut-player-cardId .player-card-topId .player-master-infoId .player-positionId {
+	font-size: 1.4rem;
+}
+
+.fut-player-cardId .player-card-topId .player-master-infoId .player-nationId {
+	display: block;
+	width: 2rem;
+	height: 25px;
+	margin: 0.3rem 0;
+}
+
+.fut-player-cardId .player-card-topId .player-master-infoId .player-nationId img {
+	width: 100%;
+	height: 100%;
+	-o-object-fit: contain;
+	object-fit: contain;
+}
+
+.fut-player-cardId .player-card-topId .player-master-infoId .player-clubId {
+	display: block;
+	width: 2.1rem;
+	height: 40px;
+}
+
+.fut-player-cardId .player-card-topId .player-master-infoId .player-clubId img {
+	width: 100%;
+	height: 100%;
+	-o-object-fit: contain;
+	object-fit: contain;
+}
+
+.fut-player-cardId .player-card-topId .player-pictureId {
+	width: 200px;
+	height: 200px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.fut-player-cardId .player-card-topId .player-pictureId img {
+	width: 100%;
+	height: 100%;
+	-o-object-fit: contain;
+	object-fit: contain;
+	position: relative;
+	right: -1.5rem;
+	bottom: 0;
+}
+
+.fut-player-cardId .player-card-topId .player-pictureId .player-extraId {
+	position: absolute;
+	right: 0;
+	bottom: -0.5rem;
+	overflow: hidden;
+	font-size: 1rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	width: 100%;
+	height: 2rem;
+	padding: 0 1.5rem;
+	text-align: right;
+	background: none;
+}
+
+.fut-player-cardId .player-card-topId .player-pictureId .player-extraId span {
+	margin-left: 0.6rem;
+	text-shadow: 2px 2px #333;
+}
+
+.fut-player-cardId .player-card-bottomId {
+	position: relative;
+}
+
+.fut-player-cardId .player-card-bottomId .player-infoId {
+	display: block;
+	padding: 0.3rem 0;
+	color: black;
+	width: 90%;
+	margin: 0 auto;
+	height: auto;
+	position: relative;
+	z-index: 2;
+}
+
+.fut-player-cardId .player-card-bottomId .player-infoId .player-nameId {
+	width: 100%;
+	display: block;
+	text-align: center;
+	font-size: 1.6rem;
+	text-transform: uppercase;
+	border-bottom: 2px solid rgba(233, 204, 116, 0.1);
+	padding-bottom: 0.3rem;
+	overflow: hidden;
+}
+
+.fut-player-cardId .player-card-bottomId .player-infoId .player-nameId span {
+	display: block;
+	text-shadow: 2px 2px #111;
+}
+
+.fut-player-cardId .player-card-bottomId .player-infoId .player-featuresId {
+	margin: 0.5rem auto;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+}
+
+.fut-player-cardId .player-card-bottomId .player-infoId .player-featuresId .player-features-colId {
+	border-right: 2px solid rgba(233, 204, 116, 0.1);
+	padding: 0 2.3rem;
+}
+
+.fut-player-cardId .player-card-bottomId .player-infoId .player-featuresId .player-features-colId span {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	font-size: 1.2rem;
+	text-transform: uppercase;
+}
+
+.fut-player-cardId .player-card-bottomId .player-infoId .player-featuresId .player-features-colId span .player-feature-valueId {
+	margin-right: 0.3rem;
+	font-weight: 700;
+}
+
+.fut-player-cardId .player-card-bottomId .player-infoId .player-featuresId .player-features-colId span .player-feature-titleId {
+	font-weight: 300;
+}
+
+.fut-player-cardId .player-card-bottomId .player-infoId .player-featuresId .player-features-colId:last-child {
+	border: 0;
+}
+
+
+
 }

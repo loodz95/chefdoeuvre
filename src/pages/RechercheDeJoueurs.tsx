@@ -16,6 +16,8 @@ import { Button, Modal } from "react-bootstrap";
 import { TiThLargeOutline } from "react-icons/ti";
 import { TiThListOutline } from "react-icons/ti";
 import SearchBar from "../components/SearchBar";
+import { SavedPlayers } from "../App";
+
 
 
 export interface Players{
@@ -33,6 +35,7 @@ export interface Players{
         dribbles: number,
         defence: number,
         power: number,
+        savedplayers:SavedPlayers
         typeplayer: number
         
 }
@@ -53,6 +56,7 @@ let myPlayers :Players[];
 const[search,setSearch]=useState<string>()
 const [tabDef,setTabDef] =useState<Players[]>()
 const [tous,setTous] = useState<string>()
+     const [show, setShow] = useState(false);  //state pour ouverture modal connexion//
   // ---------------------pagination------------------------------
   const [people, setPeople] = useState<Players[]>();
   
@@ -117,12 +121,7 @@ console.log("value dans handle change",valueChange)
  
   const cartClicked=()=>{
     setCartIsClicked(!cartIsClicked)
-    if(cartIsClicked){
-      setCardOrList("Liste")
-    }
-    if(!cartIsClicked){
-      setCardOrList("Cartes")
-    }
+
   }
 
 
@@ -185,7 +184,7 @@ tab = tab?.filter((player)=>player.position.includes("Ad") || player.position.in
 }
 
 setTabDisplayed(tab)
-
+handleClose()
   }
 
 const searchProps =(e:string)=>{ 
@@ -200,11 +199,18 @@ const searchProps =(e:string)=>{
     let tableau2 = tableau?.slice(0, 4)
     setTabTampon(tableau2)
   }
-
-  
- 
 }
 
+ 
+
+    const handleClose = () =>{    //Fonction fermeture modal connexion au click//
+    setShow(false)                          
+  };
+
+  const handleShow = () => {
+    
+  setShow(true); //Fonction ouverture modal connexion au click//
+  };
 
 
   return (
@@ -212,7 +218,7 @@ const searchProps =(e:string)=>{
 
 
       <div className="bannière">
-        <Bann banValue={message}></Bann>
+        <Bann banValue={message}/>
       </div>
 
       
@@ -267,7 +273,7 @@ const searchProps =(e:string)=>{
 
 <div className="miseenpage">
   
-      <MediaQuery minWidth={1225}>
+      <MediaQuery minWidth={1024}>
           <div className="menuJoueurs">
           <div>
             <Sidebar className="fontsidebar">
@@ -364,7 +370,7 @@ const searchProps =(e:string)=>{
           {/* ------------------------------------------------Disposition des éléments----------------------------------------- */}
 
   
-  <MediaQuery minWidth={1225}>
+  <MediaQuery minWidth={1024}>
       <div className="titre">  
       {(cartIsClicked &&(
             <h1 className="affichage">Affichage :  <button className="fond" onClick={cartClicked}><TiThLargeOutline/> </button></h1>
@@ -376,15 +382,115 @@ const searchProps =(e:string)=>{
 </MediaQuery>
 
 
-  <MediaQuery maxWidth={1224}>
+  <MediaQuery maxWidth={1023}>
       <div className="titre">  
       {(cartIsClicked &&(
-            <h1 className="affichage">Affichage :  <button className="fond" onClick={cartClicked}><TiThLargeOutline/> </button> <button>Filtre</button></h1>
+        <div className="affichage">
+          <button className="fond" onClick={cartClicked}><TiThLargeOutline/> </button> 
+          <button onClick={handleShow} className="filtre">Filtre</button>
+          </div>
             ))}
       {(!cartIsClicked &&(
-            <h1 className="affichage">Affichage :  <button className="fond" onClick={cartClicked}><TiThListOutline/> </button><button>Filtre</button> </h1>
+        <div className="affichage">
+           <button className="fond" onClick={cartClicked}><TiThListOutline/> </button>
+           <button onClick={handleShow} className="filtre">Filtre</button> 
+           </div>
+
             ))}
              </div>
+                          <Modal show={show} onHide={handleClose} >
+      <Modal.Header className="colorTitle"  closeButton>
+        
+      </Modal.Header>
+      <Modal.Body className="colorBody">
+  <div className="form-group column">
+    <div className="col-sm-10">
+
+      {/* ------filtre à l'intérieur de la modal------------- */}
+          <Sidebar className="fontsidebar">
+              <Menu className="sidebar">
+               
+                  <SubMenu  label ="Filtre">
+                  <div className="fond"> 
+                 <SubMenu label="Postes">
+                  
+                 
+                  <MenuItem className="label" >
+                <input onChange={handlePremierChange} name ="origin" type="radio" id="tous"   value="tous"  ></input>
+                    <label htmlFor="tous">Tous</label>
+
+                  </MenuItem>
+                  <MenuItem className="label" >
+                <input onChange={handlePremierChange} name ="origin" type="radio" id="défenseurs"   value="défenseurs" ></input>
+                    <label htmlFor="défenseurs">Défenseurs</label>
+                  
+                  </MenuItem>
+                  <MenuItem className="label" >
+                    <input onChange={handlePremierChange} name ="origin" type="radio" id="milieux"   value="milieux" ></input>
+                    <label htmlFor="milieux">Milieux</label>
+                  </MenuItem>
+                  <MenuItem className="label" >
+                    <input onChange={handlePremierChange} name ="origin" type="radio" id="attaquants"   value="attaquants" ></input>
+                    <label htmlFor="attaquants">Attaquants</label>
+                  </MenuItem>
+        
+                </SubMenu>
+                </div> 
+                
+                {(tous && (
+                   <div className="fond"> 
+                <SubMenu label="Caractéristiques">
+                  <MenuItem className="label">
+
+                    <input onChange={handleChange} name ="caracteristiques" type="radio" id="sans"   value="sans" ></input>
+                    <label htmlFor="sans">Sans</label>
+                    </MenuItem>
+                        <MenuItem className="label">
+                   <input onChange={handleChange} name ="caracteristiques" type="radio" id="dribbleurs"   value="dribbleurs" ></input>
+                    <label htmlFor="dribbleurs">Dribbleurs</label>
+
+                  </MenuItem>
+                  <MenuItem className="label">
+                    <input onChange={handleChange} name ="caracteristiques" type="radio"  id="flèches" value="flèches"></input>
+                    <label htmlFor="flèches">Rapides</label>
+                  </MenuItem>
+                  <MenuItem className="label">
+                    <input onChange={handleChange} name ="caracteristiques" type="radio" id="force"  value="force"></input>
+                    <label htmlFor="force">Costauds</label>
+                  </MenuItem>
+                  <MenuItem className="label">
+
+                    <input onChange={handleChange} name ="caracteristiques" type ="radio" id ="note" value="note"></input>
+                    <label htmlFor="note">Note</label>
+                  </MenuItem>
+                  <MenuItem className="label">
+                    <input onChange={handleChange} name ="caracteristiques" type="radio" value="roc"></input>
+                    <label htmlFor="roc">Impassables</label>
+                  </MenuItem>
+                </SubMenu>
+                 <button className = "boutonresultat" onClick ={filterFunction}>Voir résultats</button>
+                 </div>
+             
+               ))}
+                </SubMenu>
+               
+              </Menu>             
+            </Sidebar>
+    </div>
+  </div>
+  <div className="form-group column">
+
+    <div className="col-sm-10">
+  
+    </div>
+  </div>
+   
+
+      </Modal.Body>
+      <Modal.Footer className="colorFooter">
+    
+      </Modal.Footer>
+    </Modal>
 </MediaQuery>
 
 
@@ -464,44 +570,46 @@ const searchProps =(e:string)=>{
  </div>
   ))}
 
-  <MediaQuery minWidth={1225}>
+  <MediaQuery minWidth={1024}>
   {(cartIsClicked&&(
- <div className="attributsfiltre">
-            <p className="att">Prénom</p>
-            <p className="att">Nom</p>
-            <p className="att">Note</p>
-            <p className="att">Poste</p>
-            <p className="att">Pays</p>
-            <p className="att">Dribbles</p><p className="att">Vitesse</p>
-            <p className="att">Force</p>
-            <p className="att">Défense</p>
-            <p className="att">Passes</p>
-            </div>
+   
+ <div className="styleListe-attributs">
+
+            <p className="colomnejoueur">Prénom</p>
+            <p className="colomnenomjoueur">Nom</p>
+            <p className="colomnenotejoueur ">Note</p>
+            <p className="colomnepositionjoueur ">Poste</p>
+            <p className="colomnepaysjoueur ">Pays</p>
+            <p className="colomnedribblesjoueur ">Dribbles</p><p className="colomnevitessejoueur ">Vitesse</p>
+            <p className="colomnepuissancejoueur ">Force</p>
+            <p className="colomnedefensejoueur ">Défense</p>
+            <p className="colomnepassejoueur">Passes</p>
+       </div>
+    
               ))}
               </MediaQuery>
 
 
 
-  <MediaQuery minWidth={1225}>
+  <MediaQuery minWidth={1024}>
           {tabDisplayed?.slice(firstContentIndex, lastContentIndex)
             .map((player: any, i) => cartIsClicked&& (
          <Link key={i} className="link" to={`/players/${player.id}`}>
               <div className="listPlayers">
              
                   <div className="styleListe">
-    <div className="colomne-regle">
+   
                     <p className="colomnejoueur ">{player.firstName}</p>
-            </div>        
+         
                     <p className="colomnenomjoueur ">{player.lastName}</p>
-                   <div className="colomne-regle">
+                
                     <p className="colomnenotejoueur ">{player.rate} </p>
-                    </div>
-                    <div className="colomne-regle">
+                   
                     <p className="colomnepositionjoueur ">{player.position} </p>
-                    </div>
-                    <div className="colomne-regle" >
+                 
+                   
                     <p className="colomnepaysjoueur ">{player.country} </p>
-                    </div>
+              
                          <p className="colomnedribblesjoueur ">{player.dribbles} </p>
                     <p className="colomnevitessejoueur ">{player.speed} </p>
                     <p className="colomnepuissancejoueur ">{player.power} </p>
@@ -518,20 +626,24 @@ const searchProps =(e:string)=>{
                ))}
 </MediaQuery>
 
-  <MediaQuery maxWidth={1224}>
+  <MediaQuery maxWidth={1023}>
           {tabDisplayed?.slice(firstContentIndex, lastContentIndex)
             .map((player: any, i) => cartIsClicked&& (
          <Link key={i} className="link" to={`/players/${player.id}`}>
               <div className="listPlayers">
              
-                  <div className="styleListe">
-    <div className="colomne-regle">
-                    <p className="colomnejoueur ">{player.firstName}</p>
-            </div>        
-                    <p className="colomnenomjoueur ">{player.lastName}</p>
-                   <div className="colomne-regle">
-                    <p className="colomnenotejoueur ">{player.rate} </p>
-                    </div>
+                  <div className="styleListeMobile">
+
+                    <p className="colomnejoueurMobile ">{player.firstName}</p>
+            
+                    <p className="colomnenomjoueurMobile " >{player.lastName}</p>
+              
+       
+                    <p className="colomnenotejoueurMobile " >{player.rate} </p>
+             
+            
+                    <p className="colomnepositionjoueurMobile " >{player.position} </p>
+   
               
              
                   </div>
