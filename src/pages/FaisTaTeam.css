@@ -1,6 +1,6 @@
        .team{
       background-image: url(../assets/etoiles.jpeg);
-    height: 60em;
+    height: 100%;
     width: 100%;
    background-attachment:fixed;
     background-size: cover;
@@ -35,11 +35,12 @@
 }
 
 .terrainGlobal{
-  
- background-image:url(../assets/terrain_foot.svg);
+ background-image:url(../assets/terrain.jpg);
  background-repeat:no-repeat;
-padding-top: 5px;
- background-size:100%;
+ background-size: 100%;
+ background-position-x: right;
+ background-position-y:top;
+ right:20%
 }
 
 .h1Titre{
@@ -51,10 +52,10 @@ padding-top: 5px;
    
    /* ------------------------------------------------config desktop----------------------------------------------------------------------------- */
 
-@media screen and (min-width: 1224px) {
+@media screen and (min-width: 1000px) {
     .team{
       background-image: url(../assets/etoiles.jpeg);
-    height: 70em;
+    height: 100%;
     width: 100%;
    background-attachment:fixed;
     background-size: cover;
@@ -85,18 +86,146 @@ padding-top: 5px;
 .carteFUT{
     background-image: url(../assets/carteFUT.png);
     background-repeat: no-repeat; 
+    
+   
 }
 
 .terrainGlobal{
-    height:1000px;
- background-image:url(../assets/terrain_foot.svg);
+ 
+ background-image:url(../assets/terrain.jpg);
+ width: 100%;
  background-repeat:no-repeat;
- margin-top:px;
- background-size:1000px;
+ background-size: 100%;
+
+ height:70em;
+
+
 }
+
+.carteFutimage{
+    height: 5%;
+}
+
 
 .h1Titre{
     display:flex;
 }
+
+.cartefut{
+ width: 5em;
+     color: blue;
+}
+.carte-mystère{
+ width: 15%
+}
+
+
+.liste-joueurs{
+    display:flex;
+  margin-left: 70%;
+    
+}
+
+.goal{
+ position: absolute;
+width: 15%;
+top:115%;
+left:44%   
+}
+
+.defense{
+    
+}
+.defdroit{
+position: absolute;
+width: 15%;
+top:80%;
+left:80%
+
+}
+.central1{
+position: absolute;
+width: 15%;
+top:90%;
+left:30%
+}
+.defgauche{
+position: absolute;
+width: 15%;
+top:80%;
+left:9%
+
+}
+.central2{
+position: absolute;
+width: 15%;
+top:90%;
+left:60%
+}
+.milieu{
+
+}
+.md{
+position: absolute;
+width: 15%;
+top:50%;
+left:70%
+}
+.mc1{
+position: absolute;
+width: 15%;
+top:65%;
+left:32%
+}
+.mc2{
+position: absolute;
+width: 15%;
+top:65%;
+left:57%
+}
+.mg{
+position: absolute;
+width: 15%;
+top:50%;
+left:18%
+}
+.attaque{
+
+}
+.att1{
+position: absolute;
+width: 15%;
+top:40%;
+left:55%
+}
+.att2{
+position: absolute;
+width: 15%;
+top:40%;
+left:37%
+}
+.players-modal{
+    display:flex;
+    justify-content: space-between;
+}
+
+.select-player{
+    display:flex;
+      justify-content: space-between;
+    width: 100%;
+    height: 10%;
+    border:none;
+    background-color: transparent;
+}
+
+
+
+
+
+
+
+
+
+
 }
 

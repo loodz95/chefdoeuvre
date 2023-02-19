@@ -1,0 +1,12 @@
+.carte{
+    background-image: url(../assets/logomystère.png);
+    background-size:650% ;
+    background-position: 0%;
+  background-position-x: 50% ;
+    background-repeat: no-repeat;
+    width: 520%;
+    height: 12em;
+    cursor: pointer;
+    
+}
+
