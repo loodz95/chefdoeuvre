@@ -1,4 +1,5 @@
-import "./CarteFut.css"
+import "./CarteFut.css";
+
 
 export interface CarteProps{
  note: number;
@@ -14,7 +15,7 @@ const CarteFut=( props: CarteProps)=>{
 
 
     return(
-        <div className="globalcard">
+     
 <div className="fut-player-card-team">
               
                 <div className="player-card-top-team">
@@ -41,7 +42,8 @@ const CarteFut=( props: CarteProps)=>{
                   <div className="player-info-team">
 
                     <div className="player-name-team">
-                      <span>{props.nom}</span>
+                    <span>{props.nom}</span>
+                  
                     </div>
 
                     <div className="player-features-team">
@@ -54,7 +56,7 @@ const CarteFut=( props: CarteProps)=>{
            
           
                </div>
-        </div>
+      
     )
 }
 

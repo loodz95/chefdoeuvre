@@ -1,5 +1,5 @@
 import "./FaisTaTeam.css"
-import React, {useContext, useEffect, useState} from "react"
+import React, {useContext, useEffect, useLayoutEffect, useState} from "react"
 import Header from "../components/Header";
 import NavBar from "../components/NavBar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -18,11 +18,14 @@ import image from "../assets/newcard.jpg"
 import image2 from "../assets/terrainok.png"
 import CarteMystère from "../components/CarteMystère";
 import { Button, Modal } from "react-bootstrap";
+
 export interface Joueurs {
   name: string;
   nickname: string;
   age: number;
 }
+
+
 
 const FaisTaTeam = () => {
 const message= "Tu peux visualiser la team que tu as sauvegardé et les tester dans plusieurs compositions "
@@ -38,7 +41,7 @@ const [mg, setMg] = useState<boolean>(false);
 const [md, setMd] = useState<boolean>(false);
 const [att1, setAtt1] = useState<boolean>(false);
 const [att2, setAtt2] = useState<boolean>(false);
-const [tabArd, setTabArd] = useState<SavedPlayers[]|undefined>();
+const [tabArd, setTabArd] = useState<SavedPlayers[]>();
 const [tabArg, setTabArg] = useState<SavedPlayers[]>();
 const [tabDcd, setTabDcd] = useState<SavedPlayers[]>();
 const [tabDcg, setTabDcg] = useState<SavedPlayers[]>();
@@ -50,6 +53,8 @@ const [tabMcd, setTabMcd] = useState<SavedPlayers[]>();
 const [tabAt1, setTabAt1] =useState<SavedPlayers[]>();
 const [tabAt2, setTabAt2] =useState<SavedPlayers[]>();
  const [show, setShow] = useState(false);  //state pour ouverture modal connexion//
+ const [, updateState] = React.useState({});
+ const forceUpdate = React.useCallback(() => updateState({}), []);
 
 
 
@@ -64,8 +69,8 @@ const [tabAt2, setTabAt2] =useState<SavedPlayers[]>();
 
 
   useEffect(()=>{
-      
-
+    
+console.log("dans le useEffect",tabArd)
         TokenExpirationFunction(savedToken)
         
   axios.get(`http://localhost:8080/api/savedplayers`,{
@@ -81,20 +86,24 @@ const [tabAt2, setTabAt2] =useState<SavedPlayers[]>();
   }).catch((err)=>{
     console.log("something wrent wrong", err)
   })
-},[]) 
+},[console.log("longueur tableau",tabArd?.length)]) 
 
-let tab;
+let tab: React.SetStateAction<SavedPlayers[] | undefined>;
 
 const insertFunction=(e:React.MouseEvent<HTMLButtonElement>)=>{
 console.log("consoleloginsertfunction", e.currentTarget.value)
 const playerFound =  Number(e.currentTarget.value)
-setTabArd(savedPlayers?.filter((player)=>player.players.id === playerFound ))
+
 tab = savedPlayers?.filter((player)=>player.players.id === playerFound )
-console.log("tableau du joueur trouvé")
+
 switch (true) {
         case ard:
-    console.log(tab) 
+       
+   
+
 setTabArd(tab)
+
+console.log(tabArd)
 setArd(false)
 setShow(false)
           ;
@@ -159,6 +168,7 @@ setShow(false)
 setTabAt1(tab)
 setAtt1(false)
 setShow(false)
+forceUpdate()
           ;
           break;
                   case att2:
@@ -170,7 +180,9 @@ setShow(false)
           break;
 
       }
-console.log("tabard",tabArd)
+
+
+
 }
 
 
@@ -349,95 +361,202 @@ return(
 
 
           <div className="defense">  
+
+          {(tabArd?.length==undefined &&(
           <div  className="defdroit">
              <div  onClick={selectFunctionArd} className="carte-mystère">
                <CarteMystère/> 
 </div>
-             {/* {tabArd?.map((player)=>(
-            <div className="cartefut ">okkkkkkkkkk
-<CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName}/>
-</div>
-))} */}
+
           </div>
+          ))}
+{(tabArd?.length === 1 && (
+
+tabArd?.map((player, i)=>(
+  <div  className="defdroit">
+  <div onClick={selectFunctionArd} key={i} className="cartefut">
+    <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName}/>
+  </div>
+  </div>
+))
+))}
 
 
-           <div  className="central1">
-                  
-            <div  onClick={selectFunctionDc1} className="carte-mystère">
-    <CarteMystère/>          
-{/* <CarteFut note={note} position={position} nom ={nom}/> */}
-</div>
 
-           </div>
-          <div className="central2">
-               
-            <div  onClick={selectFunctionDc2} className="carte-mystère">
+          {(tabDcd?.length==undefined &&(
+          <div  className="central1">
+             <div  onClick={selectFunctionDc1} className="carte-mystère">
                <CarteMystère/> 
-{/* <CarteFut note={note} position={position} nom ={nom}/> */}
 </div>
 
           </div>
-          <div className="defgauche">
-                 
-            <div  onClick={selectFunctionArg} className="carte-mystère">
+          ))}
+{(tabDcd?.length === 1 && (
+
+tabDcd?.map((player, i)=>(
+  <div  className="central1">
+  <div onClick={selectFunctionDc1} key={i} className="cartefut">
+    <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName}/>
+  </div>
+  </div>
+))
+))}
+           {(tabDcg?.length==undefined &&(
+          <div  className="central2">
+             <div  onClick={selectFunctionDc2} className="carte-mystère">
                <CarteMystère/> 
-{/* <CarteFut note={note} position={position} nom ={nom}/> */}
 </div>
 
           </div>
-           </div>
+          ))}
+{(tabDcg?.length === 1 && (
+
+tabDcg?.map((player, i)=>(
+  <div  className="central2">
+  <div onClick={selectFunctionDc2} key={i} className="cartefut">
+    <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName}/>
+  </div>
+  </div>
+))
+))}
+          {(tabArg?.length==undefined &&(
+          <div  className="defgauche">
+             <div  onClick={selectFunctionArg} className="carte-mystère">
+               <CarteMystère/> 
+</div>
+
+          </div>
+          ))}
+{(tabArg?.length === 1 && (
+
+tabArg?.map((player, i)=>(
+  <div  className="defgauche">
+  <div onClick={selectFunctionArg} key={i} className="cartefut">
+    <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName}/>
+  </div>
+  </div>
+))
+))}
+</div>
+
+
           <div className="milieu">
-              <div  className="md">
-                         
-            <div  onClick={selectFunctionMd} className="carte-mystère">
+          {(tabMcd?.length==undefined &&(
+          <div  className="mc1">
+             <div  onClick={selectFunctionMcd} className="carte-mystère">
                <CarteMystère/> 
-{/* <CarteFut note={note} position={position} nom ={nom}/> */}
 </div>
 
-              </div>
-           <div  className="mc1">
-                     
-            <div  onClick={selectFunctionMcd} className="carte-mystère">
-               <CarteMystère/> 
-{/* <CarteFut note={note} position={position} nom ={nom}/> */}
-</div>
-
-           </div>
-          <div  className="mc2">
-                        <div  onClick={selectFunctionMcg} className="carte-mystère">
-               <CarteMystère/> 
-{/* <CarteFut note={note} position={position} nom ={nom}/> */}
-</div>
           </div>
+          ))}
+{(tabMcd?.length === 1 && (
+
+tabMcd?.map((player, i)=>(
+  <div  className="mc1">
+  <div onClick={selectFunctionMcd} key={i} className="cartefut">
+    <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName}/>
+  </div>
+  </div>
+))
+))}
+          {(tabMcg?.length==undefined &&(
+          <div  className="mc2">
+             <div  onClick={selectFunctionMcg} className="carte-mystère">
+               <CarteMystère/> 
+</div>
+
+          </div>
+          ))}
+{(tabMcg?.length === 1 && (
+
+tabMcg?.map((player, i)=>(
+  <div  className="mc2">
+  <div onClick={selectFunctionMcg} key={i} className="cartefut">
+    <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName}/>
+  </div>
+  </div>
+))
+))}
+
+          {(tabMd?.length==undefined &&(
+          <div  className="md">
+             <div  onClick={selectFunctionMd} className="carte-mystère">
+               <CarteMystère/> 
+</div>
+
+          </div>
+          ))}
+{(tabMd?.length === 1 && (
+
+tabMd?.map((player, i)=>(
+  <div  className="md">
+  <div onClick={selectFunctionMd} key={i} className="cartefut">
+    <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName}/>
+  </div>
+  </div>
+))
+))}
+ 
+ 
                    
 
 
-          <div className="mg">
-                     
-            <div onClick={selectFunctionMg} className="carte-mystère">
+           {(tabMg?.length==undefined &&(
+          <div  className="mg">
+             <div  onClick={selectFunctionMg} className="carte-mystère">
                <CarteMystère/> 
-{/* <CarteFut note={note} position={position} nom ={nom}/> */}
 </div>
 
           </div>
+          ))}
+{(tabMg?.length === 1 && (
+
+tabMg?.map((player, i)=>(
+  <div  className="mg">
+  <div onClick={selectFunctionMg} key={i} className="cartefut">
+    <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName}/>
+  </div>
+  </div>
+))
+))}
           </div>
         <div className="attaque">
- <div  className="att1">
-           
-            <div  onClick={selectFunctionAtt1} className="carte-mystère">
+          {(tabAt1?.length==undefined &&(
+          <div  className="att1">
+             <div  onClick={selectFunctionAtt1} className="carte-mystère">
                <CarteMystère/> 
-{/* <CarteFut note={note} position={position} nom ={nom}/> */}
-</div>
-
- </div>
-          <div className="att2">
-                     
-            <div  onClick={selectFunctionAtt2} className="carte-mystère">
-               <CarteMystère/> 
-{/* <CarteFut note={note} position={position} nom ={nom}/> */}
 </div>
 
           </div>
+          ))}
+{(tabAt1?.length === 1 && (
+
+tabAt1?.map((player, i)=>(
+  <div  className="att1">
+  <div onClick={selectFunctionAtt1} key={i} className="cartefut">
+    <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName}/>
+  </div>
+  </div>
+))
+))}
+          {(tabAt2?.length==undefined &&(
+          <div  className="att2">
+             <div  onClick={selectFunctionAtt2} className="carte-mystère">
+               <CarteMystère/> 
+</div>
+
+          </div>
+          ))}
+{(tabAt2?.length === 1 && (
+
+tabAt2?.map((player, i)=>(
+  <div  className="att2">
+  <div onClick={selectFunctionAtt2} key={i} className="cartefut">
+    <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName}/>
+  </div>
+  </div>
+))
+))}
         </div>
       </div>
       </div>

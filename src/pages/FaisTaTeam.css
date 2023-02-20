@@ -112,8 +112,7 @@
 }
 
 .cartefut{
- width: 5em;
-     color: blue;
+width: 15%
 }
 .carte-mystère{
  width: 15%
@@ -141,9 +140,22 @@ position: absolute;
 width: 15%;
 top:80%;
 left:80%
+}
 
+.defdroit-cartefut{
+   position: absolute;
+   width: 15%; 
+   top:80%;
+left:80%
+  
 }
 .central1{
+position: absolute;
+width: 15%;
+top:90%;
+left:30%
+}
+.central1-cartefut{
 position: absolute;
 width: 15%;
 top:90%;
@@ -156,7 +168,20 @@ top:80%;
 left:9%
 
 }
+.defgauche-cartefut{
+position: absolute;
+width: 15%;
+top:80%;
+left:9%
+
+}
 .central2{
+position: absolute;
+width: 15%;
+top:90%;
+left:60%
+}
+.central2-cartefut{
 position: absolute;
 width: 15%;
 top:90%;
@@ -171,7 +196,19 @@ width: 15%;
 top:50%;
 left:70%
 }
+.md-cartefut{
+position: absolute;
+width: 15%;
+top:50%;
+left:70%
+}
 .mc1{
+position: absolute;
+width: 15%;
+top:65%;
+left:32%
+}
+.mc1-cartefut{
 position: absolute;
 width: 15%;
 top:65%;
@@ -183,7 +220,19 @@ width: 15%;
 top:65%;
 left:57%
 }
+.mc2-cartefut{
+position: absolute;
+width: 15%;
+top:65%;
+left:57%
+}
 .mg{
+position: absolute;
+width: 15%;
+top:50%;
+left:18%
+}
+.mg-cartefut{
 position: absolute;
 width: 15%;
 top:50%;
@@ -198,7 +247,19 @@ width: 15%;
 top:40%;
 left:55%
 }
+.att1-cartefut{
+position: absolute;
+width: 15%;
+top:40%;
+left:55%
+}
 .att2{
+position: absolute;
+width: 15%;
+top:40%;
+left:37%
+}
+.att2-cartefut{
 position: absolute;
 width: 15%;
 top:40%;

@@ -1,12 +1,11 @@
-.globalcard{
-    width: 13%;
-}
+
 
 
 .fut-player-card-team {
 	
-	width: 100%;
-	height: 485px;
+	width: 550%;
+	height: 200px;
+	background-size: 0%;
 	background-image: url(../assets/newcard.jpg);
 	display:flex;
 	background-size: 100% ;
@@ -16,7 +15,7 @@
 	-webkit-transition: 200ms ease-in;
 	-o-transition: 200ms ease-in;
 	transition: 200ms ease-in;	
-	margin-top: 100px;
+	
 }
 
 .fut-player-card-team:hover {
@@ -127,10 +126,13 @@ font-size: 0.7rem;
 }
 
 .player-info-team .player-name-team {
-	width: 100%;
+width: 100%;
 	display: block;
 	text-align: center;
-	font-size: 0.7rem;
+	/* font size du nom du joueur-------------------- */
+	/* font-size: 0.7rem; */
+	font-size: clamp(1em, 5em);
+	size: 50%;
 	text-transform: uppercase;
 	
 	padding-bottom: 0.3rem;
@@ -140,6 +142,8 @@ font-size: 0.7rem;
     margin-left: -23px;
     padding-top: 26px;
 }
+
+
  .player-info-team .player-name-team span {
 	display: block;
 	text-shadow: 2px 2px #111;
