@@ -1,0 +1,41 @@
+body{
+ 	  font-family: 'Sedgwick Ave Display', cursive;   
+}
+
+.formulaire{
+       background-image: url(../assets/marble.jpg);
+   background-size: cover;
+   background-attachment:fixed;
+    height: 40em;
+padding-top: 5%;
+ font-family: 'Sedgwick Ave Display', cursive;
+}
+
+.button-position{
+    margin-left: 47%;
+    margin-bottom: 5%;
+    margin-top: 1%;
+}
+
+.form-control{
+    width: 50% !important;
+    margin-left: 25%;
+   
+}
+
+.form-label, .form-text{
+    margin-left: 25%;
+}
+
+h1{
+    text-align: center;
+}
+
+.modif-ok{
+text-align: center;
+}
+
+.pass-error{
+text-align: center;
+color: red;
+}

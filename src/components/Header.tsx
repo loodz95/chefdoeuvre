@@ -68,7 +68,12 @@ return(
               className="moncompte"
             >
               
-              <NavDropdown.Item href="#action/3.1"> Mes informations</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.1">
+                   <NavLink className="dropdown" to="/mes-informations">
+                Mes informations
+                </NavLink>
+             
+                 </NavDropdown.Item>
              
               <NavDropdown.Item >
                  <NavLink className="dropdown" to="/liste-joueurs">

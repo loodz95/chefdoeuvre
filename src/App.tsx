@@ -15,6 +15,7 @@ import Header from "./components/Header";
 import ActuSelection from "./pages/ActuSelection";
 import CarteParId from "./pages/CarteParId";
 import ListeJoueurs from "./pages/ListeJoueurs";
+import Informations from "./pages/Informations";
 
 
 export interface PayloadToken{
@@ -22,7 +23,8 @@ export interface PayloadToken{
   iat: number;
   id: string;
   role: string;
-  username: string;
+  userName: string;
+  email:string
 }
 
 export interface User{
@@ -55,6 +57,7 @@ return (
         <Route path="/items/:id" element={<ActuSelection />} />
         <Route path="/players/:id" element={<CarteParId />} />
         <Route path="/liste-joueurs" element={<ListeJoueurs />} />
+        <Route path="/mes-informations" element={<Informations />} />
       </Routes>
     </BrowserRouter>
     <Footer/>
