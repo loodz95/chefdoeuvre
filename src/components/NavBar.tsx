@@ -7,16 +7,25 @@ import JoueursDeLaSemaine from "../pages/JoueursDeLaSemaine";
 import JoueursParStats from "../pages/RechercheDeJoueurs";
 import ActusFifa from "../pages/ActusFifa";
 import { AuthContext } from "../context/AuthContext";
-import {useContext, useEffect} from "react"
+import {useContext, useEffect, useState} from "react"
+import jwtDecode from "jwt-decode";
+import { PayloadToken } from "../App";
 
 const NavBar = () => {
 const {savedToken, UpdateToken, TokenExpirationFunction, tokenExpired} = useContext(AuthContext)
+const [tokenRole, setTokenRole]=useState<string>()
 
 const navigate = useNavigate()
 
 useEffect(()=>{
   UpdateToken(localStorage.getItem("accesstoken"))
   TokenExpirationFunction(localStorage.getItem("accesstoken"))
+
+  if (savedToken){
+    const token :PayloadToken = jwtDecode(savedToken);
+    setTokenRole(token.role)
+console.log("le role de l'utilisateur",tokenRole)
+  }
   
   console.log("token navbar useeffect",savedToken)
   console.log("expirationToken",tokenExpired)
@@ -78,16 +87,77 @@ console.log("navigate error")
                   Recherche de joueurs
                 </NavLink>
               </li>
-              <li className="nav-item">
-                <NavLink to="/joueursdelasemaine" className="nav-link myFont">
-                  Joueurs de la semaine
-                </NavLink>
-              </li>
+          
               <li className="nav-item">
                 <NavLink to="actusfifa" className="nav-link myFont">
                   Actus Fifa
                 </NavLink>
               </li>
+            <li className="nav-item dropdown">
+                        <NavLink
+                          to="/"
+                          className="nav-link buttonStyle myFont  dropdown-toggle"
+                          role="button"
+                          data-bs-toggle="dropdown"
+                          aria-expanded="false"
+                          onClick={tokenVerify}
+                        >
+
+                            Admin
+                   
+                        </NavLink>
+                        <ul className="dropdown-menu">
+                          <li>
+                        
+                            <NavLink
+                              to="/gestion-des-cartes"
+                              className="admin nav-link"
+                              onClick={tokenVerify}
+                            >
+                            Gestion des cartes 
+                            </NavLink>
+                          </li>
+                          <li>
+                            {/* <a className="dropdown-item" href="#">
+                            Action
+                          </a> */}
+                            <NavLink
+                              to="/adminFoods"
+                              className="admin nav-link "
+                              onClick={tokenVerify}
+                            >
+                            Joueurs de la semaine 
+                            </NavLink>
+                          </li>
+                          <li>
+                            <NavLink
+                              to="/adminUsers"
+                              className="admin nav-link"
+                              onClick={tokenVerify}
+                            >
+                              Gestion des utilisateurs
+                            </NavLink>
+                          </li>
+                          <li>
+                            <NavLink
+                              to="/adminMessages"
+                              className="admin nav-link "
+                              onClick={tokenVerify}
+                            >
+                               Gestion des messages 
+                            </NavLink>
+                          </li>
+                          <li>
+                            <NavLink
+                              to="/adminActivité"
+                              className="nav-link admin "
+                              onClick={tokenVerify}
+                            >
+                              Gestion des actus 
+                            </NavLink>
+                          </li>
+                        </ul>
+                      </li>
             </ul>
            
           </div>
