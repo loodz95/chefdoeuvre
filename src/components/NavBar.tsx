@@ -115,21 +115,10 @@ localStorage.removeItem("accesstoken")
                             Gestion des cartes 
                             </NavLink>
                           </li>
-                          <li>
-                            {/* <a className="dropdown-item" href="#">
-                            Action
-                          </a> */}
-                            <NavLink
-                              to="/adminFoods"
-                              className="admin nav-link "
-                              onClick={tokenVerify}
-                            >
-                            Joueurs de la semaine 
-                            </NavLink>
-                          </li>
+                      
                           <li>
                             <NavLink
-                              to="/adminUsers"
+                              to="/gestion-utilisateurs"
                               className="admin nav-link"
                               onClick={tokenVerify}
                             >
@@ -147,7 +136,7 @@ localStorage.removeItem("accesstoken")
                           </li>
                           <li>
                             <NavLink
-                              to="/adminActivité"
+                              to="/actu-admin"
                               className="nav-link admin "
                               onClick={tokenVerify}
                             >

@@ -1,3 +1,4 @@
+import axios from "axios"
 import React, { useState } from "react"
 import "./NouveauJoueur.css"
 
@@ -5,7 +6,7 @@ const NouveauJoueur =()=>{;
 const [nameState, setNameState]=useState<string>()
 const [firstNameState, setFirstNameState]=useState<string>()
 const [ageState, setAgeState]=useState<number>()
-const [countryState, setCountryState]=useState<number>()
+const [countryState, setCountryState]=useState<string>()
 const [positionState, setPositionState]=useState<string>()
 const [rateState, setRateState]=useState<number>()
 const [passState, setPassState]=useState<number>()
@@ -15,29 +16,33 @@ const [dribblesState, setDribblesState]=useState<number>()
 const [defenceState, setDefenceState]=useState<number>()
 const [powerState, setPowerState]=useState<number>()
 const [typeState, setTypeState]=useState<number>()
+const [message, setMessage] = useState<string>("")
 
-let start = 0
+let start = 100
 let tab= []
 
-for(let i =0 ; i<99;i++){
-start +=1
+for(let i =99 ; i>0;i--){
+start -=1
 tab.push(start)
 console.log(tab)
 }
 
 const nameFunction=(e:React.ChangeEvent<HTMLInputElement>)=>{
     setNameState(e.currentTarget.value)
+    console.log(nameState)
 }
 const firstNameFunction=(e:React.ChangeEvent<HTMLInputElement>)=>{
     setFirstNameState(e.currentTarget.value)
+      console.log(firstNameState)
 }
 const ageFunction=(e:React.ChangeEvent<HTMLInputElement>)=>{
     let number = Number(e.currentTarget.value)
     setAgeState(number)
 }
 const countryFunction=(e:React.ChangeEvent<HTMLInputElement>)=>{
-    let number = Number(e.currentTarget.value)
-    setCountryState(number)
+   
+    setCountryState(e.currentTarget.value)
+      console.log(countryState)
 }
 const positionFunction=(e:React.ChangeEvent<HTMLSelectElement>)=>{
     setPositionState(e.currentTarget.value)
@@ -77,9 +82,40 @@ const typeFunction=(e:React.ChangeEvent<HTMLSelectElement>)=>{
 
 const submitFunction =(e:React.FormEvent<HTMLFormElement>)=>{
     e.preventDefault()
-    console.log(e)
+          axios
+      .post("http://localhost:8080/api/players", {
+        firstName: firstNameState,
+        lastName: nameState,
+        age: ageState,
+        country: countryState,
+        position: positionState,
+        rate: rateState,
+        speed: speedState,
+        shots: shotstate,
+        pass:passState,
+        defence: defenceState,
+        dribbles:dribblesState,
+        power:powerState,
+        typeplayer: typeState      
+      },
+       {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('accesstoken')}`,
+          },
+        }
+      )
+      .then((res) => {
+       console.log("inscription réussie")
+       setMessage("Joueur ajouté")
+      })
+      .catch((err) => {
+        console.log("Inscription impossible", err);
+        
+      });
+ 
+  }
     
-}
+
 
 
     return(
@@ -188,6 +224,7 @@ const submitFunction =(e:React.FormEvent<HTMLFormElement>)=>{
       </select>
     </div>
     <div >
+      <p className="message-ajout">{message}</p>
         <button className="valider">Valider</button>
     </div>
 

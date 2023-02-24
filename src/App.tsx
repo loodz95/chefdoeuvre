@@ -18,6 +18,9 @@ import ListeJoueurs from "./pages/ListeJoueurs";
 import Informations from "./pages/Informations";
 import GestionDesCartes from "./pages/GestionDesCartes";
 import NouveauJoueur from "./pages/NouveauJoueur";
+import ActuAdmin from "./pages/ActuAdmin";
+import NouvelArticle from "./pages/NouvelArticle";
+import GestionUtilisateurs from "./pages/GestionUtilisateurs";
 
 
 export interface PayloadToken{
@@ -62,6 +65,9 @@ return (
         <Route path="/mes-informations" element={<Informations />} />
         <Route path="/gestion-des-cartes" element={<GestionDesCartes />} />
         <Route path="/nouveau-joueur" element={<NouveauJoueur />} />
+        <Route path="/actu-admin" element={<ActuAdmin />} />
+        <Route path="/nouvel-article" element={<NouvelArticle />} />
+        <Route path="/gestion-utilisateurs" element={<GestionUtilisateurs />} />
       </Routes>
     </BrowserRouter>
     <Footer/>

@@ -18,8 +18,14 @@
 
 .valider{
     margin-left: 30%;
-    margin-top: 5%;
+    margin-top: 2%;
     width: 40%;
     border-radius: 10px;
     margin-bottom: 5%;
+}
+
+.message-ajout{
+    text-align: center;
+    margin-top: 2%;
+
 }

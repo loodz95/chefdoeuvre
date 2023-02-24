@@ -1,0 +1,24 @@
+
+
+.supp-item{
+    border:none;
+    background-color: transparent;
+    font-size: 1.4em;
+}
+
+.toRow{
+	position: fixed;
+	top: 0;
+	right: 0;
+	z-index: 9;
+}
+
+.petitspoints{
+    text-decoration: none;
+}
+
+.add-item{
+    margin-left: 45%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}

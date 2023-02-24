@@ -70,7 +70,8 @@ const deletePlayer=()=>{
    axios.delete(`http://localhost:8080/api/players/${id}`,{
 	headers:{
 		Authorization: `Bearer ${localStorage.getItem('accesstoken')}`,
-	}}).then((res)=>{
+	}})
+  .then((res)=>{
 // --------------------------Nouvel appel API afin de mettre à jour le tableau--------------------
      axios.get(`http://localhost:8080/api/players/`,{
 	headers:{
