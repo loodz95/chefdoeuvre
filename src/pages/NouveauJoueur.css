@@ -1,0 +1,25 @@
+.nouveau-joueur{
+    height:100% ;
+          background-image: url(../assets/marble.jpg);
+   background-size: cover;
+   background-attachment:fixed;
+   
+}
+
+.type{
+    text-align: center;
+    padding-left: 50px;
+  
+}
+
+.row{
+    padding-top: 40px !important;
+}
+
+.valider{
+    margin-left: 30%;
+    margin-top: 5%;
+    width: 40%;
+    border-radius: 10px;
+    margin-bottom: 5%;
+}

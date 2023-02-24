@@ -1,0 +1,16 @@
+.gestion-cartes{
+      background-image: url(../assets/marble.jpg);
+   background-size: cover;
+   background-attachment:fixed;
+    height: 120%;
+}
+
+.ajouter-joueur{
+    text-align: center;
+    margin-top: 2%;
+    margin-bottom: 1rem;
+}
+
+.avant-footer{
+	height:100px
+}

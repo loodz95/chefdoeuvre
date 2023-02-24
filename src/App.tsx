@@ -17,6 +17,7 @@ import CarteParId from "./pages/CarteParId";
 import ListeJoueurs from "./pages/ListeJoueurs";
 import Informations from "./pages/Informations";
 import GestionDesCartes from "./pages/GestionDesCartes";
+import NouveauJoueur from "./pages/NouveauJoueur";
 
 
 export interface PayloadToken{
@@ -60,6 +61,7 @@ return (
         <Route path="/liste-joueurs" element={<ListeJoueurs />} />
         <Route path="/mes-informations" element={<Informations />} />
         <Route path="/gestion-des-cartes" element={<GestionDesCartes />} />
+        <Route path="/nouveau-joueur" element={<NouveauJoueur />} />
       </Routes>
     </BrowserRouter>
     <Footer/>

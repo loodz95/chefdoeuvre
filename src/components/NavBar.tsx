@@ -13,7 +13,7 @@ import { PayloadToken } from "../App";
 
 const NavBar = () => {
 const {savedToken, UpdateToken, TokenExpirationFunction, tokenExpired} = useContext(AuthContext)
-const [tokenRole, setTokenRole]=useState<string>()
+const [tokenRole, setTokenRole]=useState<string|undefined>("")
 
 const navigate = useNavigate()
 
@@ -25,24 +25,21 @@ useEffect(()=>{
     const token :PayloadToken = jwtDecode(savedToken);
     setTokenRole(token.role)
 console.log("le role de l'utilisateur",tokenRole)
+  }else{
+    setTokenRole(undefined)
   }
-  
+  console.log("le role de l'utilisateur",tokenRole)
   console.log("token navbar useeffect",savedToken)
   console.log("expirationToken",tokenExpired)
-})
+}
+)
 
   const tokenVerify= async (e:React.MouseEvent)=>{
     UpdateToken(localStorage.getItem("accesstoken"))
-   if(savedToken === null)
-  try{
- await
- 
-   console.log("token navbar",localStorage.getItem("accesstoken"))
-console.log("navigate try")
-navigate("/")
-  }catch(error){
-console.log("navigate error")
-  }
+   if(savedToken === null || tokenExpired === "token expiré"){
+localStorage.removeItem("accesstoken")
+   }
+
 }
 
 
@@ -93,6 +90,7 @@ console.log("navigate error")
                   Actus Fifa
                 </NavLink>
               </li>
+              {tokenRole === "admin" &&(
             <li className="nav-item dropdown">
                         <NavLink
                           to="/"
@@ -158,6 +156,7 @@ console.log("navigate error")
                           </li>
                         </ul>
                       </li>
+                      )}
             </ul>
            
           </div>

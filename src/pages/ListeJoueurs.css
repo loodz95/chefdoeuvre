@@ -2,7 +2,11 @@
       background-image: url(../assets/marble.jpg);
    background-size: cover;
    background-attachment:fixed;
-    height: 40em;
+    height: 120%;
+}
+
+.good{
+	 height: 120%;
 }
 
 .ban{
@@ -209,6 +213,7 @@ width: 100%;
 	text-align: center;
 	display:flex;
 	flex-direction: row;
+	margin-top:50px
 	
 }
 
@@ -241,10 +246,16 @@ left:60%;
 }
 
 .joueur-position-Mobile{
-position: relative;
+position: absolute;
 left:80%;
 	margin-top: 50px;
 }
 
+.j{
+	position:absolute
+}
 
+.avant-footer{
+	height:50px
+}
 

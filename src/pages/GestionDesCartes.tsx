@@ -8,6 +8,8 @@ import Bann from "../components/Bann"
 import { AuthContext } from "../context/AuthContext"
 import jwt_Decode from "jwt-decode"
 import { Players } from "./RechercheDeJoueurs"
+import "./GestionDesCartes.css"
+import { Navigate, useNavigate } from "react-router-dom"
 
 const GestionDesCartes = ()=>{
 
@@ -20,6 +22,7 @@ const {TokenExpirationFunction,savedToken}=useContext(AuthContext)
       const [nomJoueur,setNomJoueur] = useState<string>()
       const [id, setId]=useState<string>();
       const [tabBis, setTabBis]= useState<Players[]>()
+      const navigate = useNavigate()
 
       useEffect(()=>{
       
@@ -94,16 +97,21 @@ console.log(err)
   
 }
 
+const addPlayer = ()=>{
+  navigate("/nouveau-joueur")
+}
 
 
 
 
     return(
-        <div>
+        <div className="gestion-cartes">
   <div className="ban">
  <Bann banValue={message}/>
 </div>
-
+<div  className="ajouter-joueur">
+  <button onClick = {addPlayer}>Ajouter un joueur</button>
+</div>
 <div className="good">
           {/* ------------------------------------------------Disposition des éléments----------------------------------------- */}
 
@@ -230,6 +238,7 @@ console.log(err)
 </MediaQuery>
               
             </div> 
+            <div className="avant-footer"></div>
         </div>
     )
 }

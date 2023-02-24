@@ -221,6 +221,7 @@ console.log(err)
             <p className="joueurMobile ">Nom</p>
             <p className="joueur-note-Mobile ">Not</p>
             <p className="joueur-position-Mobile">Post</p>
+            <p className="joueur-position-Mobile"></p>
        </div>
    
     
@@ -237,6 +238,7 @@ console.log(err)
                     <p className="joueur-note-Mobile " >{player.players.rate} </p>
                        
                     <p className="joueur-position-Mobile " >{player.players.position} </p>
+                    <p className=" " ></p>
                    <button className="poubelle" value={player.players.id} name={player.players.lastName}   onClick={deleteFunction}><IoTrashOutline /></button>
                   </div>
                 </div>
@@ -248,7 +250,7 @@ console.log(err)
               
             </div> 
  
- 
+ <div className="avant-footer"></div>
         </div>
     )
 }
