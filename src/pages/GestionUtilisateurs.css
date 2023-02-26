@@ -1,0 +1,93 @@
+.gestion-utilisateurs{
+          background-image: url(../assets/marble.jpg);
+   background-size: cover;
+   background-attachment:fixed;
+    height: 120%;
+   
+}
+
+.entete{
+    display: flex;
+    justify-content: space-around;
+   
+}
+.infos{
+    display: flex;
+    justify-content: space-around;
+   
+}
+
+.pseudo-titre{
+   position: absolute;
+   left: 0%;
+}
+.pseudo-titre-entete{
+   position: absolute;
+   left: 0%;
+   		  font-family: 'Sedgwick Ave Display', cursive;
+  text-shadow:#e7f6ff 0 -1px 0,
+rgb(190, 162, 7) 1px 1px 0,
+white 2px 2px 0,
+brown 3px 3px 0,
+#333 5px 5px 10px;
+color:black;
+font-size: 25px;
+}
+.role-titre{
+  position: absolute; 
+   left: 80%; 
+     animation-duration: .9s;
+   animation-name: clignoter;
+   animation-iteration-count: infinite;
+   transition: none;
+   color: red;
+     font-family: 'Sedgwick Ave Display', cursive;
+}
+.role-titre-entete{
+  position: relative; 
+  left: 15%; 
+  		  font-family: 'Sedgwick Ave Display', cursive;
+  text-shadow:#e7f6ff 0 -1px 0,
+rgb(190, 162, 7) 1px 1px 0,
+white 2px 2px 0,
+brown 3px 3px 0,
+#333 5px 5px 10px;
+color:black;
+font-size: 25px;
+}
+.email-titre{
+position: relative;
+left: 0%;
+
+}
+.email-titre-entete{
+position: relative;
+left: 23%;
+		  font-family: 'Sedgwick Ave Display', cursive;
+  text-shadow:#e7f6ff 0 -1px 0,
+rgb(190, 162, 7) 1px 1px 0,
+white 2px 2px 0,
+brown 3px 3px 0,
+#333 5px 5px 10px;
+color:black;
+font-size: 25px;	  
+}
+
+@keyframes clignoter {
+  0%   { opacity:1; }
+  40%   {opacity:0; }
+  100% { opacity:1; }
+}
+
+.change-role{
+    border:none;
+    background-color: transparent;
+    animation: none;
+}
+
+.poubelle-user{
+    border:none;
+    background-color: transparent;
+    font-size: 2em;
+   
+}

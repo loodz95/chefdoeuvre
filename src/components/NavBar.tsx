@@ -90,7 +90,7 @@ localStorage.removeItem("accesstoken")
                   Actus Fifa
                 </NavLink>
               </li>
-              {tokenRole === "admin" &&(
+              {tokenRole === "admin" && tokenExpired === "token non expiré" &&(
             <li className="nav-item dropdown">
                         <NavLink
                           to="/"
