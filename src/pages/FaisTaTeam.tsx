@@ -453,9 +453,11 @@ tabArg?.map((player, i)=>(
 
 tabMcd?.map((player, i)=>(
   <div  className="mc1">
+    <Draggable>
   <div onClick={selectFunctionMcd} key={i} className="cartefut">
     <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName}/>
   </div>
+  </Draggable>
   </div>
 ))
 ))}
@@ -471,9 +473,11 @@ tabMcd?.map((player, i)=>(
 
 tabMcg?.map((player, i)=>(
   <div  className="mc2">
+    <Draggable>
   <div onClick={selectFunctionMcg} key={i} className="cartefut">
     <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName}/>
   </div>
+  </Draggable>
   </div>
 ))
 ))}
@@ -490,9 +494,11 @@ tabMcg?.map((player, i)=>(
 
 tabMd?.map((player, i)=>(
   <div  className="md">
+    <Draggable>
   <div onClick={selectFunctionMd} key={i} className="cartefut">
     <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName}/>
   </div>
+  </Draggable>
   </div>
 ))
 ))}
@@ -533,14 +539,17 @@ tabMg?.map((player, i)=>(
 
 tabAt1?.map((player, i)=>(
   <div  className="att1">
+    <Draggable>
   <div onClick={selectFunctionAtt1} key={i} className="cartefut">
     <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName}/>
   </div>
+  </Draggable>
   </div>
 ))
 ))}
           {(tabAt2?.length==undefined &&(
           <div  className="att2">
+            
              <div  onClick={selectFunctionAtt2} className="carte-mystère">
                <CarteMystère/> 
 </div>
@@ -551,9 +560,11 @@ tabAt1?.map((player, i)=>(
 
 tabAt2?.map((player, i)=>(
   <div  className="att2">
+    <Draggable>
   <div onClick={selectFunctionAtt2} key={i} className="cartefut">
     <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName}/>
   </div>
+  </Draggable>
   </div>
 ))
 ))}

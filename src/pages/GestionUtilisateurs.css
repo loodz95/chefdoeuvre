@@ -1,4 +1,5 @@
 .gestion-utilisateurs{
+  
           background-image: url(../assets/marble.jpg);
    background-size: cover;
    background-attachment:fixed;
@@ -19,11 +20,12 @@
 
 .pseudo-titre{
    position: absolute;
-   left: 0%;
+   left: 10%;
+margin-top: 2em;
 }
 .pseudo-titre-entete{
    position: absolute;
-   left: 0%;
+   left: 10%;
    		  font-family: 'Sedgwick Ave Display', cursive;
   text-shadow:#e7f6ff 0 -1px 0,
 rgb(190, 162, 7) 1px 1px 0,
@@ -34,8 +36,9 @@ color:black;
 font-size: 25px;
 }
 .role-titre{
-  position: absolute; 
-   left: 80%; 
+  position: relative; 
+   left: 40%; 
+   margin-top: 3em;
      animation-duration: .9s;
    animation-name: clignoter;
    animation-iteration-count: infinite;
@@ -45,7 +48,7 @@ font-size: 25px;
 }
 .role-titre-entete{
   position: relative; 
-  left: 15%; 
+  left: 39%; 
   		  font-family: 'Sedgwick Ave Display', cursive;
   text-shadow:#e7f6ff 0 -1px 0,
 rgb(190, 162, 7) 1px 1px 0,
@@ -56,13 +59,14 @@ color:black;
 font-size: 25px;
 }
 .email-titre{
-position: relative;
-left: 0%;
+position: absolute;
+left: 45%;
+   margin-top: 3.2em;
 
 }
 .email-titre-entete{
-position: relative;
-left: 23%;
+position: absolute;
+left: 45%;
 		  font-family: 'Sedgwick Ave Display', cursive;
   text-shadow:#e7f6ff 0 -1px 0,
 rgb(190, 162, 7) 1px 1px 0,

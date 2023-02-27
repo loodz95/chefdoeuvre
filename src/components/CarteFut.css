@@ -3,9 +3,9 @@
 
 .fut-player-card-team {
 	
-	width: 440%;
-	height: 200px;
-	background-size: 0%;
+	width: 420%;
+	height: 190px;
+	
 	background-image: url(../assets/newcard.jpg);
 	display:flex;
 	background-size: 100% ;
@@ -97,7 +97,7 @@ font-size: 0.7rem;
 	right: 0;
 	bottom: -0.5rem;
 	overflow: hidden;
-	font-size: 1rem;
+	font-size: 0.7rem;
 	font-weight: 700;
 	text-transform: uppercase;
 	width: 100%;
@@ -130,8 +130,8 @@ width: 100%;
 	display: block;
 	text-align: center;
 	/* font size du nom du joueur-------------------- */
-	/* font-size: 0.7rem; */
-	font-size: clamp(1em, 5em);
+	font-size: 0.7rem;
+	
 	size: 50%;
 	text-transform: uppercase;
 	
