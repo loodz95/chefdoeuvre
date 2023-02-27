@@ -111,7 +111,7 @@ const addPlayer = ()=>{
  <Bann banValue={message}/>
 </div>
 <div  className="ajouter-joueur">
-  <button onClick = {addPlayer}>Ajouter un joueur</button>
+  <button className="ajouter-joueur-button" onClick = {addPlayer}>Ajouter un joueur</button>
 </div>
 <div className="good">
           {/* ------------------------------------------------Disposition des éléments----------------------------------------- */}

@@ -14,3 +14,25 @@
 .avant-footer{
 	height:100px
 }
+
+.ajouter-joueur-button{
+    border-radius: 10px;
+      font-family: 'Sedgwick Ave Display', cursive;
+    color: white;
+    background-color: black;
+  
+    text-align: center;
+}
+
+@media screen and (max-width: 759px) {
+    .ajouter-joueur-button{
+    border-radius: 10px;
+      font-family: 'Sedgwick Ave Display', cursive;
+    color: white;
+    background-color: black;
+ position:absolute;
+ top:44%;
+ left:33%;
+    text-align: center;
+}
+}

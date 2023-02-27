@@ -1,12 +1,16 @@
 import "./CarteFut.css";
 
 
+
+
 export interface CarteProps{
  note: number;
  position: string ;
  nom: string
 
 }
+
+
 
 
 const CarteFut=( props: CarteProps)=>{
@@ -16,10 +20,10 @@ const CarteFut=( props: CarteProps)=>{
 
     return(
      
-<div className="fut-player-card-team">
+<div className="fut-player-card-team-perso">
               
-                <div className="player-card-top-team">
-                  <div className="player-master-info-team">
+           <div className="taille-carte">    
+             
                     <div className="player-rating-team">
                       <span>{props.note}</span>
                     </div>
@@ -31,17 +35,18 @@ const CarteFut=( props: CarteProps)=>{
                     </div>
                     <div className="player-club-team">
                       {/* image drapeau club */}
-                    </div>
+               
                   </div>
                   <div className="player-picture-team">
                     {/* image photo du joueur */}
 
                   </div>
-                </div>
+             
                 
                   <div className="player-info-team">
 
                     <div className="player-name-team">
+   
                     <span>{props.nom}</span>
                   
                     </div>
@@ -54,7 +59,7 @@ const CarteFut=( props: CarteProps)=>{
                     </div>
                   </div>
            
-          
+          </div>
                </div>
       
     )

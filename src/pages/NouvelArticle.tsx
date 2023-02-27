@@ -39,10 +39,10 @@ setContainState(e.currentTarget.value)
 }
 
     return(
-        <div>
+        <div className="nouvel-article">
 <form onSubmit = {submitFunction}>
   <div >
-    <div >
+    <div className="container-form" >
       <input onChange={titleFunction} type="text" className="form-control article-titre" placeholder="Titre"/>
     </div>
     <div className="contenu">

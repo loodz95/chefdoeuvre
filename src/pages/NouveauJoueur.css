@@ -17,15 +17,21 @@
 }
 
 .valider{
-    margin-left: 30%;
+    margin-left: 36%;
     margin-top: 2%;
-    width: 40%;
+    width: 30%;
     border-radius: 10px;
     margin-bottom: 5%;
+    background-color: black;
+    color: white;
 }
 
 .message-ajout{
     text-align: center;
     margin-top: 2%;
 
+}
+
+.form-contro{
+     font-family: 'Sedgwick Ave Display', cursive !important;
 }

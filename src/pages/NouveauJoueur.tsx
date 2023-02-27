@@ -119,17 +119,17 @@ const submitFunction =(e:React.FormEvent<HTMLFormElement>)=>{
 
 
     return(
-        <div className="nouveau-joueur">
+        <div className="nouveau-joueur myFont">
 <form onSubmit = {submitFunction}>
   <div className="row">
-    <div className="col">
-      <input onChange={nameFunction} type="text" className="form-control" placeholder="Nom"/>
+    <div className="col ">
+      <input  onChange={nameFunction} type="text" className="form-control" placeholder="Nom"/>
     </div>
     <div className="col">
       <input onChange={firstNameFunction} type="text" className="form-control" placeholder="Prénom"/>
     </div>
     <div className="col">
-      <input onChange={ageFunction} type="text" className="form-control" placeholder="Age"/>
+      <input onChange={ageFunction} type="number" min={12} max={99} className="form-control" placeholder="Age"/>
     </div>
   </div>
   <div className="row">
