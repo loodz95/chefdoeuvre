@@ -17,6 +17,9 @@ code {
 @import url("https://fonts.googleapis.com/css2?family=Acme&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Barlow&display=swap');
 
+  @import url('https://fonts.googleapis.com/css2?family=Barlow&family=Teko:wght@300&display=swap');
+
+
 @media screen and (max-width: 1280px)
 {
 body{

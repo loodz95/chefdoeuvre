@@ -11,19 +11,26 @@ black 5px 5px 0,
 }
 
 .myFont{
-font-family: 'Sedgwick Ave Display', cursive;
+font-family: 'Teko', sans-serif;  
 color:white !important;
+font-size: 1.8em !important;
 }
 
 .navbar{
+  z-index: 1;
   background-image:url(../assets/etoiles.jpeg);
 background-size: 100%;
 background-repeat: no-repeat;
 background-attachment: fixed;
 box-shadow: 0px 4px 5px white ;
+background-color: black;
 
 }
 
+.nav-link{
+ 
+  color: white !important;
+}
 
 .navbar-collapse{
   background-color:black;
@@ -32,16 +39,18 @@ box-shadow: 0px 4px 5px white ;
 
 .navbar-toggler{
   color:white;
-
+ padding-left: 10px;
 
 }
 
 .navbar-toggler-icon{
-  background-color:white;
+  
   border-style: solid;
   border-color:rgb(190, 162, 7);
   border-radius:10px;
   color:white;
+  background-color: white;
+  padding-left: 10px;
 }
 
 .body{
@@ -61,12 +70,26 @@ box-shadow: 0px 4px 5px white ;
 }
 
 .admin{
-font-family: 'Sedgwick Ave Display', cursive;
+font-family: 'Teko', sans-serif;
 text-decoration: none;
-color: black;
+
+color: white !important;
 }
 
+.dropdown-menu{
+background-color: black !important;
+color: white !important;
+}
 
+.show{
+  background-color:black
+}
 
+.nav-item{
+  z-index: 10;
+}
 
+.buttonStyle{
+font-size: 1.1em !important
+}
 

@@ -123,7 +123,7 @@ if(passState === passVerifState){
         <Modal.Title className="colorTitle" >Connexion</Modal.Title>
       </Modal.Header>
       <Modal.Body className="colorBody">
-  <div className="form-group column">
+  <div className="form-group column font-modal">
     <label htmlFor="email" className="col-sm-2 col-form-label">Pseudo</label>
     <div className="col-sm-10">
       <input onChange={handlePseudo} type="mail"   className="pseudo" id="email"/>
@@ -154,7 +154,7 @@ if(passState === passVerifState){
   <div className="form-group column">
     <label htmlFor="email" className="col-sm-2 col-form-label">Email</label>
     <div className="col-sm-10">
-      <input onChange={handleMail} type="mail"   className="pseudo" id="email"/>
+      <input onChange={handleMail} type="email"   className="pseudo" id="email"/>
     </div>
   </div>
   <div className="form-group column">

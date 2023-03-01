@@ -6,6 +6,7 @@
    background-attachment:fixed;
     height: 100%;
 	width: 100%;
+	
 }
 
 .background2{
@@ -29,7 +30,8 @@
      background-image: url(../assets/marble.jpg);
      background-size: cover;
    background-attachment:fixed;
- 
+ font-family: 'Teko', sans-serif;
+ font-size: 30px;
  
 }
 
@@ -48,7 +50,7 @@ color:rgb(190, 162, 7);
 }
 
 .fontsidebar{
-   		  font-family: 'Sedgwick Ave Display', cursive;
+   		
   text-shadow:#e7f6ff 0 -1px 0,
 rgb(190, 162, 7) 1px 1px 0,
 white 2px 2px 0,
@@ -69,10 +71,10 @@ font-size: 20px;
 .styleListe {
 	list-style-type: none;
 	margin-top: 50px;
-	font-family: 'Sedgwick Ave Display', cursive;
+	font-family: 'Teko', sans-serif;
 	
 	display:flex;
-	
+	font-size: 30px;
 	
 }
 .styleListe-attributs {
@@ -98,7 +100,7 @@ font-size: 25px;
 	display: flex;
 	flex-wrap:wrap;
 	
-
+z-index: 9;
 }
 
 
@@ -109,7 +111,7 @@ font-size: 25px;
 display:flex;
 height:100%;
 width:50px	;
-	 
+	z-index: 9;	 
 }
 
 .backrecherche{
@@ -126,7 +128,8 @@ background-color:black;
 .listerecherche{
 
 	padding-left:40px;
-	  font-family: 'Sedgwick Ave Display', cursive;
+	font-family: 'Teko', sans-serif;
+	font-size: 30px;
 	  text-decoration: none;
 	  height:100%;
 	  margin-top:20px;
@@ -141,7 +144,8 @@ display: flex;
 }
 
 .affichage{
-	  font-family: 'Sedgwick Ave Display', cursive;
+font-family: 'Teko', sans-serif;
+font-weight: bolder;
 	position: absolute;
 	left: 50%;
 	top:43%
@@ -149,6 +153,7 @@ display: flex;
 
 .boutonaffichage{
 	background-color:transparent;
+	
 }
 
 
@@ -164,6 +169,7 @@ display: flex;
 
 .filtretitre{
 	font-size: 30px;
+	
 }
 
 .hidden{
@@ -188,6 +194,7 @@ display: flex;
    background-attachment:fixed;
    padding-bottom: 10px;
    border-radius: 10px;
+   border: none;
 }
 
 .boutonresultat{
@@ -203,6 +210,7 @@ display: flex;
 .searchbar{
 text-align: end;
 margin-top: 20px;
+z-index: 15;
 }
 
 
@@ -421,7 +429,7 @@ width: 100%;
 
 
 .colomnejoueur{
-	position: static;
+	position: absolute;
 left:20%;	
 
 text-decoration: none;
@@ -465,7 +473,8 @@ left:77%
 
 .colomnedefensejoueur{
 position: absolute;
-left:85%
+left:85%;
+
 }
 
 .div-pass{
@@ -476,6 +485,11 @@ margin-left: 1000px
 
 .colomnepassejoueur{
 position: absolute;
+left: 94%;
+
+}
+.colomnepassejoueurtest{
+position: relative;
 left: 94%;
 
 }
@@ -503,7 +517,7 @@ left: 94%;
 	
 	display:flex;
 	position: relative;
-font-family: 'Sedgwick Ave Display', cursive;
+font-family: 'Teko', sans-serif;
 
 	width: 100%;
 z-index: 9;
@@ -517,7 +531,7 @@ z-index: 9;
 .att {
  margin-left: 0%;
  margin-right: 3.3%;
-  font-family: 'Sedgwick Ave Display', cursive;
+font-family: 'Teko', sans-serif;
   background-color: transparent;
   border: none;
   margin-top: 10px;
@@ -588,8 +602,9 @@ z-index: 9;
 .listPlayers{
 	text-decoration: none;
 display: flex;
-flex-direction: column;
-font-family: 'Sedgwick Ave Display', cursive;
+
+font-family: 'Teko', sans-serif;
+font-size: 1.5em;
 width: 100%;
 
 }
@@ -597,17 +612,18 @@ width: 100%;
 
 
 .styleListeMobile {
-list-style-type: none;
+
 width: 100%;
 	text-align: center;
 	display:flex;
-	
+	align-items: center;
+	margin-bottom: 30px;
 }
 
 .colomnejoueurMobile{
 
 position:absolute;
-left:20%
+left:15%
 }
 
 
@@ -624,8 +640,12 @@ left:60%;
 }
 
 .colomnepositionjoueurMobile{
+position:absolute;
+left:80%
+}
+.colomnepositionjoueurMobileTest{
 position:relative;
-
+left:10%
 }
 
 .searchbar{
@@ -676,13 +696,16 @@ width: 100%;
 .fond{
 background-color: white;
    padding-bottom: 10px;
-   border-radius: 10px;
+   
+   border: none;
+   font-size: 25px;
 }
 
 .affichage{
 	
-	top:52%;
-	font-size: 25px;
+top: 56%;
+left:42%
+
 }
 
 .filtre{
@@ -690,7 +713,9 @@ margin-left: 10px;
 position: absolute;
 margin-top:5px ;
 background-color: transparent;
-  border-radius: 10px;
+border:none;
+font-size: 20px;
+font-weight: bold;
 }
 .fontsidebar{
 	background-color: white;
@@ -706,4 +731,60 @@ width: 20%;
 .fut-player-card {
 	margin-left: 50px;
 }
+/* ---------------------------------------------------------test pour pagination-------------------------------------- */
+
+.pagination {
+ align-items: center; 
+ margin-left: 3%;
 }
+
+
+.pagination .text {
+	/* Taille chiffre à gauche */
+  opacity: 0.6;
+  font-size: 1.5rem;
+}
+
+
+
+.page {
+	/* Configuration des boutons changement de page */
+  color: black;
+  height: 3rem;
+  width: 3rem;
+ 
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border: solid 0.2rem rgb(190, 162, 7) ;
+  background-color: transparent;
+  border-radius: 0.7rem;
+  cursor: pointer;
+  
+}
+
+.page.active,
+.page:hover {
+	/* configuration intérieur des boutons changement de page */
+  background-color: black;
+  color:white
+}
+
+.page.disabled {
+  background-color: transparent !important;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.restantpage{
+	  background-image: url(../assets/marble.jpg);
+  
+    width: 100%;
+   background-attachment:fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+	
+}
+}
+
+

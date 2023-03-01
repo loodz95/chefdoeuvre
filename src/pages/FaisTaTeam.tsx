@@ -332,18 +332,16 @@ return(
       {savedPlayers?.map((player,i)=>(
         <div key={i} className="players-modal">
         <button className="select-player" onClick={insertFunction} value={player.players.id}>
-          <p>{player.players.firstName}</p>
-          <p>{player.players.lastName}</p>
-          <p>{player.players.position}</p>
-          <p>{player.players.rate}</p>
+          <p className="selection">{player.players.firstName}</p>
+          <p className="selection">{player.players.lastName}</p>
+          <p className="selection">{player.players.position}</p>
+          <p className="selection">{player.players.rate}</p>
           </button>
         </div>
       ))}
  
       </Modal.Body>
-      <Modal.Footer className="colorFooter">
-        <button  className="phraseModal">Pas encore inscrit ? C'est par ici !</button>
-      </Modal.Footer>
+   
     </Modal>
 
 
@@ -375,7 +373,8 @@ return(
 tabArd?.map((player, i)=>(
   <div  className="defdroit">
   <div onClick={selectFunctionArd} key={i} className="cartefut">
-    <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName}/>
+    <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName} image={player.players.picture}/>
+     <img className="testImage" src= {`http://localhost:8080/public/assets/${player.players.picture}`} alt="image-joueur"/>
   </div>
   </div>
 ))
@@ -396,7 +395,7 @@ tabArd?.map((player, i)=>(
 tabDcd?.map((player, i)=>(
   <div  className="central1">
   <div onClick={selectFunctionDc1} key={i} className="cartefut">
-    <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName}/>
+    <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName} image={player.players.picture}/>
   </div>
   </div>
 ))
@@ -414,7 +413,7 @@ tabDcd?.map((player, i)=>(
 tabDcg?.map((player, i)=>(
   <div  className="central2">
   <div onClick={selectFunctionDc2} key={i} className="cartefut">
-    <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName}/>
+    <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName} image={player.players.picture}/>
   </div>
   </div>
 ))
@@ -432,7 +431,7 @@ tabDcg?.map((player, i)=>(
 tabArg?.map((player, i)=>(
   <div  className="defgauche">
   <div onClick={selectFunctionArg} key={i} className="cartefut">
-    <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName}/>
+    <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName} image={player.players.picture}/>
   </div>
   </div>
 ))
@@ -453,11 +452,11 @@ tabArg?.map((player, i)=>(
 
 tabMcd?.map((player, i)=>(
   <div  className="mc1">
-    <Draggable>
+  
   <div onClick={selectFunctionMcd} key={i} className="cartefut">
-    <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName}/>
+    <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName} image={player.players.picture}/>
   </div>
-  </Draggable>
+  
   </div>
 ))
 ))}
@@ -473,11 +472,11 @@ tabMcd?.map((player, i)=>(
 
 tabMcg?.map((player, i)=>(
   <div  className="mc2">
-    <Draggable>
+   
   <div onClick={selectFunctionMcg} key={i} className="cartefut">
-    <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName}/>
+    <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName}image={player.players.picture}/>
   </div>
-  </Draggable>
+  
   </div>
 ))
 ))}
@@ -494,11 +493,11 @@ tabMcg?.map((player, i)=>(
 
 tabMd?.map((player, i)=>(
   <div  className="md">
-    <Draggable>
+  
   <div onClick={selectFunctionMd} key={i} className="cartefut">
-    <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName}/>
+    <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName} image={player.players.picture}/>
   </div>
-  </Draggable>
+  
   </div>
 ))
 ))}
@@ -520,7 +519,7 @@ tabMd?.map((player, i)=>(
 tabMg?.map((player, i)=>(
   <div  className="mg">
   <div onClick={selectFunctionMg} key={i} className="cartefut">
-    <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName}/>
+    <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName} image={player.players.picture}/>
   </div>
   </div>
 ))
@@ -541,7 +540,7 @@ tabAt1?.map((player, i)=>(
   <div  className="att1">
     <Draggable>
   <div onClick={selectFunctionAtt1} key={i} className="cartefut">
-    <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName}/>
+    <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName} image={player.players.picture}/>
   </div>
   </Draggable>
   </div>
@@ -562,7 +561,7 @@ tabAt2?.map((player, i)=>(
   <div  className="att2">
     <Draggable>
   <div onClick={selectFunctionAtt2} key={i} className="cartefut">
-    <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName}/>
+    <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName} image={player.players.picture}/>
   </div>
   </Draggable>
   </div>
@@ -586,7 +585,9 @@ tabAt2?.map((player, i)=>(
         <li className="rpcposition6">17</li>
         <li className="rpcposition7">18</li>
         </div> */}
-      
+         <div className="test">
+fuxkyou
+          </div>
   </div>
   )
 };

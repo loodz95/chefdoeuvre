@@ -8,6 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import MediaQuery from "react-responsive";
 import { IoTrashOutline } from "react-icons/io5";
 import "./ActuAdmin.css"
+import CarteFut from "../components/CarteFut";
 
 
 
@@ -82,7 +83,7 @@ const addItem = ()=>{
     navigate("/nouvel-article")
 
 }
-
+const fuck ="fuck"
     return(
         <div className="actufifa">
    <Bann banValue={message}/>
@@ -150,6 +151,7 @@ const addItem = ()=>{
       
    ))}
    </div>
+
 
         </div>
     )

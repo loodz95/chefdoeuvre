@@ -3,7 +3,241 @@
    
    /* ------------------------------------------------config desktop----------------------------------------------------------------------------- */
 
-@media screen and (min-width: 000px) {
+
+    .team{
+      background-image: url(../assets/etoiles.jpeg);
+    height: 100%;
+    width: 100%;
+   background-attachment:fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    z-index: 1;   
+}
+
+.testImage{
+    height: 550px;
+    width: 500px;
+}
+
+.titre{
+        padding-top:50px  ;
+        padding-left:390px;
+         
+}
+.titre2:hover{
+    color: rgb(190, 162, 7)  
+}
+.titre2{
+        padding-top:50px  ;
+        padding-left:390px;
+        cursor:pointer;
+}
+
+.rpc{
+    padding-left:70%;
+    margin-top:80px    
+}
+
+.carteFUT{
+    background-image: url(../assets/carteFUT.png);
+    background-repeat: no-repeat; 
+    
+   
+}
+
+.terrainGlobal{
+ 
+ background-image:url(../assets/terrain.jpg);
+ width: 100%;
+ background-repeat:no-repeat;
+ 
+background-position:center;
+ height: 90em;
+ 
+
+
+}
+
+.carteFutimage{
+    height: 5%;
+}
+
+
+.h1Titre{
+    display:flex;
+}
+
+.cartefut{
+width: 100%;
+height:20%;
+}
+.carte-mystère{
+ width: 15%
+}
+
+
+.liste-joueurs{
+    display:flex;
+  margin-left: 70%;
+    
+}
+
+.goal{
+ position: absolute;
+width: 15%;
+top:150%;
+left:44%   
+}
+
+.defense{
+    
+}
+.defdroit{
+position: absolute;
+width: 15%;
+top:110%;
+left:77%
+}
+
+.defdroit-cartefut{
+   position: absolute;
+   width: 15%; 
+   top:80%;
+left:80%
+  
+}
+.central1{
+position: absolute;
+width: 15%;
+top:120%;
+left:30%
+}
+.central1-cartefut{
+position: absolute;
+width: 15%;
+top:90%;
+left:30%
+}
+.defgauche{
+position: absolute;
+width: 15%;
+top:110%;
+left:7%
+
+}
+.defgauche-cartefut{
+position: absolute;
+width: 15%;
+top:80%;
+left:9%
+
+}
+.central2{
+position: absolute;
+width: 15%;
+top:120%;
+left:55%
+}
+.central2-cartefut{
+position: absolute;
+width: 15%;
+top:90%;
+left:60%
+}
+.milieu{
+
+}
+.md{
+position: absolute;
+width: 15%;
+top:77%;
+left:75%
+}
+.md-cartefut{
+position: absolute;
+width: 15%;
+top:50%;
+left:70%
+}
+.mc1{
+position: absolute;
+width: 15%;
+top:92%;
+left:32%
+}
+.mc1-cartefut{
+position: absolute;
+width: 15%;
+top:65%;
+left:32%
+}
+.mc2{
+position: absolute;
+width: 15%;
+top:92%;
+left:57%
+}
+.mc2-cartefut{
+position: absolute;
+width: 15%;
+top:65%;
+left:57%
+}
+.mg{
+position: absolute;
+width: 15%;
+top:77%;
+left:15%
+}
+.mg-cartefut{
+position: absolute;
+width: 15%;
+top:50%;
+left:18%
+}
+.attaque{
+
+}
+.att1{
+position: absolute;
+width: 15%;
+top:67%;
+left:55%
+}
+.att1-cartefut{
+position: absolute;
+width: 15%;
+top:40%;
+left:55%
+}
+.att2{
+position: absolute;
+width: 15%;
+top:67%;
+left:37%
+}
+.att2-cartefut{
+position: absolute;
+width: 15%;
+top:40%;
+left:37%
+}
+.players-modal{
+    display:flex;
+    justify-content: space-between;
+}
+
+.select-player{
+    display:flex;
+      justify-content: space-between;
+    width: 100%;
+    height: 10%;
+    border:none;
+    background-color: transparent;
+}
+
+@media screen and (max-width: 770px) and (min-height:830px) {
     .team{
       background-image: url(../assets/etoiles.jpeg);
     height: 100%;
@@ -64,7 +298,8 @@ background-position:center;
 }
 
 .cartefut{
-width: 100%
+width: 100%;
+height:20%;
 }
 .carte-mystère{
  width: 15%
@@ -80,7 +315,7 @@ width: 100%
 .goal{
  position: absolute;
 width: 15%;
-top:150%;
+top:110%;
 left:44%   
 }
 
@@ -90,8 +325,8 @@ left:44%
 .defdroit{
 position: absolute;
 width: 15%;
-top:110%;
-left:85%
+top:80%;
+left:77%
 }
 
 .defdroit-cartefut{
@@ -104,7 +339,7 @@ left:80%
 .central1{
 position: absolute;
 width: 15%;
-top:120%;
+top:85%;
 left:30%
 }
 .central1-cartefut{
@@ -116,7 +351,7 @@ left:30%
 .defgauche{
 position: absolute;
 width: 15%;
-top:110%;
+top:80%;
 left:7%
 
 }
@@ -130,8 +365,8 @@ left:9%
 .central2{
 position: absolute;
 width: 15%;
-top:120%;
-left:60%
+top:85%;
+left:55%
 }
 .central2-cartefut{
 position: absolute;
@@ -145,7 +380,7 @@ left:60%
 .md{
 position: absolute;
 width: 15%;
-top:80%;
+top:64%;
 left:75%
 }
 .md-cartefut{
@@ -157,7 +392,7 @@ left:70%
 .mc1{
 position: absolute;
 width: 15%;
-top:92%;
+top:68%;
 left:32%
 }
 .mc1-cartefut{
@@ -169,7 +404,7 @@ left:32%
 .mc2{
 position: absolute;
 width: 15%;
-top:94%;
+top:68%;
 left:57%
 }
 .mc2-cartefut{
@@ -181,7 +416,7 @@ left:57%
 .mg{
 position: absolute;
 width: 15%;
-top:77%;
+top:64%;
 left:10%
 }
 .mg-cartefut{
@@ -196,8 +431,8 @@ left:18%
 .att1{
 position: absolute;
 width: 15%;
-top:68%;
-left:55%
+top:55%;
+left:58%
 }
 .att1-cartefut{
 position: absolute;
@@ -208,8 +443,8 @@ left:55%
 .att2{
 position: absolute;
 width: 15%;
-top:67%;
-left:37%
+top:55%;
+left:30%
 }
 .att2-cartefut{
 position: absolute;
@@ -230,15 +465,7 @@ left:37%
     border:none;
     background-color: transparent;
 }
-
-
-
-
-
-
-
-
-
-
 }
+
+/* _________________________________________________________config mobile_________________________________________________________________ */
 

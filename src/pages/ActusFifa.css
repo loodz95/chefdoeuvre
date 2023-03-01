@@ -2,15 +2,18 @@
         background-image: url(../assets/marble.jpg);
    background-size: cover;
    background-attachment:fixed;
-   height:120em;
-height: 50em;
+   height:100%;
+
 color: white;
-font-family: 'Sedgwick Ave Display', cursive;   
+   font-family: 'Teko', sans-serif;
+   font-size: 1.5em;
 }
 
 .items{
     display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+margin-left: 12%;
   
 }
 
@@ -20,6 +23,7 @@ font-family: 'Sedgwick Ave Display', cursive;
    background-attachment:fixed;
    height:120em;
 color: black;
+  margin-bottom:10px;
 }
 
 .cardbody{
@@ -44,14 +48,15 @@ color: black;
         background-image: url(../assets/marble.jpg);
    background-size: cover;
    background-attachment:fixed;
-   height:120em;
-height: 50em;
+   height:100%;
+
 color: white;
 }
 
 .items{
     display: flex;
   flex-direction: row;
+  
 
 }
 
@@ -61,6 +66,7 @@ color: white;
    background-attachment:fixed;
    height:120em;
 color: black;
+
 }
 
 .cardbody{

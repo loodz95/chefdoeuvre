@@ -1,3 +1,4 @@
+import { TiMediaPlayReverse } from "react-icons/ti";
 import "./CarteFut.css";
 
 
@@ -7,6 +8,7 @@ export interface CarteProps{
  note: number;
  position: string ;
  nom: string
+ image:string
 
 }
 
@@ -22,7 +24,7 @@ const CarteFut=( props: CarteProps)=>{
      
 <div className="fut-player-card-team-perso">
               
-           <div className="taille-carte">    
+               
              
                     <div className="player-rating-team">
                       <span>{props.note}</span>
@@ -30,13 +32,8 @@ const CarteFut=( props: CarteProps)=>{
                     <div className="player-position-team">
                       <span>{props.position}</span>
                     </div>
-                    <div className="player-nation-team">
-                      {/* image du drapeau du pays du joueur à mettre ici */}
-                    </div>
-                    <div className="player-club-team">
-                      {/* image drapeau club */}
                
-                  </div>
+                  
                   <div className="player-picture-team">
                     {/* image photo du joueur */}
 
@@ -58,10 +55,12 @@ const CarteFut=( props: CarteProps)=>{
                       </div>
                     </div>
                   </div>
+        
            
           </div>
-               </div>
-      
+    
+          
+   
     )
 }
 

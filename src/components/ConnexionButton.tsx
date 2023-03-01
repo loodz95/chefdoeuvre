@@ -125,23 +125,25 @@ console.log("token dans connection",savedToken)
       </Modal.Header>
       <Modal.Body className="colorBody">
       
-        <form onSubmit={handleLoginForm}>
-  <div className="form-group column">
-    <label htmlFor="pseudo" className="col-sm-2 col-form-label">Pseudo</label>
+        <form className="place-input" onSubmit={handleLoginForm}>
+  <div className="form-group column font-modal">
+    <label htmlFor="pseudo" className="col-sm-2 col-form-label ">Pseudo</label>
     <div className="col-sm-10">
       <input type="string"   className="pseudo" id="pseudo" onChange ={handlePseudo}/>
     </div>
   </div>
-  <div className="form-group column">
+  <div className="form-group column font-modal">
     <label htmlFor="inputPassword" className=" col-form-label">Mot de passe</label>
     <div className="col-sm-10">
       <input type="password" className=" motdepasse" id="inputPassword"  onChange ={handlePass} />
     </div>
   </div>
+  <div className="valider-connexion">
      <Button onClick={connectFunction} variant="dark" className="buttonForm" >
           Go !
         </Button>
-        <p>{message}</p>
+        </div>
+        <p className="validate-message">{message}</p>
 </form>
       </Modal.Body>
       <Modal.Footer className="colorFooter">
@@ -155,39 +157,41 @@ console.log("token dans connection",savedToken)
       </Modal.Header>
       <Modal.Body className="colorBody">
       
-        <form onSubmit={handleLoginForm}>
-  <div className="form-group column">
-    <label htmlFor="email" className="col-sm-2 col-form-label">Email</label>
+        <form className="place-input" onSubmit={handleLoginForm}>
+  <div className="form-group column font-modal">
+    <label htmlFor="email" className="l col-sm-2 col-form-label">Email</label>
     <div className="col-sm-10">
       <input onChange={handleMail} type="mail"   className="pseudo" id="email"/>
     </div>
   </div>
-  <div className="form-group column">
-    <label htmlFor="pseudo" className="col-sm-2 col-form-label">Pseudo</label>
+  <div className="form-group column font-modal">
+    <label htmlFor="pseudo" className="col-sm-2 col-form-label ">Pseudo</label>
     <div className="col-sm-10">
       <input onChange={handlePseudo} type="text"    className="pseudo" id="pseudo"/>
     </div>
   </div>
-  <div className="form-group column">
-    <label htmlFor="motdepasse" className="col-form-label">Mot de passe</label>
+  <div className="form-group column font-modal">
+    <label htmlFor="motdepasse" className="col-form-label ">Mot de passe</label>
     <div className="col-sm-10">
       <input type="password" onChange={handlePass}  className="pseudo" id="motdepasse "/>
     </div>
   </div>
-  <div className="form-group column">
-    <label htmlFor="inputPassword" className=" col-form-label">Confirme ton mot de passe</label>
+  <div className="form-group column font-modal">
+    <label htmlFor="inputPassword" className=" col-form-label ">Confirme ton mot de passe</label>
     <div className="col-sm-10">
       <input onChange={handleVerifPass} type="password" className=" motdepasse" id="inputPassword" />
     </div>
   </div>
-     <Button onClick={suscribeFunction} variant="dark" className="buttonForm" >
+     <Button onClick={suscribeFunction} variant="dark" className="buttonFormSuscribe">
           Go !
         </Button>
+        <p className=""validate-message>
         {message}
+         </p>
 </form>
       </Modal.Body>
       <Modal.Footer className="colorFooter">
-        <button onClick={alreadySign} className="phraseModal">Déjà inscrit ? Connecte-toi !</button>
+        <button onClick={alreadySign} className="phraseModalSuscribe">Déjà inscrit ? Connecte-toi !</button>
       </Modal.Footer>
     </Modal>
            

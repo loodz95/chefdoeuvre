@@ -51,19 +51,15 @@ return(
 
 {((savedToken && tokenExpired === "token non expiré")  &&  (
 <div className="profil"> 
-<MediaQuery maxWidth={1224}> <VscAccount className="mobile" style={{marginLeft:"50%", marginTop:5,  fontSize:30}}/></MediaQuery>
- <MediaQuery minWidth={1224}>
-    <div>
-     <VscAccount  style={{ fontSize:40, color:'white', marginTop:5}}/>
-     </div>
-         
-      
-      
- <div className="dropdown">
+<MediaQuery maxWidth={1224}>
+  <div> 
+    <VscAccount className="mobile" style={{marginLeft:"50%", marginTop:5,  fontSize:30}}/>
+    </div>
+    <div className="dropdown">
               <Nav className="moncompte" >
             <NavDropdown
               id="nav-dropdown-dark-example"
-              title="mon compte"
+              title=""
               menuVariant="dark"
               className="moncompte"
             >
@@ -84,6 +80,46 @@ return(
              
               <NavDropdown.Divider />
               <NavDropdown.Item onClick={deconnectFunction} href="#deconnexion">
+                Se déconnecter
+              </NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+     </div>
+    </MediaQuery>
+
+
+ <MediaQuery minWidth={1224}>
+    <div>
+     <VscAccount  style={{ fontSize:40, color:'white', marginTop:0}}/>
+     </div>
+         
+      
+      
+ <div className="dropdown">
+              <Nav className="moncompte " >
+            <NavDropdown
+              id="nav-dropdown-dark-example"
+              title="mon compte"
+              menuVariant="dark"
+              className="moncompte "
+            >
+              
+              <NavDropdown.Item href="#action/3.1">
+                   <NavLink className="dropdown" to="/mes-informations">
+                Mes informations
+                </NavLink>
+             
+                 </NavDropdown.Item>
+             
+              <NavDropdown.Item >
+                 <NavLink className="dropdown" to="/liste-joueurs">
+                Mes joueurs
+                </NavLink>
+              </NavDropdown.Item>
+              
+             
+              <NavDropdown.Divider />
+              <NavDropdown.Item className="dropdown" onClick={deconnectFunction} href="#deconnexion">
                 Se déconnecter
               </NavDropdown.Item>
             </NavDropdown>

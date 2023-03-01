@@ -1,23 +1,18 @@
 
 
-
+@media screen and (min-width: 650px) {
 .fut-player-card-team-perso {
-	
-	width: max(10vw, 6em, 80px);
-	height: 250px
-	;
-
-
-	
 	background-image: url(../assets/newcard.jpg);
-	display:flex;
-	background-size: 100% ;
-	background-repeat: no-repeat;
-	padding: 3.8rem 0;
 
-	-webkit-transition: 200ms ease-in;
-	-o-transition: 200ms ease-in;
-	transition: 200ms ease-in;	
+width: 140px;
+    height:15em;
+	background-repeat: no-repeat;
+	background-size:100% ;
+	
+}
+
+.test{
+	height:500px;
 	
 }
 
@@ -26,17 +21,226 @@ width: 100%;
 text-align: center;
 	}
 
-	.player-info-team{
-		text-align: center;
-		
+	.player-rating-team{
+		position:relative;
+		left:15%;
+		top:13%	
+	}
+	.player-position-team{
+		position:relative;
+		left:15%;
+		top:15%		
 	}
 
-.player-info-team .player-name-team {
+
+
+.player-name-team {
+	position:relative;
+padding-top: 60px;
+	text-align: center;
+	font-size: 17px;
+	
 
 	
+
+}
+}
+
+
+@media screen and (max-width: 649px) {
+
+.fut-player-card-team-perso {
+	background-image: url(../assets/newcard.jpg);
+
+width: 110px;
+    height:100em;
+	background-repeat: no-repeat;
+	background-size:100% ;
+  
+
+
+
+
+
+
 	
-	/* font size du nom du joueur-------------------- */
-	font-size:max(1.3vw, 0em, 10px);
+}
+
+	.taille-carte{
+width: 100%;
+text-align: center;
+	}
+
+	.player-rating-team{
+		position:relative;
+		left:15%;
+		top:1.5%	;
+		font-size: 13px;
+	}
+	.player-position-team{
+		position:relative;
+		left:15%;
+		top:1.5%;
+		font-size: 13px;		
+	}
+
+.player-name-team {
+	position:relative;
+padding-top: 33px;
+	text-align: center;
+	font-size: 13px;
+	
+
+	
 
 }
 
+@media screen and (max-width: 540px) {
+
+.fut-player-card-team-perso {
+	background-image: url(../assets/newcard.jpg);
+
+width: 90px;
+    height:100em;
+	background-repeat: no-repeat;
+	background-size:100% ;
+  
+
+
+
+
+
+
+	
+}
+
+	.taille-carte{
+width: 100%;
+text-align: center;
+	}
+
+	.player-rating-team{
+		position:relative;
+		left:15%;
+		top:1.2%;
+		font-size: 12px;	
+	}
+	.player-position-team{
+		position:relative;
+		left:15%;
+		top:1.1%	;
+		font-size: 12px;	
+	}
+
+.player-name-team {
+	position:relative;
+padding-top: 27px;
+	text-align: center;
+	font-size: 12px;
+	
+
+	
+
+}
+
+}
+@media screen and (max-width: 435px) {
+
+.fut-player-card-team-perso {
+	background-image: url(../assets/newcard.jpg);
+
+width: 60px;
+    height:100em;
+	background-repeat: no-repeat;
+	background-size:100% ;
+  
+
+
+
+
+
+
+	
+}
+
+	.taille-carte{
+width: 100%;
+text-align: center;
+	}
+
+		.player-rating-team{
+		position:relative;
+		left:11%;
+		top:0.8%	;
+		font-size: 9px;
+	}
+	.player-position-team{
+		position:relative;
+		left:11%;
+		top:0.7%;
+		font-size: 9px;		
+	}
+
+.player-name-team {
+	position:relative;
+padding-top: 12px;
+	text-align: center;
+	font-size: 9px;
+	
+
+	
+
+}
+
+}
+@media screen and (max-width: 415px) {
+
+.fut-player-card-team-perso {
+	background-image: url(../assets/newcard.jpg);
+
+width: 85px;
+   
+	background-repeat: no-repeat;
+	background-size:100% ;
+  
+
+
+
+
+
+
+	
+}
+
+	.taille-carte{
+width: 100%;
+text-align: center;
+	}
+
+		.player-rating-team{
+		position:relative;
+		left:15%;
+		top:1.3%	;
+		font-size: 9px;
+	}
+	.player-position-team{
+		position:relative;
+		left:15%;
+		top:1.4%;
+		font-size: 9px;		
+	}
+
+.player-name-team {
+	position:relative;
+padding-top: 33px;
+	text-align: center;
+	font-size: 11px;
+	
+
+	
+
+}
+
+}
+
+}

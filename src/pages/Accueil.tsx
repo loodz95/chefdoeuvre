@@ -41,7 +41,7 @@ return (
           <div className="container2">
 <div className="textImage2">
 <p className="title2">Sauvegarde toi une team <br /> avec les  joueurs que tu as sélectionné</p>
-<p className="explanation2">Inscris-toi sur le site et sauvegarde ta wish list de players grâce 
+<p className="explanation">Inscris-toi sur le site et sauvegarde ta wish list de players grâce 
 <br /> à l'outil Fais ta Team.</p>
 </div>
 <NavLink className="navlinkk" to ="faistateam">
@@ -65,7 +65,7 @@ return (
 <div className="textImage4">
   <NavLink className="actufifa" to ="actusfifa">
 <p className="title3">... Et suis l'actu Fifa et toutes les mises à jours</p>
-<p className="explanation3">On te permet de te tenir au jus en te proposant des articles traitant de l'actualité et toutes
+<p className="explanation">On te permet de te tenir au jus en te proposant des articles traitant de l'actualité et toutes
 les mises à jours récentes de Fifa</p>
 </NavLink>
 </div>

@@ -35,6 +35,7 @@ export interface Players{
         dribbles: number,
         defence: number,
         power: number,
+        picture:string,
         savedplayers:SavedPlayers
         typeplayer: number
         
@@ -387,13 +388,13 @@ const searchProps =(e:string)=>{
       {(cartIsClicked &&(
         <div className="affichage">
           <button className="fond" onClick={cartClicked}><TiThLargeOutline/> </button> 
-          <button onClick={handleShow} className="filtre">Filtre</button>
+          <button onClick={handleShow} className="filtre">Filtrer</button>
           </div>
             ))}
       {(!cartIsClicked &&(
         <div className="affichage">
            <button className="fond" onClick={cartClicked}><TiThListOutline/> </button>
-           <button onClick={handleShow} className="filtre">Filtre</button> 
+           <button onClick={handleShow} className="filtre">Filtrer</button> 
            </div>
 
             ))}
@@ -614,9 +615,11 @@ const searchProps =(e:string)=>{
                     <p className="colomnevitessejoueur ">{player.speed} </p>
                     <p className="colomnepuissancejoueur ">{player.power} </p>
                     <p className="colomnedefensejoueur ">{player.defence} </p>
-                    <div className="div-pass">
+                    
                     <p  className="colomnepassejoueur  ">{player.pass} </p>
-                   </div>
+                    <p  className="colomnepassejoueurtest  "> </p>
+                   
+                   
              
                   </div>
                 </div>
@@ -643,6 +646,7 @@ const searchProps =(e:string)=>{
              
             
                     <p className="colomnepositionjoueurMobile " >{player.position} </p>
+                    <p className="colomnepositionjoueurMobileTest " ></p>
    
               
              

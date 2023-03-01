@@ -12,6 +12,7 @@ border-style: double;
     display: flex;
     justify-content: space-around;
  padding-top: 10px;
+  z-index: 10;
 }
 
 .icone{
@@ -20,7 +21,30 @@ border-style: double;
 
 .profil{
     display: flex;
-   
+    margin-left: 44%;
+   color: white;
+   padding-top: 5px;
+}
+
+.dropdown{
+    color: white;
+    text-decoration: none;
+     z-index: 10;
+        font-family: 'Teko', sans-serif; 
+    font-size: 25px;
+    
+}
+
+.moncompte{
+    text-decoration: none;
+    z-index: 10;
+    font-family: 'Teko', sans-serif; 
+    font-size: 25px;
+}
+
+.nav-dropdown-dark-example{
+    color: white !important;
+     z-index: 10;
 }
 
 
@@ -45,23 +69,26 @@ border-style: double;
 
 .profil{
     display: flex;
-    margin-left: 88%;
+    z-index: 10;
     color: white;
+    padding-bottom: 5px;
 }
 
 .moncompte{
 
     color: white ;
-
+ z-index: 10;
 }
 .comptegroupe{
     display: flex;
     padding-right: 100px;
+    
 }
 
 .dropdown{
    text-decoration: none !important;
-   color: white !important
+   color: white !important;
+   
 }
 
 
