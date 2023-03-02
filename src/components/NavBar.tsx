@@ -72,13 +72,13 @@ localStorage.removeItem("accesstoken")
                   Accueil
                 </NavLink>
               </li>
-              {((savedToken && tokenExpired === "token non expiré") && (
+             
               <li className="nav-item">
                 <NavLink to="faistateam" className="nav-link active myFont" onClick={tokenVerify}>
                   Fais ta team
                 </NavLink>
               </li>
-              ))}
+          
               <li className="nav-item">
                 <NavLink to="/joueursparstats" className="nav-link myFont">
                   Recherche de joueurs
