@@ -1,7 +1,7 @@
 .accueil{
     
     background-image: url(../assets/marble.jpg);
-    height: 100%    ;
+    height: 1000%    ;
     width: 100%;
    background-attachment:fixed;
     background-size: cover;
@@ -15,15 +15,14 @@
 
 
 .premiereImage{
-    background-image:  url(../assets/cards.jpg);
-    background-repeat: no-repeat;
-   background-size: 100%;
-   width: 85%;
+  
+   width: 100%;
  height: 170px;
 border-radius: 10px;
  margin-top: 40px;
  box-shadow: 10px 10px 5px  grey;
  transition: transform .4s;
+ 
  
 }
 
@@ -47,20 +46,20 @@ transform: scale(1.1);
 }
 
 .title{
-     font-family: 'Sedgwick Ave Display', cursive;
+ font-family: 'Teko', sans-serif;
      text-decoration: none;
 }
 
 .explanation{
     margin-left: 20px;
-    font-size: 30px;
+    font-size: 30px !important;
      text-decoration: none;
      font-family: 'Teko', sans-serif;
      color:black
 }
 .explanation3{
-    margin-left: 20px;
-    font-size: 160px;
+    margin-left: 50px;
+    font-size: 30px !important;
      text-decoration: none;
      font-family: 'Teko', sans-serif;
      color:black
@@ -74,10 +73,8 @@ align-items: center;
 }
 
 .deuxiemeImage{
-background-image:  url(../assets/fifaSquad.png);
-    background-repeat: no-repeat;
-   background-size: 20em;
-   width: 85%;
+
+   width: 100%;
  height: 16.7em;
 border-radius: 10px;
  margin-top: 40px;
@@ -104,13 +101,13 @@ transform: scale(1.1);
 }
 
 .title2{
- font-family: 'Sedgwick Ave Display', cursive;
-  text-align: center;
+ font-family: 'Teko', sans-serif;
+   text-align: center;
 }
 
 .explanation2{
    
-    font-size: 20px;
+    font-size: 20px ;
     margin-left: 20px;
      text-decoration: none;
 }
@@ -123,10 +120,8 @@ align-items: center;
 }
 
 .troisiemeImage{
-background-image:  url(../assets/fifaTotw.jpg);
-    background-repeat: no-repeat;
-   background-size: 20em;
-   width: 85%;
+
+   width: 100%;
  height: 10.5em;
 border-radius: 10px;
  margin-top: 40px;
@@ -149,8 +144,8 @@ transform: scale(1.1);
 
 .title3{
     
- font-family: 'Sedgwick Ave Display', cursive;
-     text-align: center;
+ font-family: 'Teko', sans-serif;
+      text-align: center;
      font-size: 40px; 
       color: black; 
     
@@ -245,8 +240,8 @@ transform: scale(1.1);
 }
 
 .title{
-     font-family: 'Sedgwick Ave Display', cursive;
-    
+ font-family: 'Teko', sans-serif;
+
 }
 
 .explanation{
@@ -257,7 +252,7 @@ transform: scale(1.1);
 }
 .explanation3{
     margin-left: 20px;
-    font-size: 1.7em;
+    font-size: 1.0em;
     font-family: 'Teko', sans-serif;
      text-decoration: none;
      color: black;
@@ -294,7 +289,7 @@ transform: scale(1.1);
 }
 
 
-.textImage2{
+.textImage2{    
   
     margin-top: 40px;
    color: black; 
@@ -302,8 +297,8 @@ transform: scale(1.1);
 }
 
 .title2{
- font-family: 'Sedgwick Ave Display', cursive;
-  text-align: center;
+ font-family: 'Teko', sans-serif;
+   text-align: center;
   margin-top:60px
 }
 
@@ -342,8 +337,8 @@ transform: scale(1.1);
 
 .title3{
     
- font-family: 'Sedgwick Ave Display', cursive;
-     text-align: center;
+ font-family: 'Teko', sans-serif;
+      text-align: center;
      
       color: black; 
     margin-top: 60px;

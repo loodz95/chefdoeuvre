@@ -7,6 +7,10 @@ import Bann from "../components/Bann";
 import NavBar from "../components/NavBar";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
+import image1 from "../assets/cards.jpg"
+import image2 from "../assets/fifaSquad.png"
+import image3 from "../assets/fifaTotw.jpg"
+
 
 export interface Joueurs {
   name: string;
@@ -32,8 +36,8 @@ return (
           imbattable en fonction <br /> de tes critères.</p>
          </div>
          <Link to="joueursparstats">
-        <div className="premiereImage">
-        </div>
+        
+       <img src={image1} className="premiereImage" alt=" photo carte FUT" />
         </Link>
         
          </div>
@@ -45,8 +49,7 @@ return (
 <br /> à l'outil Fais ta Team.</p>
 </div>
 <NavLink className="navlinkk" to ="faistateam">
- <div className="deuxiemeImage">
-        </div>
+ <img src={image2} className="deuxiemeImage" alt="photo équipe FUT" />
         </NavLink>
 </div>
 
@@ -57,8 +60,7 @@ return (
 </p>
 </div>
 <NavLink className="navlinkk" to ="joueursdelasemaine">
-             <div className="troisiemeImage">
-        </div>
+          <img src={image3} className="troisiemeImage" alt="photo joueurs de la semaine" />
         </NavLink>
 </div>
 

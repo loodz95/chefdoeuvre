@@ -70,9 +70,7 @@ if(passState === passVerifState){
       .post("http://localhost:8080/api/auth/signin", {
         userName: pseudoState,
         email: emailState,
-        password: passState,
-        role: "user"
-        
+        password: passState,  
       })
       .then((res) => {
        

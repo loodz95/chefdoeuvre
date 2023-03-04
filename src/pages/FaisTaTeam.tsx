@@ -95,6 +95,7 @@ console.log("consoleloginsertfunction", e.currentTarget.value)
 const playerFound =  Number(e.currentTarget.value)
 
 tab = savedPlayers?.filter((player)=>player.players.id === playerFound )
+console.log(tab,"le joueur trouvé")
 
 switch (true) {
         case ard:
@@ -168,7 +169,7 @@ setShow(false)
 setTabAt1(tab)
 setAtt1(false)
 setShow(false)
-forceUpdate()
+
           ;
           break;
                   case att2:
@@ -538,11 +539,11 @@ tabMg?.map((player, i)=>(
 
 tabAt1?.map((player, i)=>(
   <div  className="att1">
-    <Draggable>
+  
   <div onClick={selectFunctionAtt1} key={i} className="cartefut">
     <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName} image={player.players.picture}/>
   </div>
-  </Draggable>
+ 
   </div>
 ))
 ))}
@@ -559,11 +560,11 @@ tabAt1?.map((player, i)=>(
 
 tabAt2?.map((player, i)=>(
   <div  className="att2">
-    <Draggable>
+    
   <div onClick={selectFunctionAtt2} key={i} className="cartefut">
     <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName} image={player.players.picture}/>
   </div>
-  </Draggable>
+  
   </div>
 ))
 ))}
@@ -585,9 +586,7 @@ tabAt2?.map((player, i)=>(
         <li className="rpcposition6">17</li>
         <li className="rpcposition7">18</li>
         </div> */}
-         <div className="test">
-fuxkyou
-          </div>
+
   </div>
   )
 };
