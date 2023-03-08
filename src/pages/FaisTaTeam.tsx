@@ -53,8 +53,8 @@ const [tabMcd, setTabMcd] = useState<SavedPlayers[]>();
 const [tabAt1, setTabAt1] =useState<SavedPlayers[]>();
 const [tabAt2, setTabAt2] =useState<SavedPlayers[]>();
  const [show, setShow] = useState(false);  //state pour ouverture modal connexion//
- const [, updateState] = React.useState({});
- const forceUpdate = React.useCallback(() => updateState({}), []);
+
+
 
 
 
@@ -333,10 +333,11 @@ return(
       {savedPlayers?.map((player,i)=>(
         <div key={i} className="players-modal">
         <button className="select-player" onClick={insertFunction} value={player.players.id}>
-          <p className="selection">{player.players.firstName}</p>
-          <p className="selection">{player.players.lastName}</p>
-          <p className="selection">{player.players.position}</p>
-          <p className="selection">{player.players.rate}</p>
+          <p className="selection-firstname">{player.players.firstName}</p>
+          <p className="selection-lastname">{player.players.lastName}</p>
+          <p className="selection-position">{player.players.position}</p>
+          <p className="selection-rate">{player.players.rate}</p>
+          <p className="selection-vide"></p>
           </button>
         </div>
       ))}

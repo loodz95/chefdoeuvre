@@ -226,7 +226,9 @@ left:37%
 .players-modal{
     display:flex;
     justify-content: space-between;
+    padding-top: 20px;
 }
+
 
 .select-player{
     display:flex;
@@ -235,6 +237,41 @@ left:37%
     height: 10%;
     border:none;
     background-color: transparent;
+}
+
+.select-player:hover{
+   color: rgb(190, 162, 7)  
+}
+
+.selection-firstname{
+    font-family: 'Teko', sans-serif;
+    font-size:20px;
+    position:absolute;
+
+    
+}
+.selection-lastname{
+font-family: 'Teko', sans-serif;
+font-size:20px;
+position:absolute;
+left:30%
+}
+.selection-position{
+font-family: 'Teko', sans-serif;
+font-size:20px;
+position:absolute;
+left:60%
+}
+.selection-rate{
+font-family: 'Teko', sans-serif;
+font-size:20px;
+position:absolute;
+left:90%
+}
+.selection-vide{
+font-family: 'Teko', sans-serif;
+font-size:20px;
+position:relative
 }
 
 @media screen and (max-width: 770px) and (min-height:830px) {

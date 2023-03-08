@@ -44,18 +44,22 @@ return (
 
           <div className="container2">
 <div className="textImage2">
+  <NavLink className="navlinkk" to ="faistateam">
 <p className="title2">Sauvegarde toi une team <br /> avec les  joueurs que tu as sélectionné</p>
+</NavLink>
 <p className="explanation">Inscris-toi sur le site et sauvegarde ta wish list de players grâce 
 <br /> à l'outil Fais ta Team.</p>
 </div>
 <NavLink className="navlinkk" to ="faistateam">
  <img src={image2} className="deuxiemeImage" alt="photo équipe FUT" />
-        </NavLink>
+       </NavLink>     
 </div>
 
       <div className="container3">
         <div className="textImage3">
+       <NavLink className="navlinkk" to ="joueurs de la semaine">
         <p className="title3">Consulte les joueurs de la semaine</p>
+        </NavLink>
         <p className="explanation3">Qui sont les joueurs qui ont performé cette semaine ? On te liste tout ça !
 </p>
 </div>
@@ -65,11 +69,12 @@ return (
 </div>
 
 <div className="textImage4">
-  <NavLink className="actufifa" to ="actusfifa">
+  <NavLink className="navlinkk" to ="actusfifa">
 <p className="title3">... Et suis l'actu Fifa et toutes les mises à jours</p>
+</NavLink>
 <p className="explanation">On te permet de te tenir au jus en te proposant des articles traitant de l'actualité et toutes
 les mises à jours récentes de Fifa</p>
-</NavLink>
+
 </div>
 
 </div>

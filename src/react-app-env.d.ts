@@ -15,4 +15,4 @@ interface UsePaginationReturn {
   gaps: { before: boolean; paginationGroup: number[]; after: boolean };
 }
 
- type UsePagination = (UsePaginationProps) => UsePaginationReturn;
+ interface UsePagination { (UsePaginationProps): UsePaginationReturn};

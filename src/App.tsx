@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import NavBar from "./components/NavBar";
 import SearchBar from "./components/SearchBar"
 import "./App.css";
@@ -21,6 +21,8 @@ import NouveauJoueur from "./pages/NouveauJoueur";
 import ActuAdmin from "./pages/ActuAdmin";
 import NouvelArticle from "./pages/NouvelArticle";
 import GestionUtilisateurs from "./pages/GestionUtilisateurs";
+import ConnexionPage from "./pages/ConnexionPage";
+import { AuthContext } from "./context/AuthContext";
 
 
 export interface PayloadToken{
@@ -45,6 +47,10 @@ export interface SavedPlayers {
   players:Players
 }
 const App = () => {
+  const {UpdateToken}= useContext(AuthContext)
+const token = localStorage.getItem("accesstoken")
+UpdateToken(token)
+console.log("le token est update",token)
 
   
   
@@ -56,10 +62,11 @@ return (
     <NavBar/>
       <Routes>  
         <Route path="/" element={<Accueil />} />
-        <Route path="/faistateam" element={<FaisTaTeam />} />
+
+        <Route path= "/faistateam" element={ token?<FaisTaTeam />:<ConnexionPage/>} />
         <Route path="/joueursdelasemaine" element={<JoueursDeLaSemaine />} />
         <Route path="/joueursparstats" element={<RechercheDeJoueurs />} />
-        <Route path="/actusfifa" element={<ActusFifa />} />
+        <Route path="/actusfifa"element={ token?<ActusFifa />:<ConnexionPage/>}  />
         <Route path="/items/:id" element={<ActuSelection />} />
         <Route path="/players/:id" element={<CarteParId />} />
         <Route path="/liste-joueurs" element={<ListeJoueurs />} />
@@ -69,6 +76,7 @@ return (
         <Route path="/actu-admin" element={<ActuAdmin />} />
         <Route path="/nouvel-article" element={<NouvelArticle />} />
         <Route path="/gestion-utilisateurs" element={<GestionUtilisateurs />} />
+        <Route path="/connexion" element={<ConnexionPage />} />
       </Routes>
     </BrowserRouter>
     <Footer/>

@@ -49,7 +49,6 @@ const [playersTab,setPlayersTab] =useState<Players[]>();
    const [test,setTest]=useState<string>()
    const [cartIsClicked,setCartIsClicked] =useState<boolean>(true)
   let tab : Players[]|undefined;
-  const [cardOrList,setCardOrList]= useState<string>("Cartes")
   const [tabTampon,setTabTampon]=useState<Players[]>()
 let valueChange:string;
 let valueSearch: string;
@@ -59,7 +58,7 @@ const [tabDef,setTabDef] =useState<Players[]>()
 const [tous,setTous] = useState<string>()
      const [show, setShow] = useState(false);  //state pour ouverture modal connexion//
   // ---------------------pagination------------------------------
-  const [people, setPeople] = useState<Players[]>();
+
   
 
   
@@ -95,7 +94,7 @@ const [tous,setTous] = useState<string>()
    setTabDisplayed([...myPlayers])
  
    console.log("players tab dans use effect",tabDisplayed)
-   setPeople(myPlayers)
+ 
 
    console.log("tableau défenseurs", tabDef)
 
@@ -234,10 +233,12 @@ const searchProps =(e:string)=>{
       <Link className="listerecherche" key={i} to ={`/players/${player.id}`}>
      <div className="recherche">
    
-      <div className="listerecherche">{player.firstName}</div>
-      <div className="listerecherche">{player.lastName}</div>
-      <div className="listerecherche">{player.position}</div>
-      <div className="listerecherche">{player.rate}</div>
+      <div className="listerecherche-firstname">{player.firstName}</div>
+      <div className="listerecherche-lastname">{player.lastName}</div>
+      <div className="listerecherche-position">{player.position}</div>
+      <div className="listerecherche-rate">{player.rate}</div>
+      <div className="listerecherche-test"></div>
+      <div className="listerecherche-test">-</div>
     
       
      </div> 

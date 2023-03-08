@@ -78,8 +78,31 @@ console.log("le role a envoyer",roleChanged)
 }
 
 
-const update=()=>{
+const deleteUser=(e:React.MouseEvent<HTMLButtonElement>)=>{
+  let id = e.currentTarget.value
+     axios.delete(`http://localhost:8080/api/users/${id}`,{
+	headers:{
+		Authorization: `Bearer ${localStorage.getItem('accesstoken')}`,
+	}}).then((res)=>{
+// --------------------------Nouvel appel API afin de mettre à jour le tableau--------------------
+     axios.get(`http://localhost:8080/api/users/`,{
+	headers:{
+		Authorization: `Bearer ${localStorage.getItem('accesstoken')}`,
+	}}).then((res)=>{
+console.log("tableaua jour",res.data)
+    setTabUsers(res.data);
   
+console.log("joueur supprimé")
+
+
+  }).catch((err)=>{
+console.log(err)
+  })
+// ----------------------------------------------------------------------------------------------------
+
+  }).catch((err)=>{
+console.log(err)
+  })
 }
 
     return(
@@ -92,7 +115,7 @@ const update=()=>{
 {tabUsers?.map((user)=>(
  <div className="infos" >
 
-            <p className="pseudo-titre"><button className="poubelle-user"><IoTrashOutline/></button>{user.userName}</p>
+            <p className="pseudo-titre"><button className="poubelle-user" value ={user.id} onClick={deleteUser}><IoTrashOutline/></button>{user.userName}</p>
             <p className="email-titre">{user.email}</p>        
             <p className="role-titre">{user.role}  <button value={user.id} name={user.role} onClick={changeRole} className="change-role"> <IoPencilSharp/></button>         </p>
            
