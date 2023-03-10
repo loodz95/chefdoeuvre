@@ -38,6 +38,7 @@ body {
 }
 
 .fontStyle{
-    font-family: 'Acme', sans-serif, cursive;
+  font-family: 'Teko', sans-serif;
+  font-size: 35px !important;
 }
 

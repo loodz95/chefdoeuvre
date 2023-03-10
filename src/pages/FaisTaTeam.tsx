@@ -5,7 +5,7 @@ import NavBar from "../components/NavBar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Accueil from "./Accueil";
 import JoueursDeLaSemaine from "./JoueursDeLaSemaine";
-import JoueursParStats from "./RechercheDeJoueurs";
+import JoueursParStats, { Players } from "./RechercheDeJoueurs";
 import ActusFifa from "./ActusFifa";
 import Bann from "../components/Bann";
 import MediaQuery from  "react-responsive";
@@ -27,34 +27,18 @@ export interface Joueurs {
 
 
 
+let tableauTerrain : any=[];
+tableauTerrain.length = 11
+
+
+
 const FaisTaTeam = () => {
-const message= "Tu peux visualiser la team que tu as sauvegardé et les tester dans plusieurs compositions "
-const {TokenExpirationFunction,savedToken} =useContext( AuthContext)
-const [savedPlayers,setSavedPlayers]= useState<SavedPlayers[]>()
-const [ard, setArd] = useState<boolean>(false);
-const [arg, setArg] = useState<boolean>(false);
-const [dc1, setDc1] = useState<boolean>(false);
-const [dc2, setDc2] = useState<boolean>(false);
-const [mcd, setMcd] = useState<boolean>(false);
-const [mcg, setMcg] = useState<boolean>(false);
-const [mg, setMg] = useState<boolean>(false);
-const [md, setMd] = useState<boolean>(false);
-const [att1, setAtt1] = useState<boolean>(false);
-const [att2, setAtt2] = useState<boolean>(false);
-const [tabArd, setTabArd] = useState<SavedPlayers[]>();
-const [tabArg, setTabArg] = useState<SavedPlayers[]>();
-const [tabDcd, setTabDcd] = useState<SavedPlayers[]>();
-const [tabDcg, setTabDcg] = useState<SavedPlayers[]>();
-const [tabMdc, setTabMdc] = useState<SavedPlayers[]>();
-const [tabMg, setTabMg] = useState<SavedPlayers[]>();
-const [tabMd, setTabMd] = useState<SavedPlayers[]>();
-const [tabMcg, setTabMcg] = useState<SavedPlayers[]>();
-const [tabMcd, setTabMcd] = useState<SavedPlayers[]>();
-const [tabAt1, setTabAt1] =useState<SavedPlayers[]>();
-const [tabAt2, setTabAt2] =useState<SavedPlayers[]>();
+ const message= "Tu peux visualiser la team que tu as sauvegardé et les tester dans plusieurs compositions "
+ const {TokenExpirationFunction,savedToken} =useContext( AuthContext)
+ const [savedPlayers,setSavedPlayers]= useState<SavedPlayers[]>([])
+ const [posteJoueur, setPostJoueur] = useState<string|undefined>(undefined);
+ const [tableauJoueur, setTableauJoueur] =useState<SavedPlayers[]>();
  const [show, setShow] = useState(false);  //state pour ouverture modal connexion//
-
-
 
 
 
@@ -63,261 +47,92 @@ const [tabAt2, setTabAt2] =useState<SavedPlayers[]>();
   };
 
   const handleShow = () => {
-    
-  setShow(true); //Fonction ouverture modal connexion au click//
+   setShow(true); //Fonction ouverture modal connexion au click//
   };
 
 
   useEffect(()=>{
-    
-console.log("dans le useEffect",tabArd)
-        TokenExpirationFunction(savedToken)
-        
-  axios.get(`http://localhost:8080/api/savedplayers`,{
-    headers:{
+    TokenExpirationFunction(savedToken)
+    axios.get(`http://localhost:8080/api/savedplayers`,{
+      headers:{
         Authorization:`Bearer ${localStorage.getItem("accesstoken")}`,
     
     }
-  })
-  .then((res)=>{
- console.log(res.data)
- setSavedPlayers(res.data)
+   })
+   .then((res)=>{
+   console.log(res.data)
+   setSavedPlayers(res.data)
 
-  }).catch((err)=>{
+   }).catch((err)=>{
     console.log("something wrent wrong", err)
-  })
-},[console.log("longueur tableau",tabArd?.length)]) 
+   })
+},[]) 
 
-let tab: React.SetStateAction<SavedPlayers[] | undefined>;
+let tab: SavedPlayers[];
 
 const insertFunction=(e:React.MouseEvent<HTMLButtonElement>)=>{
-console.log("consoleloginsertfunction", e.currentTarget.value)
-const playerFound =  Number(e.currentTarget.value)
+  console.log("consoleloginsertfunction", e.currentTarget.value)
+  const playerFound =  Number(e.currentTarget.value)
+  tab = savedPlayers.filter((player)=>player.players.id === playerFound )
+  console.log(tab,"le joueur trouvé")
+  const found  = tab.find(element=>element)
+  console.log("l'autrejoueur trouvé", found)
 
-tab = savedPlayers?.filter((player)=>player.players.id === playerFound )
-console.log(tab,"le joueur trouvé")
+  switch (posteJoueur) {
 
-switch (true) {
-        case ard:
-       
-   
+     case "ard": 
+     tableauTerrain[2]= found
+     break;
 
-setTabArd(tab)
+     case "arg":
+     tableauTerrain[3]= found
+     break;
 
-console.log(tabArd)
-setArd(false)
-setShow(false)
-          ;
-          break;
+     case "dc1":
+     tableauTerrain[4]= found
+     break;
 
-        case arg:
-            setTabArg([])
-setTabArg(tab)
-setArg(false)
-setShow(false)
-          ;
-          break;
+     case "dc2":
+     tableauTerrain[5]= found
+     break;
 
-        case dc1:
-                   setTabDcd([])
-setTabDcd(tab)
-setDc1(false)
-setShow(false)
-          ;
-          break;
+     case "mcd":
+     tableauTerrain[6]= found
+     break;
 
-         case dc2:
-                   setTabDcg([])
-setTabDcg(tab)
-setDc2(false)
-setShow(false)
-          ;
-          break;
+     case "mcg":
+     tableauTerrain[7]= found
+     break;
 
-              case mcd:
-                   setTabMcd([])
-setTabMcd(tab)
-setMcd(false)
-setShow(false)
-          ;
-          break;
-
-              case mcg:
-                   setTabMcg([])
-setTabMcg(tab)
-setMcg(false)
-setShow(false)
-          ;
-          break;
-
-        case md:
-                   setTabMd([])
-setTabMd(tab)
-setMd(false)
-setShow(false)
-          ;
-          break;
-                  case mg:
-                   setTabMg([])
-setTabMg(tab)
-setMg(false)
-setShow(false)
-          ;
-          break;
-        case att1:
-                   setTabAt1([])
-setTabAt1(tab)
-setAtt1(false)
-setShow(false)
-
-          ;
-          break;
-                  case att2:
-                   setTabAt2([])
-setTabAt2(tab)
-setAtt2(false)
-setShow(false)
-          ;
-          break;
-
-      }
-
-
-
+     case "md":
+     tableauTerrain[8]= found
+     break;
+                  
+     case "mg":
+     tableauTerrain[9]= found
+     break;
+        
+     case "att1":
+     tableauTerrain[10]= found
+     break;
+                  
+     case "att2":
+     tableauTerrain[11]= found
+     break;
+ }
+ setTableauJoueur(tableauTerrain)
+ setShow(false)
 }
 
 
 
-const selectFunctionArd=()=>{
-  setArd(true)
-  setArg(false)
-  setDc1(false)
-  setDc2(false)
-  setMcd(false)
-  setMcg(false)
-  setMg(false)
-  setMd(false)
-  setAtt1(false)
-  setAtt2(false)
+const selectFunctionPlayer=(poste: string)=>{
+ setPostJoueur(poste)
  setShow(true)
 }
-const selectFunctionArg=()=>{
-  setArd(false)
-  setArg(true)
-  setDc1(false)
-  setDc2(false)
-  setMcd(false)
-  setMcg(false)
-  setMg(false)
-  setMd(false)
-  setAtt1(false)
-  setAtt2(false)
- setShow(true)
-}
-const selectFunctionDc1=()=>{
-  setArd(false)
-  setArg(false)
-  setDc1(true)
-  setDc2(false)
-  setMcd(false)
-  setMcg(false)
-  setMg(false)
-  setMd(false)
-  setAtt1(false)
-  setAtt2(false)
- setShow(true)
-}
-const selectFunctionDc2=()=>{
-  setArd(false)
-  setArg(false)
-  setDc1(false)
-  setDc2(true)
-  setMcd(false)
-  setMcg(false)
-  setMg(false)
-  setMd(false)
-  setAtt1(false)
-  setAtt2(false)
- setShow(true)
-}
-const selectFunctionMcd=()=>{
-  setArd(false)
-  setArg(false)
-  setDc1(false)
-  setDc2(false)
-  setMcd(true)
-  setMcg(false)
-  setMg(false)
-  setMd(false)
-  setAtt1(false)
-  setAtt2(false)
- setShow(true)
-}
-const selectFunctionMcg=()=>{
-  setArd(false)
-  setArg(false)
-  setDc1(false)
-  setDc2(false)
-  setMcd(false)
-  setMcg(true)
-  setMg(false)
-  setMd(false)
-  setAtt1(false)
-  setAtt2(false)
- setShow(true)
-}
-const selectFunctionMg=()=>{
-  setArd(false)
-  setArg(false)
-  setDc1(false)
-  setDc2(false)
-  setMcd(false)
-  setMcg(false)
-  setMg(true)
-  setMd(false)
-  setAtt1(false)
-  setAtt2(false)
- setShow(true)
-}
-const selectFunctionMd=()=>{
-  setArd(false)
-  setArg(false)
-  setDc1(false)
-  setDc2(false)
-  setMcd(false)
-  setMcg(false)
-  setMg(false)
-  setMd(true)
-  setAtt1(false)
-  setAtt2(false)
- setShow(true)
-}
-const selectFunctionAtt1=()=>{
-  setArd(false)
-  setArg(false)
-  setDc1(false)
-  setDc2(false)
-  setMcd(false)
-  setMcg(false)
-  setMg(false)
-  setMd(false)
-  setAtt1(true)
-  setAtt2(false)
- setShow(true)
-}
-const selectFunctionAtt2=()=>{
-  setArd(false)
-  setArg(false)
-  setDc1(false)
-  setDc2(false)
-  setMcd(false)
-  setMcg(false)
-  setMg(false)
-  setMd(false)
-  setAtt1(false)
-  setAtt2(true)
- setShow(true)
-}
+
+
+
 
 
 
@@ -330,244 +145,217 @@ return(
         <Modal.Title className="colorTitle" >Tes joueurs</Modal.Title>
       </Modal.Header>
       <Modal.Body className="colorBody">
-      {savedPlayers?.map((player,i)=>(
-        <div key={i} className="players-modal">
-        <button className="select-player" onClick={insertFunction} value={player.players.id}>
-          <p className="selection-firstname">{player.players.firstName}</p>
-          <p className="selection-lastname">{player.players.lastName}</p>
-          <p className="selection-position">{player.players.position}</p>
-          <p className="selection-rate">{player.players.rate}</p>
-          <p className="selection-vide"></p>
-          </button>
-        </div>
-      ))}
- 
+        {savedPlayers?.map((player,i)=>(
+          <div key={i} className="players-modal">
+            <button className="select-player" onClick={insertFunction} value={player.players.id}>
+              <p className="selection-firstname">{player.players.firstName}</p>
+              <p className="selection-lastname">{player.players.lastName}</p>
+              <p className="selection-position">{player.players.position}</p>
+              <p className="selection-rate">{player.players.rate}</p>
+              <p className="selection-vide"></p>
+              </button>
+          </div>
+       ))}
       </Modal.Body>
-   
     </Modal>
 
+   <div className="terrainGlobal">
+     <div className="terrain">
+      <div className="goal">
+        <div className="carte-mystère">
+          <CarteMystère />
+        </div> 
+      </div>
 
-         <div className="terrainGlobal">
-       
-   
- 
-<div className="terrain">
+     <div className="defense">  
+       {( !tableauJoueur?.[2] && (
+       <div  className="defdroit">
+         <div  onClick={()=>selectFunctionPlayer('ard')} className="carte-mystère">
+           <CarteMystère/> 
+         </div>
+       </div>
+        ))}
+     {(tableauJoueur?.[2] && (
+     <div  className="defdroit">
+       <div onClick={() => selectFunctionPlayer('ard')}  className="cartefut">
+         <CarteFut note={tableauJoueur[2].players.rate} position={tableauJoueur[2].players.position} nom ={tableauJoueur[2].players.lastName}/>
+       </div>
+     </div>
+     ))}
 
-  <div className="goal">
-    <div className="carte-mystère">
-     <CarteMystère />
-     </div> 
-  </div>
+     {(!tableauJoueur?.[4] &&(
+      <div  className="central1">
+        <div  onClick={() => selectFunctionPlayer('dc1')}   className="carte-mystère">
+          <CarteMystère/> 
+        </div>
+      </div>
+      ))}
+     {(tableauJoueur?.[4] && (
+     <div  className="central1">
+       <div onClick={() => selectFunctionPlayer('dc1')}    className="cartefut">
+         <CarteFut note={tableauJoueur[4].players.rate} position={tableauJoueur[4].players.position} nom ={tableauJoueur[4].players.lastName}/>
+       </div>
+      </div>
+      ))}
+    {(!tableauJoueur?.[5] &&(
+    <div  className="central2">
+      <div  onClick={() => selectFunctionPlayer('dc2')}   className="carte-mystère">
+        <CarteMystère/> 
+      </div>
+    </div>
+    ))}
+    {(tableauJoueur?.[5] && (
+    <div  className="central2">
+      <div onClick={() => selectFunctionPlayer('dc2')}   className="cartefut">
+        <CarteFut note={tableauJoueur[5].players.rate} position={tableauJoueur[5].players.position} nom ={tableauJoueur[5].players.lastName} />
+      </div>
+    </div>
+    ))}
 
-
-          <div className="defense">  
-
-          {(tabArd?.length==undefined &&(
-          <div  className="defdroit">
-             <div  onClick={selectFunctionArd} className="carte-mystère">
-               <CarteMystère/> 
-</div>
-
-          </div>
-          ))}
-{(tabArd?.length === 1 && (
-
-tabArd?.map((player, i)=>(
-  <div  className="defdroit">
-  <div onClick={selectFunctionArd} key={i} className="cartefut">
-    <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName} image={player.players.picture}/>
-     <img className="testImage" src= {`http://localhost:8080/public/assets/${player.players.picture}`} alt="image-joueur"/>
-  </div>
-  </div>
-))
-))}
-
-
-
-          {(tabDcd?.length==undefined &&(
-          <div  className="central1">
-             <div  onClick={selectFunctionDc1} className="carte-mystère">
-               <CarteMystère/> 
-</div>
-
-          </div>
-          ))}
-{(tabDcd?.length === 1 && (
-
-tabDcd?.map((player, i)=>(
-  <div  className="central1">
-  <div onClick={selectFunctionDc1} key={i} className="cartefut">
-    <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName} image={player.players.picture}/>
-  </div>
-  </div>
-))
-))}
-           {(tabDcg?.length==undefined &&(
-          <div  className="central2">
-             <div  onClick={selectFunctionDc2} className="carte-mystère">
-               <CarteMystère/> 
-</div>
-
-          </div>
-          ))}
-{(tabDcg?.length === 1 && (
-
-tabDcg?.map((player, i)=>(
-  <div  className="central2">
-  <div onClick={selectFunctionDc2} key={i} className="cartefut">
-    <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName} image={player.players.picture}/>
-  </div>
-  </div>
-))
-))}
-          {(tabArg?.length==undefined &&(
-          <div  className="defgauche">
-             <div  onClick={selectFunctionArg} className="carte-mystère">
-               <CarteMystère/> 
-</div>
-
-          </div>
-          ))}
-{(tabArg?.length === 1 && (
-
-tabArg?.map((player, i)=>(
-  <div  className="defgauche">
-  <div onClick={selectFunctionArg} key={i} className="cartefut">
-    <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName} image={player.players.picture}/>
-  </div>
-  </div>
-))
-))}
-</div>
+   {(!tableauJoueur?.[3] &&(
+   <div  className="defgauche">
+     <div  onClick={() => selectFunctionPlayer('arg')}  className="carte-mystère">
+       <CarteMystère/> 
+     </div>
+    </div>
+    ))} 
+   {(tableauJoueur?.[3]&& (
+   <div  className="defgauche">
+     <div onClick={() => selectFunctionPlayer('arg')}  className="cartefut">
+      <CarteFut note={tableauJoueur[3].players.rate} position={tableauJoueur[3].players.position} nom ={tableauJoueur[3].players.lastName} />
+     </div>
+    </div>
+    ))}
+</ div>
 
 
           <div className="milieu">
-          {(tabMcd?.length==undefined &&(
+          {(!tableauJoueur?.[6]&&(
           <div  className="mc1">
-             <div  onClick={selectFunctionMcd} className="carte-mystère">
+             <div  onClick={() => selectFunctionPlayer('mcd')}   className="carte-mystère">
                <CarteMystère/> 
 </div>
 
           </div>
           ))}
-{(tabMcd?.length === 1 && (
+{(tableauJoueur?.[6]&& (
 
-tabMcd?.map((player, i)=>(
+
   <div  className="mc1">
   
-  <div onClick={selectFunctionMcd} key={i} className="cartefut">
-    <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName} image={player.players.picture}/>
+  <div onClick={() => selectFunctionPlayer('mcd')}   className="cartefut">
+    <CarteFut note={tableauJoueur[6].players.rate} position={tableauJoueur[6].players.position} nom ={tableauJoueur[6].players.lastName} />
   </div>
   
   </div>
-))
+
 ))}
-          {(tabMcg?.length==undefined &&(
+          {(!tableauJoueur?.[7]&&(
           <div  className="mc2">
-             <div  onClick={selectFunctionMcg} className="carte-mystère">
+             <div  onClick={() => selectFunctionPlayer('mcg')}   className="carte-mystère">
                <CarteMystère/> 
 </div>
 
           </div>
           ))}
-{(tabMcg?.length === 1 && (
+{(tableauJoueur?.[7]&& (
 
-tabMcg?.map((player, i)=>(
+
   <div  className="mc2">
    
-  <div onClick={selectFunctionMcg} key={i} className="cartefut">
-    <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName}image={player.players.picture}/>
+  <div onClick={() => selectFunctionPlayer('mcg')}    className="cartefut">
+    <CarteFut note={tableauJoueur[7].players.rate} position={tableauJoueur[7].players.position} nom ={tableauJoueur[7].players.lastName}/>
   </div>
   
   </div>
-))
+
 ))}
 
-          {(tabMd?.length==undefined &&(
+          {(!tableauJoueur?.[8]&&(
           <div  className="md">
-             <div  onClick={selectFunctionMd} className="carte-mystère">
+             <div  onClick={() => selectFunctionPlayer('md')}   className="carte-mystère">
                <CarteMystère/> 
 </div>
 
           </div>
           ))}
-{(tabMd?.length === 1 && (
+{(tableauJoueur?.[8]&& (
 
-tabMd?.map((player, i)=>(
+
   <div  className="md">
   
-  <div onClick={selectFunctionMd} key={i} className="cartefut">
-    <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName} image={player.players.picture}/>
+  <div onClick={() => selectFunctionPlayer('md')}    className="cartefut">
+    <CarteFut note={tableauJoueur[8].players.rate} position={tableauJoueur[8].players.position} nom ={tableauJoueur[8].players.lastName} />
   </div>
   
   </div>
-))
+
 ))}
  
  
                    
 
 
-           {(tabMg?.length==undefined &&(
+           {(!tableauJoueur?.[9]&&(
           <div  className="mg">
-             <div  onClick={selectFunctionMg} className="carte-mystère">
+             <div  onClick={() => selectFunctionPlayer('mg')}  className="carte-mystère">
                <CarteMystère/> 
 </div>
 
           </div>
           ))}
-{(tabMg?.length === 1 && (
+{(tableauJoueur?.[9]&& (
 
-tabMg?.map((player, i)=>(
+
   <div  className="mg">
-  <div onClick={selectFunctionMg} key={i} className="cartefut">
-    <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName} image={player.players.picture}/>
+  <div onClick={() => selectFunctionPlayer('mg')}    className="cartefut">
+    <CarteFut note={tableauJoueur[9].players.rate} position={tableauJoueur[9].players.position} nom ={tableauJoueur[9].players.lastName} />
   </div>
   </div>
-))
+
 ))}
           </div>
         <div className="attaque">
-          {(tabAt1?.length==undefined &&(
+          {(!tableauJoueur?.[10]&& (
           <div  className="att1">
-             <div  onClick={selectFunctionAtt1} className="carte-mystère">
+             <div  onClick={() => selectFunctionPlayer('att1')}   className="carte-mystère">
                <CarteMystère/> 
 </div>
 
           </div>
           ))}
-{(tabAt1?.length === 1 && (
+{(tableauJoueur?.[10]&&  (
 
-tabAt1?.map((player, i)=>(
+
   <div  className="att1">
   
-  <div onClick={selectFunctionAtt1} key={i} className="cartefut">
-    <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName} image={player.players.picture}/>
+  <div onClick={() => selectFunctionPlayer('att1')}    className="cartefut">
+    <CarteFut note={tableauJoueur[10].players.rate} position={tableauJoueur[10].players.position} nom ={tableauJoueur[10].players.lastName}/>
   </div>
  
   </div>
-))
+
 ))}
-          {(tabAt2?.length==undefined &&(
+          {(!tableauJoueur?.[11]&&(
           <div  className="att2">
             
-             <div  onClick={selectFunctionAtt2} className="carte-mystère">
+             <div  onClick={() => selectFunctionPlayer('att2')}   className="carte-mystère">
                <CarteMystère/> 
 </div>
 
           </div>
           ))}
-{(tabAt2?.length === 1 && (
+{(tableauJoueur?.[11]&& (
 
-tabAt2?.map((player, i)=>(
+
   <div  className="att2">
     
-  <div onClick={selectFunctionAtt2} key={i} className="cartefut">
-    <CarteFut note={player.players.rate} position={player.players.position} nom ={player.players.lastName} image={player.players.picture}/>
+  <div onClick={() => selectFunctionPlayer('att2')}    className="cartefut">
+    <CarteFut note={tableauJoueur[11].players.rate} position={tableauJoueur[11].players.position} nom ={tableauJoueur[11].players.lastName} />
   </div>
   
   </div>
-))
+
 ))}
         </div>
       </div>
@@ -576,17 +364,6 @@ tabAt2?.map((player, i)=>(
 
 
 
-     {/* <div className="rpc">
-        <li className="rpc1">
-          
-        </li>
-        <li className="rpc2">13</li>
-        <li className="rpc3">14</li>
-        <li className="rpc4">15</li>
-        <li className="rpcposition5">16</li>
-        <li className="rpcposition6">17</li>
-        <li className="rpcposition7">18</li>
-        </div> */}
 
   </div>
   )

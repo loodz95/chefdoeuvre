@@ -57,7 +57,7 @@ const[search,setSearch]=useState<string>()
 const [tabDef,setTabDef] =useState<Players[]>()
 const [tous,setTous] = useState<string>()
      const [show, setShow] = useState(false);  //state pour ouverture modal connexion//
-  // ---------------------pagination------------------------------
+ 
 
   
 

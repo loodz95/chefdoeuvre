@@ -90,17 +90,16 @@ console.log("token dans connection",savedToken)
       });
   }
 
-    const suscribeFunction= async (e: React.MouseEvent)=>{
+    const suscribeFunction=  (e: React.MouseEvent)=>{
         if (passState !== passVerifState){
         setMessage("Les mots de passe ne correspondent pas !")
        }else{
 
-        await axios
+         axios
       .post("http://localhost:8080/api/auth/signin", {
         userName: pseudoState,
         email: MailState,
         password: passState,
-        role: "user"
         
       })
       .then((res) => {
@@ -110,7 +109,8 @@ console.log("token dans connection",savedToken)
         setMessage("Inscription réussie !");
       })
       .catch((err) => {
-        console.log("Inscription impossible", err);
+        
+        console.log("console log du err.data", err.response.data.message = "l'email ne peut pas être vide");
          setMessage("Inscription impossible !")
       });
 }

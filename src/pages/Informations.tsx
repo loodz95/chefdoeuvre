@@ -21,43 +21,43 @@ const [pass2State, setPass2State]= useState<string>()
 const navigate=useNavigate()
 
 
-    useEffect(()=>{
-TokenExpirationFunction(savedToken)
-UpdateToken(savedToken)
+useEffect(()=>{
 
-if(savedToken){
+
+  if(savedToken){
     const token : PayloadToken =  jwtDecode(savedToken)
     console.log(token)
-setIdUser(token.id)
-setUsername(token.userName)
-setEmail(token.email)
-console.log(idUser)
-console.log("email",email)
-console.log("le username",username)
-}  
-    })
+    setIdUser(token.id)
+    setUsername(token.userName)
+    setEmail(token.email)
+    console.log(idUser)
+    console.log("email",email)
+    console.log("le username",username)
+   }  
+})
 
-    const emailFunction=(e:React.ChangeEvent<HTMLInputElement>)=>{
-        setEmailState(e.currentTarget.value)
-    }
-    const password1Function=(e:React.ChangeEvent<HTMLInputElement>)=>{
-setPass1State(e.currentTarget.value)
-    }
-    const password2Function=(e:React.ChangeEvent<HTMLInputElement>)=>{
-setPass2State(e.currentTarget.value)
-    }
+const emailFunction=(e:React.ChangeEvent<HTMLInputElement>)=>{
+  setEmailState(e.currentTarget.value)
+}
+
+const password1Function=(e:React.ChangeEvent<HTMLInputElement>)=>{
+  setPass1State(e.currentTarget.value)
+}
+const password2Function=(e:React.ChangeEvent<HTMLInputElement>)=>{
+  setPass2State(e.currentTarget.value)
+}
 
 
-    const submitFunction=(e:React.FormEvent)=>{
-            e.preventDefault();
-    console.log("cliké");
+const submitFunction=(e:React.FormEvent)=>{
+  e.preventDefault();
+  console.log("cliké");
     
     // fonction de verification du mot de passe
-    if (pass1State !== pass2State) {
-      setMessage("Les mots de passe ne correspondent pas !");
-    }else{
-       axios.patch(`http://localhost:8080/api/auth/${idUser}`,
-       {
+  if (pass1State !== pass2State) {
+    setMessage("Les mots de passe ne correspondent pas !");
+  }else{
+    axios.patch(`http://localhost:8080/api/auth/${idUser}`,
+    {
 email: emailState,
 password:pass1State
        },
@@ -86,8 +86,8 @@ setMessage("Modifications réussies");
 <form className="formulaire">
       <div className="mb-3">
         <h1>Modifier mes informations</h1>
-    <label htmlFor="exampleInputEmail1" className="form-label">Pseudo</label>
-    <input type="text" value= {username} className="form-control" disabled={true}/>
+    <label htmlFor="exampleUsername" className="form-label">Pseudo</label>
+    <input type="text" placeholder= {username} className="form-control" disabled={true}/>
   </div>
   <div className="mb-3">
     <label htmlFor="exampleInputEmail1" className="form-label">Email</label>
@@ -99,7 +99,7 @@ setMessage("Modifications réussies");
     <input type="password" className="form-control" onChange={password1Function} />
   </div>
   <div className="mb-3">
-    <label htmlFor="exampleInputPassword1" className="form-label">Confirme ton nouveau mot de passe</label>
+    <label htmlFor="exampleInputPassword2" className="form-label">Confirme ton nouveau mot de passe</label>
     <input type="password" className="form-control" onChange={password2Function} />
   </div>
 <p className ={message === "Modifications réussies"? "modif-ok":"pass-error"}>{message}</p>

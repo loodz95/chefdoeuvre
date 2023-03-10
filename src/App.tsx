@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import NavBar from "./components/NavBar";
 import SearchBar from "./components/SearchBar"
 import "./App.css";
@@ -49,7 +49,9 @@ export interface SavedPlayers {
 const App = () => {
   const {UpdateToken}= useContext(AuthContext)
 const token = localStorage.getItem("accesstoken")
-UpdateToken(token)
+  useEffect(()=>{
+    UpdateToken(token)
+  })
 console.log("le token est update",token)
 
   
@@ -71,7 +73,7 @@ return (
         <Route path="/players/:id" element={<CarteParId />} />
         <Route path="/liste-joueurs" element={<ListeJoueurs />} />
         <Route path="/mes-informations" element={<Informations />} />
-        <Route path="/gestion-des-cartes" element={<GestionDesCartes />} />
+        <Route path="/gestion-des-cartes" element={ token?<GestionDesCartes />:<ConnexionPage/>} />
         <Route path="/nouveau-joueur" element={<NouveauJoueur />} />
         <Route path="/actu-admin" element={<ActuAdmin />} />
         <Route path="/nouvel-article" element={<NouvelArticle />} />

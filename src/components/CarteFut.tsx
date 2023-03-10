@@ -8,7 +8,7 @@ export interface CarteProps{
  note: number;
  position: string ;
  nom: string
- image:string
+ 
 
 }
 

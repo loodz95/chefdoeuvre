@@ -2,6 +2,7 @@
       background-image: url(../assets/marble.jpg);
    background-size: cover;
    background-attachment:fixed;
+   
     height: 120%;
 }
 
@@ -9,6 +10,7 @@
     text-align: center;
     margin-top: 2%;
     margin-bottom: 1rem;
+    
 }
 
 .avant-footer{
@@ -17,7 +19,8 @@
 
 .ajouter-joueur-button{
     border-radius: 10px;
-      font-family: 'Sedgwick Ave Display', cursive;
+      font-family: 'Teko', sans-serif;
+      font-size:25px;
     color: white;
     background-color: black;
   
@@ -27,7 +30,7 @@
 @media screen and (max-width: 759px) {
     .ajouter-joueur-button{
     border-radius: 10px;
-      font-family: 'Sedgwick Ave Display', cursive;
+       font-family: 'Teko', sans-serif;
     color: white;
     background-color: black;
  position:absolute;

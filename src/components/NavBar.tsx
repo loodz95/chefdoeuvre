@@ -109,7 +109,7 @@ localStorage.removeItem("accesstoken")
                         
                             <NavLink
                               to="/gestion-des-cartes"
-                              className="admin nav-link"
+                              className="admin myFont nav-link"
                               onClick={tokenVerify}
                             >
                             Gestion des cartes 
@@ -119,7 +119,7 @@ localStorage.removeItem("accesstoken")
                           <li>
                             <NavLink
                               to="/gestion-utilisateurs"
-                              className="admin nav-link"
+                              className="admin myFont nav-link"
                               onClick={tokenVerify}
                             >
                               Gestion des utilisateurs
@@ -128,7 +128,7 @@ localStorage.removeItem("accesstoken")
                           <li>
                             <NavLink
                               to="/adminMessages"
-                              className="admin nav-link "
+                              className="admin myFont nav-link "
                               onClick={tokenVerify}
                             >
                                Gestion des messages 
@@ -137,7 +137,7 @@ localStorage.removeItem("accesstoken")
                           <li>
                             <NavLink
                               to="/actu-admin"
-                              className="nav-link admin "
+                              className="nav-link myFont admin "
                               onClick={tokenVerify}
                             >
                               Gestion des actus 
