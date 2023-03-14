@@ -16,53 +16,30 @@ import { Button, Modal } from "react-bootstrap";
 import { TiThLargeOutline } from "react-icons/ti";
 import { TiThListOutline } from "react-icons/ti";
 import SearchBar from "../components/SearchBar";
-import { SavedPlayers } from "../App";
+import { SavedPlayers } from "../interfaces/savedPlayers";
+import { Players } from "../interfaces/players";
 
 
 
-export interface Players{
-   
-        id:number
-        lastName: string,
-        firstName: string,
-        age: number,
-        country: string,
-        position: string,
-        rate: number,
-        speed: number,
-        shots: number,
-        pass: number,
-        dribbles: number,
-        defence: number,
-        power: number,
-        picture:string,
-        savedplayers:SavedPlayers
-        typeplayer: number
-        
-}
+
 
 const RechercheDeJoueurs = () => {
-const {tokenExpired, TokenExpirationFunction, UpdateToken,savedToken} =useContext(AuthContext)
-const message = "Trouve ta pépite ici en définissant tes critères de recherche ! Les joueurs sont classés dans l'ordre décroissant."
-const [playersTab,setPlayersTab] =useState<Players[]>();
+  const {tokenExpired, TokenExpirationFunction, UpdateToken,savedToken} =useContext(AuthContext)
+  const message = "Trouve ta pépite ici en définissant tes critères de recherche ! Les joueurs sont classés dans l'ordre décroissant."
+  const [playersTab,setPlayersTab] =useState<Players[]>();
   let [tabDisplayed, setTabDisplayed] = useState<Players[]>();
-   const [test,setTest]=useState<string>()
-   const [cartIsClicked,setCartIsClicked] =useState<boolean>(true)
+  const [test,setTest]=useState<string>()
+  const [cartIsClicked,setCartIsClicked] =useState<boolean>(true)
   let tab : Players[]|undefined;
   const [tabTampon,setTabTampon]=useState<Players[]>()
-let valueChange:string;
-let valueSearch: string;
-let myPlayers :Players[];
-const[search,setSearch]=useState<string>()
-const [tabDef,setTabDef] =useState<Players[]>()
-const [tous,setTous] = useState<string>()
-     const [show, setShow] = useState(false);  //state pour ouverture modal connexion//
+  let valueChange:string;
+  let valueSearch: string;
+  let myPlayers :Players[];
+  const[search,setSearch]=useState<string>()
+  const [tabDef,setTabDef] =useState<Players[]>()
+  const [tous,setTous] = useState<string>()
+  const [show, setShow] = useState(false);  //state pour ouverture modal connexion//
  
-
-  
-
-  
-
   const {
     firstContentIndex,
     lastContentIndex,
@@ -78,132 +55,104 @@ const [tous,setTous] = useState<string>()
   });
    
  
+  useEffect(()=>{
 
-
-   useEffect(()=>{
-  
-
-        TokenExpirationFunction(savedToken)
-        
-  axios.get(`http://localhost:8080/api/players`)
-  .then((res)=>{
-    console.log("la réponse des joueurs",res.data)
-    myPlayers = res.data
-    tab = res.data
-    setPlayersTab(res.data)
-   setTabDisplayed([...myPlayers])
- 
-   console.log("players tab dans use effect",tabDisplayed)
- 
-
-   console.log("tableau défenseurs", tabDef)
-
-
-   console.log("tab dans use effect",tabDisplayed)
-  }).catch((err)=>{
-    console.log("something wrent wrong", err)
-  })
-},[]) 
+    TokenExpirationFunction(savedToken)       
+    axios.get(`http://localhost:8080/api/players`)
+    .then((res)=>{
+      console.log("la réponse des joueurs",res.data)
+      myPlayers = res.data
+      tab = res.data
+      setPlayersTab(res.data)
+      setTabDisplayed([...myPlayers])
+      console.log("players tab dans use effect",tabDisplayed)
+      console.log("tableau défenseurs", tabDef)
+      console.log("tab dans use effect",tabDisplayed)
+    }).catch((err)=>{
+      console.log("something wrent wrong", err)
+    })
+  },[]) 
 
   const handlePremierChange =(e:React.SyntheticEvent<HTMLInputElement>)=>{
-console.log("état dans handlePqremirCa=hange",e.currentTarget.value)
-setTous(e.currentTarget.value)
-
+    console.log("état dans handlePqremirCa=hange",e.currentTarget.value)
+    setTous(e.currentTarget.value)
   }
 
-
-      const handleChange =(e:React.SyntheticEvent<HTMLInputElement>)=>{
-        valueChange = e.currentTarget.value
-        setTest(e.currentTarget.value)
-console.log("value dans handle change",valueChange)
-}
+  const handleChange =(e:React.SyntheticEvent<HTMLInputElement>)=>{
+    valueChange = e.currentTarget.value
+    setTest(e.currentTarget.value)
+    console.log("value dans handle change",valueChange)
+  }
      
  
   const cartClicked=()=>{
     setCartIsClicked(!cartIsClicked)
-
   }
 
 
   const filterFunction=()=>{
     {setPage(1)}
     let tab =playersTab
-
     if( tous === "tous" && test === "sans"){
       console.log("playerstab condition",playersTab)
       setTabDisplayed(playersTab)
     }
     if(tous === "tous"){
-     
-tab = tab?.filter((player)=>player.position.includes("Dc") || player.position.includes("Dd") ||player.position.includes("Dg")
-||player.position.includes("Mc")
-||player.position.includes("Moc")||player.position.includes("Mdc")||player.position.includes("Ad")||player.position.includes("Bu")
-||player.position.includes("Ag")||player.position.includes("At")||player.position.includes("Mg")||player.position.includes("Md"))  
-setTabDisplayed(tab)
-}
-    if(tous === "défenseurs"){
-tab = tab?.filter((player)=>player.position.includes("Dc") || player.position.includes("Dd") ||player.position.includes("Dg")  )
-
-}
-    if(tous === "milieux"){
-tab = tab?.filter((player)=>player.position.includes("Mc") || player.position.includes("Mdc") ||player.position.includes("Moc")  )
-
-}
-    if(tous === "attaquants"){
-tab = tab?.filter((player)=>player.position.includes("Ad") || player.position.includes("Ag") ||player.position.includes("Bu")  )
-
-}
-    if(test === "sans"){
-  
-}
-    if(test === "dribbleurs"){
-  const sortDrib = (a : Players, b:Players) => b.dribbles - a.dribbles;
-          tab = tab?.sort(sortDrib)
-
-}
-    if(test === "note"){
-  const sortDrib = (a : Players, b:Players) => b.rate - a.rate;
-          tab = tab?.sort(sortDrib)
-
-}
-    if(test === "flèches"){
-  const sortDrib = (a : Players, b:Players) => b.speed - a.speed;
-          tab = tab?.sort(sortDrib)
-          console.log("apres fleches", tab)
-
-}
-    if(test === "force"){
-  const sortDrib = (a : Players, b:Players) => b.power - a.power;
-          tab = tab?.sort(sortDrib)
-
-}
-    if(test === "roc"){
-  const sortDrib = (a : Players, b:Players) => b.defence - a.defence;
-          tab = tab?.sort(sortDrib)
-
-}
-
-setTabDisplayed(tab)
-handleClose()
+     tab = tab?.filter((player)=>player.position.includes("Dc") || player.position.includes("Dd") ||player.position.includes("Dg")
+     ||player.position.includes("Mc")
+     ||player.position.includes("Moc")||player.position.includes("Mdc")||player.position.includes("Ad")||player.position.includes("Bu")
+     ||player.position.includes("Ag")||player.position.includes("At")||player.position.includes("Mg")||player.position.includes("Md"))  
+     setTabDisplayed(tab)
+   }
+  if(tous === "défenseurs"){
+    tab = tab?.filter((player)=>player.position.includes("Dc") || player.position.includes("Dd") ||player.position.includes("Dg")  )
   }
+  if(tous === "milieux"){
+    tab = tab?.filter((player)=>player.position.includes("Mc") || player.position.includes("Mdc") ||player.position.includes("Moc")  )
+  }
+  if(tous === "attaquants"){
+    tab = tab?.filter((player)=>player.position.includes("Ad") || player.position.includes("Ag") ||player.position.includes("Bu")  )
+  }
+  if(test === "sans"){  
+  }
+  if(test === "dribbleurs"){
+    const sortDrib = (a : Players, b:Players) => b.dribbles - a.dribbles;
+    tab = tab?.sort(sortDrib)
+  }
+  if(test === "note"){
+    const sortDrib = (a : Players, b:Players) => b.rate - a.rate;
+    tab = tab?.sort(sortDrib)
+  }
+  if(test === "flèches"){
+    const sortDrib = (a : Players, b:Players) => b.speed - a.speed;
+    tab = tab?.sort(sortDrib)
+    console.log("apres fleches", tab)
+  }
+  if(test === "force"){
+    const sortDrib = (a : Players, b:Players) => b.power - a.power;
+    tab = tab?.sort(sortDrib)
+  }
+  if(test === "roc"){
+    const sortDrib = (a : Players, b:Players) => b.defence - a.defence;
+    tab = tab?.sort(sortDrib)
+  }
+  setTabDisplayed(tab)
+  handleClose()
+}
 
-const searchProps =(e:string)=>{ 
-  
+const searchProps =(e:string)=>{
   valueSearch = e
   setSearch(e)
   console.log("searchbar danq parent", search)
   if(valueSearch){
-
-    console.log("aaaaaaaaaaah")
-    let tableau = playersTab?.filter((player)=>player.firstName.toLocaleLowerCase().includes(valueSearch) || player.lastName.toLocaleLowerCase().includes(valueSearch ))
+    let tableau = playersTab?.filter((player)=>player.firstName.toLocaleLowerCase().includes(valueSearch) 
+    || player.lastName.toLocaleLowerCase().includes(valueSearch ))
     let tableau2 = tableau?.slice(0, 4)
     setTabTampon(tableau2)
   }
 }
 
- 
-
-    const handleClose = () =>{    //Fonction fermeture modal connexion au click//
+  const handleClose = () =>{    //Fonction fermeture modal connexion au click//
     setShow(false)                          
   };
 
@@ -214,38 +163,28 @@ const searchProps =(e:string)=>{
 
 
   return (
-  <><div className="stat">
-
-
-      <div className="bannière">
-        <Bann banValue={message}/>
-      </div>
-
-      
-
-      <div className="searchbar">
-     <SearchBar searchProps={searchProps}/>
-    
-    
-     { tabTampon?.map((player,i)=> search&&(
-      <div className="backrecherche">
-      
-      <Link className="listerecherche" key={i} to ={`/players/${player.id}`}>
-     <div className="recherche">
-   
-      <div className="listerecherche-firstname">{player.firstName}</div>
-      <div className="listerecherche-lastname">{player.lastName}</div>
-      <div className="listerecherche-position">{player.position}</div>
-      <div className="listerecherche-rate">{player.rate}</div>
-      <div className="listerecherche-test"></div>
-      <div className="listerecherche-test">-</div>
-    
-      
-     </div> 
-     </Link> 
-     </div>
-     ))}
-     </div>
+  <>
+  <div className="stat">
+    <div className="bannière">
+      <Bann banValue={message}/>
+    </div>
+    <div className="searchbar">
+      <SearchBar searchProps={searchProps}/>
+      { tabTampon?.map((player,i)=> search&&(
+        <div className="backrecherche">
+          <Link className="listerecherche" key={i} to ={`/players/${player.id}`}>
+            <div className="recherche">
+              <div className="listerecherche-firstname">{player.firstName}</div>
+              <div className="listerecherche-lastname">{player.lastName}</div>
+              <div className="listerecherche-position">{player.position}</div>
+              <div className="listerecherche-rate">{player.rate}</div>
+              <div className="listerecherche-test"></div>
+              <div className="listerecherche-test">-</div> 
+            </div> 
+          </Link> 
+       </div>
+      ))}
+    </div>
 
  {/* <MediaQuery minWidth={1225}>
       <div className="searchbar">
@@ -273,50 +212,43 @@ const searchProps =(e:string)=>{
 
 
 
-<div className="miseenpage">
-  
-      <MediaQuery minWidth={1024}>
-          <div className="menuJoueurs">
-          <div>
-            <Sidebar className="fontsidebar">
-              <Menu className="sidebar">
-               
-                  <SubMenu  label ="Filtre">
-                  <div className="fond"> 
-                 <SubMenu label="Postes">
-                  
-                 
-                  <MenuItem className="label" >
-                <input onChange={handlePremierChange} name ="origin" type="radio" id="tous"   value="tous"  ></input>
-                    <label htmlFor="tous">Tous</label>
+ <div className="miseenpage">
+   <MediaQuery minWidth={1024}>
+     <div className="menuJoueurs">
+       <div>
+         <Sidebar className="fontsidebar">
+           <Menu className="sidebar">
+             <SubMenu  label ="Filtre">
+               <div className="fond"> 
+                 <SubMenu label="Postes">                
+                   <MenuItem className="label" >
+                     <input onChange={handlePremierChange} name ="origin" type="radio" id="tous"   value="tous"  ></input>
+                     <label htmlFor="tous">Tous</label>
 
-                  </MenuItem>
-                  <MenuItem className="label" >
-                <input onChange={handlePremierChange} name ="origin" type="radio" id="défenseurs"   value="défenseurs" ></input>
-                    <label htmlFor="défenseurs">Défenseurs</label>
-                  
-                  </MenuItem>
-                  <MenuItem className="label" >
-                    <input onChange={handlePremierChange} name ="origin" type="radio" id="milieux"   value="milieux" ></input>
-                    <label htmlFor="milieux">Milieux</label>
-                  </MenuItem>
-                  <MenuItem className="label" >
-                    <input onChange={handlePremierChange} name ="origin" type="radio" id="attaquants"   value="attaquants" ></input>
-                    <label htmlFor="attaquants">Attaquants</label>
-                  </MenuItem>
-        
-                </SubMenu>
+                    </MenuItem>
+                    <MenuItem className="label" >
+                      <input onChange={handlePremierChange} name ="origin" type="radio" id="défenseurs"   value="défenseurs" ></input>
+                      <label htmlFor="défenseurs">Défenseurs</label>
+                    </MenuItem>
+                    <MenuItem className="label" >
+                      <input onChange={handlePremierChange} name ="origin" type="radio" id="milieux"   value="milieux" ></input>
+                      <label htmlFor="milieux">Milieux</label>
+                    </MenuItem>
+                    <MenuItem className="label" >
+                      <input onChange={handlePremierChange} name ="origin" type="radio" id="attaquants"   value="attaquants" ></input>
+                      <label htmlFor="attaquants">Attaquants</label>
+                    </MenuItem>
+                  </SubMenu>
                 </div> 
                 
                 {(tous && (
-                   <div className="fond"> 
-                <SubMenu label="Caractéristiques">
-                  <MenuItem className="label">
-
-                    <input onChange={handleChange} name ="caracteristiques" type="radio" id="sans"   value="sans" ></input>
-                    <label htmlFor="sans">Sans</label>
-                    </MenuItem>
-                        <MenuItem className="label">
+                  <div className="fond"> 
+                    <SubMenu label="Caractéristiques">
+                      <MenuItem className="label">
+                        <input onChange={handleChange} name ="caracteristiques" type="radio" id="sans"   value="sans" ></input>
+                        <label htmlFor="sans">Sans</label>
+                      </MenuItem>
+                      <MenuItem className="label">
                    <input onChange={handleChange} name ="caracteristiques" type="radio" id="dribbleurs"   value="dribbleurs" ></input>
                     <label htmlFor="dribbleurs">Dribbleurs</label>
 
@@ -502,7 +434,7 @@ const searchProps =(e:string)=>{
 
 
           {tabDisplayed?.slice(firstContentIndex, lastContentIndex)
-            .map((player: any, i) => !cartIsClicked&& (
+            .map((player: Players, i) => !cartIsClicked&& (
               <div className="dispo"  key={i}>
          <div className="items">
              <div className="fut-player-card">

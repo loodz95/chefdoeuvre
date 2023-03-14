@@ -20,11 +20,7 @@ const SuscribeButton =()=>{
     setShow(false)                          
   };
 
-  const handleShow = () => {
-     setMessage("")
-  setShow(true); //Fonction ouverture modal connexion au click//
-  };
-
+ 
     const handleCloseSuscribe=()=> {    //Fonction fermeture modal inscription au click//
       setShowSuscribe(false)
     };
@@ -42,9 +38,7 @@ const SuscribeButton =()=>{
    setShow(true)
   }
 
-    const handleLoginForm=()=>{
-alert('ok')
-  }
+
 
   const handleMail =(e:React.ChangeEvent<HTMLInputElement>)=>{
     console.log("Mail",e.currentTarget.value)
@@ -114,73 +108,73 @@ if(passState === passVerifState){
 
 
     return(
-        <div>
+        <div className="suscribe-component">
             <button className="suscribeButton" onClick={handleShowSuscribe}> inscription</button>
-             <Modal show={show} onHide={handleClose} >
+             <Modal  show={show} onHide={handleClose} >
       <Modal.Header className="colorTitle"  closeButton>
-        <Modal.Title className="colorTitle" >Connexion</Modal.Title>
+        <Modal.Title className="colorTitle suscribe-component" >Connexion</Modal.Title>
       </Modal.Header>
       <Modal.Body className="colorBody">
   <div className="form-group column font-modal">
-    <label htmlFor="email" className="col-sm-2 col-form-label">Pseudo</label>
+    <label htmlFor="email" className="col-sm-2 col-form-label suscribe-component">Pseudo</label>
     <div className="col-sm-10">
       <input onChange={handlePseudo} type="mail"   className="pseudo" id="email"/>
     </div>
   </div>
   <div className="form-group column">
-    <label htmlFor="inputPassword" className=" col-form-label">Mot de passe</label>
+    <label htmlFor="inputPassword" className=" col-form-label suscribe-component">Mot de passe</label>
     <div className="col-sm-10">
       <input onChange={handlePassword} type="password" className=" motdepasse" id="inputPassword" />
     </div>
   </div>
-     <Button onClick={connectFunction2} variant="dark" className="buttonForm" >
+     <Button onClick={connectFunction2} variant="dark" className="buttonForm suscribe-component" >
           Go !
         </Button>
-<p>{message}</p>
+<p className= {message === "Connexion réussie !"?"suscribe-component valid-message": "suscribe-component no-valid-message"}>{message}</p>
       </Modal.Body>
       <Modal.Footer className="colorFooter">
-        <button onClick={notSign} className="phraseModal">Pas encore inscrit ? C'est par ici !</button>
+        <button onClick={notSign} className="phraseModal suscribe-component">Pas encore inscrit ? C'est par ici !</button>
       </Modal.Footer>
     </Modal>
 
                <Modal show={showSuscribe} onHide={handleCloseSuscribe} >
       <Modal.Header className="colorTitle"  closeButton>
-        <Modal.Title className="colorTitle" >Inscription</Modal.Title>
+        <Modal.Title className="colorTitle suscribe-component" >Inscription</Modal.Title>
       </Modal.Header>
       <Modal.Body className="colorBody">
       
   <div className="form-group column">
-    <label htmlFor="email" className="col-sm-2 col-form-label">Email</label>
+    <label htmlFor="email" className="col-sm-2 col-form-label suscribe-component">Email</label>
     <div className="col-sm-10">
       <input onChange={handleMail} type="email"   className="pseudo" id="email"/>
     </div>
   </div>
   <div className="form-group column">
-    <label htmlFor="pseudo" className="col-sm-2 col-form-label">Pseudo</label>
+    <label htmlFor="pseudo" className="col-sm-2 col-form-label suscribe-component">Pseudo</label>
     <div className="col-sm-10">
       <input onChange={handlePseudo} type="text"   className="pseudo" id="pseudo"/>
     </div>
   </div>
   <div className="form-group column">
-    <label htmlFor="motdepasse" className="col-form-label">Mot de passe</label>
+    <label htmlFor="motdepasse" className="col-form-label suscribe-component">Mot de passe</label>
     <div className="col-sm-10">
       <input onChange={handlePassword} type="password"    className="pseudo" id="motdepasse "/>
     </div>
   </div>
   <div className="form-group column">
-    <label htmlFor="inputPassword" className=" col-form-label">Confirme ton mot de passe</label>
+    <label htmlFor="inputPassword" className=" col-form-label suscribe-component">Confirme ton mot de passe</label>
     <div className="col-sm-10">
       <input onChange={handlePassword2} type="password" className=" motdepasse" id="inputPassword" />
     </div>
   </div>
-     <Button onClick={suscribeFunction}  variant="dark" className="buttonForm" >
+     <Button onClick={suscribeFunction}  variant="dark" className="buttonForm suscribe-component" >
           Go !
         </Button>
-        <p>{message}</p>
+        <p className={message === "Inscription réussie !"?"suscribe-component valid-message": "suscribe-component no-valid-message"}>{message}</p>
 
       </Modal.Body>
       <Modal.Footer className="colorFooter">
-        <button onClick={alreadySign} className="phraseModal">Déjà inscrit ? Connecte-toi !</button>
+        <button onClick={alreadySign} className="phraseModal suscribe-component">Déjà inscrit ? Connecte-toi !</button>
       </Modal.Footer>
     </Modal>
         </div>

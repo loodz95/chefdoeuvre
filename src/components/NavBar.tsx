@@ -1,15 +1,10 @@
 import sigle from "../assets/fut.png";
-import { BrowserRouter, NavLink, Route, Routes, useNavigate } from "react-router-dom";
+import {NavLink, useNavigate } from "react-router-dom";
 import "./NavBar.css"
-import Accueil from "../pages/Accueil";
-import FaisTaTeam from "../pages/FaisTaTeam";
-import JoueursDeLaSemaine from "../pages/JoueursDeLaSemaine";
-import JoueursParStats from "../pages/RechercheDeJoueurs";
-import ActusFifa from "../pages/ActusFifa";
 import { AuthContext } from "../context/AuthContext";
 import {useContext, useEffect, useState} from "react"
 import jwtDecode from "jwt-decode";
-import { PayloadToken } from "../App";
+import { PayloadToken } from "../interfaces/tokenPayload";
 
 const NavBar = () => {
 const {savedToken, UpdateToken, TokenExpirationFunction, tokenExpired} = useContext(AuthContext)

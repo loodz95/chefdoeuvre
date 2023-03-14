@@ -44,44 +44,44 @@ console.log("Mon token",savedToken)
 },[])  
     
     return(
-        <div className="actufifa">
-   <Bann banValue={message}/>
-   <div className="items">
-   {itemTab?.map((item, index)=>(
-       <Card  text="white" style={{ width: "18rem" }} key={index}>
-        <div className="card">
-        <Card.Header >{item.title}</Card.Header>
-        </div>
-        <div className="cardbody">
-        <Card.Body >
-          <Card.Text>
+<div className="actufifa">
+	<Bann banValue={message}/>
+	<div className="items">
+		{itemTab?.map((item, index)=>
+		(
+		<Card  text="white" style={{ width: "18rem" }} key={index}>
+			<div className="card">
+				<Card.Header >
+					{item.title}
+				</Card.Header>
+			</div>
+			<div className="cardbody">
+				<Card.Body >
+					<Card.Text>
+						<MediaQuery minWidth={1225}>
+							<div>
+								{item.contain?.substring(0,200)}
+								<Link to={`/items/${item.id}`}>
+									<button  className = "readmore" > ... Lire plus </button>
+								</Link>
+							</div>
+						</MediaQuery>
+						<MediaQuery maxWidth={1224.9}>
+							<div>
+								{item.contain?.substring(0,100)}
+								<Link to={`/items/${item.id}`}>
+									<button  className = "readmore" > ... Lire plus </button>
+								</Link>
+							</div>
+						</MediaQuery>
+					</Card.Text>
+				</Card.Body>
+			</div>
+		</Card>
+		))}
+	</div>
+</div>
 
-     <MediaQuery minWidth={1225}>      
-                   <div>
-{item.contain?.substring(0,200)}
-<Link to={`/items/${item.id}`}>
-<button  className = "readmore" > ... Lire plus </button>
-</Link>
-        </div>  
-        </MediaQuery> 
-
-     <MediaQuery maxWidth={1224.9}>      
-                   <div>
-{item.contain?.substring(0,100)}
-<Link to={`/items/${item.id}`}>
-<button  className = "readmore" > ... Lire plus </button>
-</Link>
-        </div>  
-        </MediaQuery> 
-
-
-          </Card.Text>
-        </Card.Body>
-        </div>
-      </Card>
-   ))}
-   </div>
-        </div>
     )
 }
 export default ActusFifa;

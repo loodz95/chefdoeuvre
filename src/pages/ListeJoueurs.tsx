@@ -4,10 +4,11 @@ import MediaQuery from "react-responsive"
 import Bann from "../components/Bann"
 import { AuthContext } from "../context/AuthContext"
 import "./ListeJoueurs.css"
-import { Players } from "./RechercheDeJoueurs"
+import { Players } from "../interfaces/players"
 import { Link } from "react-router-dom"
 import jwt_Decode from "jwt-decode"
-import { PayloadToken, SavedPlayers } from "../App"
+import { PayloadToken } from "../interfaces/tokenPayload"
+import { SavedPlayers } from "../interfaces/savedPlayers"
 import { IoTrashOutline } from "react-icons/io5"; 
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';

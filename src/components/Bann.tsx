@@ -1,10 +1,10 @@
 import "./Bann.css"
 
-export interface Props{
+export interface BannièreProps{
   banValue: string
 }
 
-const Bann =(props: Props)=>{
+const Bann =(props: BannièreProps)=>{
     return(
         <div>
 <div className="banner">

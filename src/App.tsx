@@ -8,7 +8,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Accueil from "./pages/Accueil";
 import FaisTaTeam from "./pages/FaisTaTeam";
 import JoueursDeLaSemaine from "./pages/JoueursDeLaSemaine";
-import RechercheDeJoueurs, { Players } from "./pages/RechercheDeJoueurs";
+import RechercheDeJoueurs from "./pages/RechercheDeJoueurs";
 import Footer from "./components/Footer";
 import ActusFifa from "./pages/ActusFifa";
 import Header from "./components/Header";
@@ -25,27 +25,11 @@ import ConnexionPage from "./pages/ConnexionPage";
 import { AuthContext } from "./context/AuthContext";
 
 
-export interface PayloadToken{
-    exp: number;
-  iat: number;
-  id: string;
-  role: string;
-  userName: string;
-  email:string
-}
 
-export interface User{
-  id:string
-  userName:string;
-  email:string;
-  role:string;
-}
 
-export interface SavedPlayers {
-  player_id:Players
-  user_id:User
-  players:Players
-}
+
+
+
 const App = () => {
   const {UpdateToken}= useContext(AuthContext)
 const token = localStorage.getItem("accesstoken")

@@ -49,7 +49,20 @@
  
 }
 
-
+.valid-message{
+    font-size: 1.8em;
+    text-align: center;
+    padding-top: 5%;
+      font-family: 'Teko', sans-serif; 
+    
+}
+.no-valid-message{
+    font-size: 1.8em;
+    text-align: center;
+    padding-top: 5%;
+      font-family: 'Teko', sans-serif; 
+      color:red
+}
 
 .phraseModal{
 position:relative;
@@ -73,10 +86,14 @@ right:30%;
 }
 
 .buttonForm{
-  margin-left: 18%;
+  margin-left: 15%;
   margin-top: 10%;
      font-family: 'Teko', sans-serif; 
- font-size:0.5em 
+ font-size:0.5em ;
+ background-color:black;
+ color:white;
+ border-radius:10px;
+ 
 }
 .buttonFormSuscribe{
   margin-left: 17%;
@@ -177,8 +194,9 @@ right:24%;
 }
 .buttonForm{
   margin-top: 5%;
-  margin-left: 40%;
+  margin-left: 38%;
   width: 100px;
+  font-family: 'Teko', sans-serif;
 }
 
 .col-form-label{

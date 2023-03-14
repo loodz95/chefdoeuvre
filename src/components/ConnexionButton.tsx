@@ -1,4 +1,4 @@
-import React, { ReactComponentElement, ReactElement, useContext, useState } from "react"
+import React, { ReactComponentElement, ReactElement, useContext, useRef, useState } from "react"
 import "./ConnexionButton.css"
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
@@ -18,6 +18,8 @@ const ConnexionButton =()=>{
  const [passVerifState, setPassVerifState]=useState<string>()
  const [MailState, setMailState]=useState<string>()
  const {UpdateToken, savedToken} = useContext(AuthContext)
+ const passwordRef = useRef<HTMLInputElement>(null)
+ const pseudoRef = useRef<HTMLInputElement>(null)
  
 
   const handleClose = () =>{    //Fonction fermeture modal connexion au click//
@@ -43,8 +45,27 @@ const ConnexionButton =()=>{
    setShow(true)
   }
 
-    const handleLoginForm=()=>{
-alert('ok')
+  const handleLoginForm=(e:React.FormEvent<HTMLFormElement>)=>{
+    e.preventDefault()
+    console.log(pseudoRef.current?.value)
+    console.log("token dans connection",savedToken)
+    axios.post("http://localhost:8080/api/auth/login", {
+      userName: pseudoRef.current?.value,
+      password: passwordRef.current?.value,   
+    })
+    .then((token) => {
+      const tokens = token.data.accessToken;
+      localStorage.setItem("accesstoken", tokens);        
+      console.log(token.data.accessToken);
+      setTimeout(() => {
+        handleClose(); UpdateToken(localStorage.getItem("accesstoken"));
+      }, 1000);
+      setMessage("Connexion réussie !"); 
+    })
+    .catch((error) => {
+      console.log("connexion impossible", error);
+      setMessage(error.response.data.message)
+    });
   }
 
   const handlePseudo =(e:React.ChangeEvent<HTMLInputElement>)=>{
@@ -64,30 +85,8 @@ alert('ok')
   setPassVerifState(e.currentTarget.value)
   }
 
-  const connectFunction= async  (e: React.MouseEvent)=>{
-    
-console.log("token dans connection",savedToken)
-       await   axios
-      .post("http://localhost:8080/api/auth/login", {
-        userName: pseudoState,
-        password: passState,
-        
-      })
-      .then((token) => {
-        const tokens = token.data.accessToken;
-        localStorage.setItem("accesstoken", tokens);
-        
-         console.log(token.data.accessToken);
-         
-           setTimeout(() => {
-           handleClose(); UpdateToken(localStorage.getItem("accesstoken"));
-        }, 1000);
-        setMessage("Connexion réussie !"); 
-      })
-      .catch((error) => {
-        console.log("connexion impossible", error);
-         setMessage("Connexion impossible !")
-      });
+  const connectFunction=  (e: React.MouseEvent)=>{
+   
   }
 
     const suscribeFunction=  (e: React.MouseEvent)=>{
@@ -110,8 +109,8 @@ console.log("token dans connection",savedToken)
       })
       .catch((err) => {
         
-        console.log("console log du err.data", err.response.data.message = "l'email ne peut pas être vide");
-         setMessage("Inscription impossible !")
+        console.log("console log du err.data", err.response.data.message);
+         setMessage(err.response.data.message)
       });
 }
   }
@@ -125,26 +124,24 @@ console.log("token dans connection",savedToken)
       </Modal.Header>
       <Modal.Body className="colorBody">
       
-        <form className="place-input" onSubmit={handleLoginForm}>
-  <div className="form-group column font-modal">
-    <label htmlFor="pseudo" className="col-sm-2 col-form-label ">Pseudo</label>
-    <div className="col-sm-10">
-      <input type="string"   className="pseudo" id="pseudo" onChange ={handlePseudo}/>
+  <form className="place-input" onSubmit={handleLoginForm}>
+    <div className="form-group column font-modal">
+      <label htmlFor="pseudo" className="col-sm-2 col-form-label ">Pseudo</label>
+      <div className="col-sm-10">
+        <input type="string"   className="pseudo" id="pseudo" ref={pseudoRef} />
+      </div>
     </div>
-  </div>
-  <div className="form-group column font-modal">
-    <label htmlFor="inputPassword" className=" col-form-label">Mot de passe</label>
-    <div className="col-sm-10">
-      <input type="password" className=" motdepasse" id="inputPassword"  onChange ={handlePass} />
+    <div className="form-group column font-modal">
+      <label htmlFor="inputPassword" className=" col-form-label">Mot de passe</label>
+      <div className="col-sm-10">
+        <input type="password" className=" motdepasse" id="inputPassword" ref={passwordRef}  />
+      </div>
     </div>
-  </div>
-  <div className="valider-connexion">
-     <Button onClick={connectFunction} variant="dark" className="buttonForm" >
-          Go !
-        </Button>
-        </div>
-        <p className="validate-message">{message}</p>
-</form>
+    <div className="valider-connexion">
+      <button className="buttonForm"> Go !</button> 
+    </div>
+    <p className="valid-message">{message}</p>
+  </form>
       </Modal.Body>
       <Modal.Footer className="colorFooter">
         <button onClick={notSign} className="phraseModal">Pas encore inscrit ? C'est par ici !</button>
@@ -185,7 +182,7 @@ console.log("token dans connection",savedToken)
      <Button onClick={suscribeFunction} variant="dark" className="buttonFormSuscribe">
           Go !
         </Button>
-        <p className=""validate-message>
+        <p className="valid-message">
         {message}
          </p>
 </form>

@@ -2,11 +2,8 @@ import axios from "axios"
 import { useContext, useState, useEffect } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { AuthContext } from "../context/AuthContext"
-import { Item } from "./ActusFifa"
-import { Players } from "./RechercheDeJoueurs"
+import { Players } from "../interfaces/players"
 import "./CarteParId.css"
-import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Toast from 'react-bootstrap/Toast';
 import MediaQuery from "react-responsive"

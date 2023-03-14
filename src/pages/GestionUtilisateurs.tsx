@@ -1,6 +1,6 @@
 import axios from "axios"
 import React, { useEffect, useState } from "react"
-import { User } from "../App"
+import { User } from "../interfaces/users"
 import "./GestionUtilisateurs.css"
 import { IoTrashOutline } from "react-icons/io5"
 import { IoPencilSharp} from "react-icons/io5"

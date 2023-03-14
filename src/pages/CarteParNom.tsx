@@ -3,7 +3,7 @@ import { useContext, useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { AuthContext } from "../context/AuthContext"
 import { Item } from "./ActusFifa"
-import { Players } from "./RechercheDeJoueurs"
+import { Players } from "../interfaces/players"
 import "./CarteParId.css"
 
 const CarteParNom=()=>{

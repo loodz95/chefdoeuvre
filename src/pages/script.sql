@@ -1,7 +1,7 @@
 create table users (
 id uuid default gen_random_uuid() primary key not null,
-username varchar(100) not null,
-email varchar(100) not null,
+username varchar(100) not null unique,
+email varchar(100) not null unique,
 password varchar(255) not null,
 role varchar(50) not null
 );

@@ -1,8 +1,6 @@
-import { createContext, useState, useEffect, ReactElement } from "react";
-
+import { createContext, useState,  ReactElement } from "react";
 import jwt_decode from "jwt-decode";
-import { useNavigate } from "react-router-dom";
-import { PayloadToken } from "../App";
+import { PayloadToken } from "../interfaces/tokenPayload";
 
 interface AuthContextProps {
   children: ReactElement;
@@ -11,8 +9,8 @@ interface AuthContextProps {
 export interface AuthContextInterface {
   savedToken: string | null;
   UpdateToken: (token: string | null) => void;
-   TokenExpirationFunction: (token: string | null) => void,
-tokenExpired: string|null
+  TokenExpirationFunction: (token: string | null) => void,
+  tokenExpired: string|null
 }
 
 export const AuthContext = createContext<AuthContextInterface>({
@@ -21,19 +19,20 @@ export const AuthContext = createContext<AuthContextInterface>({
   TokenExpirationFunction: () => {},
   tokenExpired: null
 });
+
 export const AuthContextProvider = ({ children }: AuthContextProps) => {
   /**
    * Mise en place de la logique interne de notre context
    * Cela permet de mettre à dispo une fonction pour mettre
-   * à jour l'état de connection de notre utilisateur
+   * à jour l'état de connexion de notre utilisateur
    * et d'accéder au token via notre context
    */
   let recupToken: string | null;
   recupToken = localStorage.getItem("accesstoken");
   const [token, setToken] = useState<string | null>(recupToken ? recupToken : null );
- const [tokenExpired, setTokenExpired] =useState<string|null>(null)
+  const [tokenExpired, setTokenExpired] =useState<string|null>(null)
     
-const updateToken =   (token: string | null) => {
+  const updateToken =   (token: string | null) => {
     setToken(token);
   };
 

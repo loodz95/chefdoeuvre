@@ -5,3 +5,14 @@
        font-family: 'Teko', sans-serif; 
     font-size:1.1em
 }
+
+.suscribe-component{
+   font-family: 'Teko', sans-serif !important ;    
+}
+
+.valid-message{
+    font-size: 1.8em;
+    text-align: center;
+    padding-top: 5%;
+ 
+}

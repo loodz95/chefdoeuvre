@@ -5,14 +5,15 @@ import NavBar from "../components/NavBar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Accueil from "./Accueil";
 import JoueursDeLaSemaine from "./JoueursDeLaSemaine";
-import JoueursParStats, { Players } from "./RechercheDeJoueurs";
+import JoueursParStats from "./RechercheDeJoueurs";
 import ActusFifa from "./ActusFifa";
 import Bann from "../components/Bann";
 import MediaQuery from  "react-responsive";
 import CarteFut  from "../components/CarteFut";
 import Draggable from 'react-draggable';
 import axios from "axios";
-import { PayloadToken, SavedPlayers } from "../App";
+import { PayloadToken } from "../interfaces/tokenPayload";
+import { SavedPlayers } from "../interfaces/savedPlayers";
 import { AuthContext } from "../context/AuthContext";
 import image from "../assets/newcard.jpg"
 import image2 from "../assets/terrainok.png"
@@ -56,7 +57,6 @@ const FaisTaTeam = () => {
     axios.get(`http://localhost:8080/api/savedplayers`,{
       headers:{
         Authorization:`Bearer ${localStorage.getItem("accesstoken")}`,
-    
     }
    })
    .then((res)=>{
@@ -136,236 +136,199 @@ const selectFunctionPlayer=(poste: string)=>{
 
 
 
-return( 
-  <div className="team">
-   <Bann banValue={message}/>
-
-    <Modal show={show} onHide={handleClose} >
-      <Modal.Header className="colorTitle"  closeButton>
-        <Modal.Title className="colorTitle" >Tes joueurs</Modal.Title>
-      </Modal.Header>
-      <Modal.Body className="colorBody">
-        {savedPlayers?.map((player,i)=>(
-          <div key={i} className="players-modal">
-            <button className="select-player" onClick={insertFunction} value={player.players.id}>
-              <p className="selection-firstname">{player.players.firstName}</p>
-              <p className="selection-lastname">{player.players.lastName}</p>
-              <p className="selection-position">{player.players.position}</p>
-              <p className="selection-rate">{player.players.rate}</p>
-              <p className="selection-vide"></p>
-              </button>
-          </div>
-       ))}
-      </Modal.Body>
-    </Modal>
-
-   <div className="terrainGlobal">
-     <div className="terrain">
-      <div className="goal">
-        <div className="carte-mystère">
-          <CarteMystère />
-        </div> 
-      </div>
-
-     <div className="defense">  
-       {( !tableauJoueur?.[2] && (
-       <div  className="defdroit">
-         <div  onClick={()=>selectFunctionPlayer('ard')} className="carte-mystère">
-           <CarteMystère/> 
-         </div>
-       </div>
-        ))}
-     {(tableauJoueur?.[2] && (
-     <div  className="defdroit">
-       <div onClick={() => selectFunctionPlayer('ard')}  className="cartefut">
-         <CarteFut note={tableauJoueur[2].players.rate} position={tableauJoueur[2].players.position} nom ={tableauJoueur[2].players.lastName}/>
-       </div>
-     </div>
-     ))}
-
-     {(!tableauJoueur?.[4] &&(
-      <div  className="central1">
-        <div  onClick={() => selectFunctionPlayer('dc1')}   className="carte-mystère">
-          <CarteMystère/> 
-        </div>
-      </div>
-      ))}
-     {(tableauJoueur?.[4] && (
-     <div  className="central1">
-       <div onClick={() => selectFunctionPlayer('dc1')}    className="cartefut">
-         <CarteFut note={tableauJoueur[4].players.rate} position={tableauJoueur[4].players.position} nom ={tableauJoueur[4].players.lastName}/>
-       </div>
-      </div>
-      ))}
-    {(!tableauJoueur?.[5] &&(
-    <div  className="central2">
-      <div  onClick={() => selectFunctionPlayer('dc2')}   className="carte-mystère">
-        <CarteMystère/> 
-      </div>
-    </div>
-    ))}
-    {(tableauJoueur?.[5] && (
-    <div  className="central2">
-      <div onClick={() => selectFunctionPlayer('dc2')}   className="cartefut">
-        <CarteFut note={tableauJoueur[5].players.rate} position={tableauJoueur[5].players.position} nom ={tableauJoueur[5].players.lastName} />
-      </div>
-    </div>
-    ))}
-
-   {(!tableauJoueur?.[3] &&(
-   <div  className="defgauche">
-     <div  onClick={() => selectFunctionPlayer('arg')}  className="carte-mystère">
-       <CarteMystère/> 
-     </div>
-    </div>
-    ))} 
-   {(tableauJoueur?.[3]&& (
-   <div  className="defgauche">
-     <div onClick={() => selectFunctionPlayer('arg')}  className="cartefut">
-      <CarteFut note={tableauJoueur[3].players.rate} position={tableauJoueur[3].players.position} nom ={tableauJoueur[3].players.lastName} />
-     </div>
-    </div>
-    ))}
-</ div>
-
-
-          <div className="milieu">
-          {(!tableauJoueur?.[6]&&(
-          <div  className="mc1">
-             <div  onClick={() => selectFunctionPlayer('mcd')}   className="carte-mystère">
-               <CarteMystère/> 
-</div>
-
-          </div>
-          ))}
-{(tableauJoueur?.[6]&& (
-
-
-  <div  className="mc1">
-  
-  <div onClick={() => selectFunctionPlayer('mcd')}   className="cartefut">
-    <CarteFut note={tableauJoueur[6].players.rate} position={tableauJoueur[6].players.position} nom ={tableauJoueur[6].players.lastName} />
-  </div>
-  
-  </div>
-
-))}
-          {(!tableauJoueur?.[7]&&(
-          <div  className="mc2">
-             <div  onClick={() => selectFunctionPlayer('mcg')}   className="carte-mystère">
-               <CarteMystère/> 
-</div>
-
-          </div>
-          ))}
-{(tableauJoueur?.[7]&& (
-
-
-  <div  className="mc2">
-   
-  <div onClick={() => selectFunctionPlayer('mcg')}    className="cartefut">
-    <CarteFut note={tableauJoueur[7].players.rate} position={tableauJoueur[7].players.position} nom ={tableauJoueur[7].players.lastName}/>
-  </div>
-  
-  </div>
-
-))}
-
-          {(!tableauJoueur?.[8]&&(
-          <div  className="md">
-             <div  onClick={() => selectFunctionPlayer('md')}   className="carte-mystère">
-               <CarteMystère/> 
-</div>
-
-          </div>
-          ))}
-{(tableauJoueur?.[8]&& (
-
-
-  <div  className="md">
-  
-  <div onClick={() => selectFunctionPlayer('md')}    className="cartefut">
-    <CarteFut note={tableauJoueur[8].players.rate} position={tableauJoueur[8].players.position} nom ={tableauJoueur[8].players.lastName} />
-  </div>
-  
-  </div>
-
-))}
- 
- 
-                   
-
-
-           {(!tableauJoueur?.[9]&&(
-          <div  className="mg">
-             <div  onClick={() => selectFunctionPlayer('mg')}  className="carte-mystère">
-               <CarteMystère/> 
-</div>
-
-          </div>
-          ))}
-{(tableauJoueur?.[9]&& (
-
-
-  <div  className="mg">
-  <div onClick={() => selectFunctionPlayer('mg')}    className="cartefut">
-    <CarteFut note={tableauJoueur[9].players.rate} position={tableauJoueur[9].players.position} nom ={tableauJoueur[9].players.lastName} />
-  </div>
-  </div>
-
-))}
-          </div>
-        <div className="attaque">
-          {(!tableauJoueur?.[10]&& (
-          <div  className="att1">
-             <div  onClick={() => selectFunctionPlayer('att1')}   className="carte-mystère">
-               <CarteMystère/> 
-</div>
-
-          </div>
-          ))}
-{(tableauJoueur?.[10]&&  (
-
-
-  <div  className="att1">
-  
-  <div onClick={() => selectFunctionPlayer('att1')}    className="cartefut">
-    <CarteFut note={tableauJoueur[10].players.rate} position={tableauJoueur[10].players.position} nom ={tableauJoueur[10].players.lastName}/>
-  </div>
- 
-  </div>
-
-))}
-          {(!tableauJoueur?.[11]&&(
-          <div  className="att2">
-            
-             <div  onClick={() => selectFunctionPlayer('att2')}   className="carte-mystère">
-               <CarteMystère/> 
-</div>
-
-          </div>
-          ))}
-{(tableauJoueur?.[11]&& (
-
-
-  <div  className="att2">
-    
-  <div onClick={() => selectFunctionPlayer('att2')}    className="cartefut">
-    <CarteFut note={tableauJoueur[11].players.rate} position={tableauJoueur[11].players.position} nom ={tableauJoueur[11].players.lastName} />
-  </div>
-  
-  </div>
-
-))}
-        </div>
-      </div>
-      </div>
-
-
-
-
-
-  </div>
-  )
-};
+return(   
+<div className="team">
+	<Bann banValue={message}/>
+	<Modal show={show} onHide={handleClose} >
+		<Modal.Header className="colorTitle"  closeButton>
+			<Modal.Title className="colorTitle" >
+				Tes joueurs
+			</Modal.Title>
+		</Modal.Header>
+		<Modal.Body className="colorBody">
+			{savedPlayers?.map((player,i)=>
+			(
+			<div key={i} className="players-modal">
+				<button className="select-player" onClick={insertFunction} value={player.players.id}>
+					<p className="selection-firstname">
+						{player.players.firstName}
+					</p>
+					<p className="selection-lastname">
+						{player.players.lastName}
+					</p>
+					<p className="selection-position">
+						{player.players.position}
+					</p>
+					<p className="selection-rate">
+						{player.players.rate}
+					</p>
+					{/* 
+					<img src= {`http://localhost:8080/public/${player.players.picture}`} alt="image" />
+					 */}
+					<p className="selection-vide"></p>
+				</button>
+			</div>
+			))}
+		</Modal.Body>
+	</Modal>
+	<div className="terrainGlobal">
+		<div className="terrain">
+			<div className="goal">
+				<div className="carte-mystère">
+					<CarteMystère />
+				</div>
+			</div>
+			<div className="defense">
+				{( !tableauJoueur?.[2] && (
+				<div  className="defdroit">
+					<div  onClick={()=>
+						selectFunctionPlayer('ard')} className="carte-mystère">
+						<CarteMystère/>
+					</div>
+				</div>
+				))}{(tableauJoueur?.[2] && (
+				<div  className="defdroit">
+					<div onClick={() =>
+						 selectFunctionPlayer('ard')}  className="cartefut">
+						<CarteFut note={tableauJoueur[2].players.rate} position={tableauJoueur[2].players.position} nom ={tableauJoueur[2].players.lastName}/>
+					</div>
+				</div>
+				))}{(!tableauJoueur?.[4] &&(
+				<div  className="central1">
+					<div  onClick={() =>
+						 selectFunctionPlayer('dc1')}   className="carte-mystère">
+						<CarteMystère/>
+					</div>
+				</div>
+				))}{(tableauJoueur?.[4] && (
+				<div  className="central1">
+					<div onClick={() =>
+						 selectFunctionPlayer('dc1')}className="cartefut">
+						<CarteFut note={tableauJoueur[4].players.rate} position={tableauJoueur[4].players.position} nom ={tableauJoueur[4].players.lastName}/>
+					</div>
+				</div>
+				))}{(!tableauJoueur?.[5] &&(
+				<div  className="central2">
+					<div  onClick={() =>
+						 selectFunctionPlayer('dc2')}   className="carte-mystère">
+						<CarteMystère/>
+					</div>
+				</div>
+				))}{(tableauJoueur?.[5] && (
+				<div  className="central2">
+					<div onClick={() =>
+						 selectFunctionPlayer('dc2')}   className="cartefut">
+						<CarteFut note={tableauJoueur[5].players.rate} position={tableauJoueur[5].players.position} nom ={tableauJoueur[5].players.lastName} />
+					</div>
+				</div>
+				))}{(!tableauJoueur?.[3] &&(
+				<div  className="defgauche">
+					<div  onClick={() =>
+						 selectFunctionPlayer('arg')}  className="carte-mystère">
+						<CarteMystère/>
+					</div>
+				</div>
+				))}{(tableauJoueur?.[3]&& (
+				<div  className="defgauche">
+					<div onClick={() =>
+						 selectFunctionPlayer('arg')}  className="cartefut">
+						<CarteFut note={tableauJoueur[3].players.rate} position={tableauJoueur[3].players.position} nom ={tableauJoueur[3].players.lastName} />
+					</div>
+				</div>
+				))}
+				</ div>
+				<div className="milieu">
+					{(!tableauJoueur?.[6]&&(
+					<div  className="mc1">
+						<div  onClick={() =>
+							 selectFunctionPlayer('mcd')}   className="carte-mystère">
+							<CarteMystère/>
+						</div>
+					</div>
+					))}{(tableauJoueur?.[6]&& (  
+					<div  className="mc1">
+						<div onClick={() =>
+							 selectFunctionPlayer('mcd')}   className="cartefut">
+							<CarteFut note={tableauJoueur[6].players.rate} position={tableauJoueur[6].players.position} nom ={tableauJoueur[6].players.lastName} />
+						</div>
+					</div>
+					))}{(!tableauJoueur?.[7]&&(
+					<div  className="mc2">
+						<div  onClick={() =>
+							 selectFunctionPlayer('mcg')}   className="carte-mystère">
+							<CarteMystère/>
+						</div>
+					</div>
+					))}{(tableauJoueur?.[7]&& (  
+					<div  className="mc2">
+						<div onClick={() =>
+							 selectFunctionPlayer('mcg')}className="cartefut">
+							<CarteFut note={tableauJoueur[7].players.rate} position={tableauJoueur[7].players.position} nom ={tableauJoueur[7].players.lastName}/>
+						</div>
+					</div>
+					))}{(!tableauJoueur?.[8]&&(
+					<div  className="md">
+						<div  onClick={() =>
+							 selectFunctionPlayer('md')}   className="carte-mystère">
+							<CarteMystère/>
+						</div>
+					</div>
+					))}{(tableauJoueur?.[8]&& (  
+					<div  className="md">
+						<div onClick={() =>
+							 selectFunctionPlayer('md')}className="cartefut">
+							<CarteFut note={tableauJoueur[8].players.rate} position={tableauJoueur[8].players.position} nom ={tableauJoueur[8].players.lastName} />
+						</div>
+					</div>
+					))}{(!tableauJoueur?.[9]&&(
+					<div  className="mg">
+						<div  onClick={() =>
+							 selectFunctionPlayer('mg')}  className="carte-mystère">
+							<CarteMystère/>
+						</div>
+					</div>
+					))}{(tableauJoueur?.[9]&& (  
+					<div  className="mg">
+						<div onClick={() =>
+							 selectFunctionPlayer('mg')}className="cartefut">
+							<CarteFut note={tableauJoueur[9].players.rate} position={tableauJoueur[9].players.position} nom ={tableauJoueur[9].players.lastName} />
+						</div>
+					</div>
+					))}
+				</div>
+				<div className="attaque">
+					{(!tableauJoueur?.[10]&& (
+					<div  className="att1">
+						<div  onClick={() =>
+							 selectFunctionPlayer('att1')}   className="carte-mystère">
+							<CarteMystère/>
+						</div>
+					</div>
+					))}{(tableauJoueur?.[10]&&  (  
+					<div  className="att1">
+						<div onClick={() =>
+							 selectFunctionPlayer('att1')}className="cartefut">
+							<CarteFut note={tableauJoueur[10].players.rate} position={tableauJoueur[10].players.position} nom ={tableauJoueur[10].players.lastName}/>
+						</div>
+					</div>
+					))}{(!tableauJoueur?.[11]&&(
+					<div  className="att2">
+						<div  onClick={() =>
+							 selectFunctionPlayer('att2')}   className="carte-mystère">
+							<CarteMystère/>
+						</div>
+					</div>
+					))}{(tableauJoueur?.[11]&& (  
+					<div  className="att2">
+						<div onClick={() =>
+							 selectFunctionPlayer('att2')}className="cartefut">
+							<CarteFut note={tableauJoueur[11].players.rate} position={tableauJoueur[11].players.position} nom ={tableauJoueur[11].players.lastName} />
+						</div>
+					</div>
+					))}
+				</div>
+			</div>
+		</div>
+	</div>
+)}
 export default FaisTaTeam;
