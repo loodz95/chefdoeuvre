@@ -53,13 +53,12 @@ return(
 <div className="profil"> 
 <MediaQuery maxWidth={1224}>
   <div> 
-    <VscAccount className="mobile" style={{marginLeft:"50%", marginTop:5,  fontSize:30}}/>
     </div>
     <div className="dropdown">
               <Nav className="moncompte" >
             <NavDropdown
               id="nav-dropdown-dark-example"
-              title=""
+              title="mon compte"
               menuVariant="dark"
               className="moncompte"
             >
@@ -79,7 +78,7 @@ return(
               
              
               <NavDropdown.Divider />
-              <NavDropdown.Item onClick={deconnectFunction} href="#deconnexion">
+              <NavDropdown.Item className="dropdown" onClick={deconnectFunction} href="#deconnexion">
                 Se déconnecter
               </NavDropdown.Item>
             </NavDropdown>

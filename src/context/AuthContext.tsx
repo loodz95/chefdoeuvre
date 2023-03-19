@@ -36,8 +36,8 @@ export const AuthContextProvider = ({ children }: AuthContextProps) => {
     setToken(token);
   };
 
-// Fonction contextuelle permettant de vérifier l'expiration d'un token
-const  tokenExpirationFunction= async ( token : string|null)=> {
+  // Fonction contextuelle permettant de vérifier l'expiration d'un token
+  const  tokenExpirationFunction= async ( token : string|null)=> {
     if (token) {
       const decoded: PayloadToken = jwt_decode(token);
       if (Date.now() <= decoded.exp * 1000){
@@ -48,7 +48,7 @@ const  tokenExpirationFunction= async ( token : string|null)=> {
         return false 
       }   
     }else if(!token){
-setTokenExpired(null)
+      setTokenExpired(null)
     }
   }
 

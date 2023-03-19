@@ -112,8 +112,8 @@ console.log(err)
             <p className="email-titre-entete">Email</p>
             <p className="role-titre-entete">Rôle</p>
           </div>
-{tabUsers?.map((user)=>(
- <div className="infos" >
+{tabUsers?.map((user,i)=>(
+ <div className="infos" key={i} >
 
             <p className="pseudo-titre"><button className="poubelle-user" value ={user.id} onClick={deleteUser}><IoTrashOutline/></button>{user.userName}</p>
             <p className="email-titre">{user.email}</p>        

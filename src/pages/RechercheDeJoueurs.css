@@ -99,8 +99,9 @@ font-size: 25px;
 /* ----------------------carte fut---------------------------------------------------------------- */
 .good{
 	display: flex;
+	flex-direction: row;
 	flex-wrap:wrap;
-	margin-top: -0px;
+	
 z-index: 1;
 }
 
@@ -165,10 +166,7 @@ left:75%;
 	  text-decoration: none;
 	  
 }
-.listerecherche-test{
 
-	
-}
 
 .miseenpage{
 display: flex;
@@ -194,9 +192,6 @@ font-weight: bolder;
  background-color: transparent;
  border: none;
  font-size: 30px;
-}
-.dribbleurs{
-
 }
 
 .filtretitre{
@@ -698,7 +693,7 @@ margin-top: 20px;
 
 background-color:black;
 	width: 100%;
-	
+	height: 50px;
 	z-index: 9;
 	
 
@@ -727,7 +722,8 @@ padding-left: 5px;
 }
 
 .titre{
-	padding-top: 50px;
+	position: relative;
+	right:10%;
 height: 130px;
 width: 100%;
 }
@@ -741,10 +737,8 @@ background-color: white;
 }
 
 .affichage{
-	
-top: 56%;
-left:42%
 
+top:30%
 }
 
 .filtre{
@@ -767,9 +761,7 @@ width: 20%;
    width: 1000px;
 }
 
-.fut-player-card {
-	margin-left: 50px;
-}
+
 /* ---------------------------------------------------------test pour pagination-------------------------------------- */
 
 .pagination {
@@ -824,6 +816,196 @@ width: 20%;
     background-repeat: no-repeat;
 	
 }
+
+.fut-player-card {
+	position: relative;
+	width: 120px;
+	height: 165px;
+	background-image: url(../assets/carteFUT.png);
+	display:flex;
+	background-size: 100% 100%;
+	-webkit-transition: 200ms ease-in;
+	-o-transition: 200ms ease-in;
+	transition: 200ms ease-in;	
+	margin-top: 0px;
+	margin-bottom: 20px;
+}
+
+
+.player-card-top {
+	position: relative;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	color: black;
+	/* positionnement position rate */
+	left: -35%;
+	bottom: 140%;
+}
+
+.player-card-top .player-master-info {
+	position: absolute;
+	line-height: 2.2rem;
+	font-weight: 300;
+	padding: 1.5rem 0;
+	text-transform: uppercase;
+}
+
+.player-card-top .player-master-info .player-rating {
+	font-size: 1rem;
+	
+}
+
+.player-card-top .player-master-info .player-position {
+	font-size: 0.8rem;
+}
+
+.player-card-top .player-master-info .player-nation {
+	display: block;
+	width: 2rem;
+	height: 25px;
+	margin: 0.3rem 0;
+}
+
+.player-card-top .player-master-info .player-nation img {
+	width: 100%;
+	height: 100%;
+	-o-object-fit: contain;
+	object-fit: contain;
+}
+
+.player-card-top .player-master-info .player-club {
+	display: block;
+	width: 2.1rem;
+	height: 40px;
+}
+
+.player-card-top .player-master-info .player-club img {
+	width: 100%;
+	height: 100%;
+	-o-object-fit: contain;
+	object-fit: contain;
+}
+
+.player-card-top .player-picture {
+	width: 200px;
+	height: 200px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.player-card-top .player-picture img {
+	width: 100%;
+	height: 100%;
+	-o-object-fit: contain;
+	object-fit: contain;
+	position: relative;
+	right: -10.5rem;
+	bottom: 0;
+}
+
+.player-card-top .player-picture .player-extra {
+	position: absolute;
+	right: 0;
+	bottom: -0.5rem;
+	overflow: hidden;
+	font-size: 1rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	width: 100%;
+	height: 2rem;
+	padding: 0 1.5rem;
+	text-align: right;
+	background: none;
+}
+
+.player-card-top .player-picture .player-extra span {
+	margin-left: 0.6rem;
+	text-shadow: 2px 2px #333;
+}
+
+.player-card-bottom {
+	position: relative;
+}
+
+.player-card-bottom .player-info {
+	display: block;
+	padding: 0.3rem ;
+	color: black;
+	width: 90%;
+	margin-top: 0 auto;
+	height: auto;
+	position: relative;
+	z-index: 2;
+}
+
+.player-card-bottom .player-info .player-name {
+	width: 100%;
+	display: block;
+	text-align: center;
+	font-size: 1.0rem;
+	text-transform: uppercase;
+	border-bottom: 2px solid rgba(233, 204, 116, 0.1);
+	/* positionnement des attributs */
+     margin-top: -183px;
+	
+	overflow: hidden;
+}
+.player-card-bottom .player-info .player-name span {
+	display: block;
+	text-shadow: none;
+}
+
+.player-card-bottom .player-info .player-features {
+	margin: -0.5rem auto;
+	/* positionnement de l'ensemble des attributs */
+	 margin-left: -0px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+}
+.player-card-bottom .player-info .player-features .player-features-col {
+	border-right: 2px solid rgba(233, 204, 116, 0.1);
+	
+}
+
+.player-card-bottom .player-info .player-features .player-features-col span {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	font-size: 0.5rem;
+	text-transform: uppercase;
+	
+}
+
+.player-card-bottom .player-info .player-features .player-features-col span .player-feature-value {
+	margin-right: 0.1rem;
+	font-weight: 700;
+	/* rapprochement des attributs */
+	margin-left: -70px;
+}
+
+.player-card-bottom .player-info .player-features .player-features-col span .player-feature-title {
+	font-weight: 300;
+}
+
+.player-card-bottom .player-info .player-features .player-features-col:last-child {
+	border: 0;
+}
+
+.player-position{
+  margin-top: -18px;
+  margin-left: 42px;
+
+}
+.player-rating{
+  margin-left: 42px;
+}
+
+
+
 }
 
 

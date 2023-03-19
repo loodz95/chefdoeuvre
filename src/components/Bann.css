@@ -1,6 +1,5 @@
-/* banner-width >= 100% */
+
 body {
-   
   --banner-width: 500%;
 }
 @media screen and (min-width: 64rem) {

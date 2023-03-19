@@ -5,14 +5,14 @@ export interface BannièreProps{
 }
 
 const Bann =(props: BannièreProps)=>{
-    return(
-        <div>
-<div className="banner">
-  <span className="fontStyle">{props.banValue} </span>
-  <span className="fontStyle">{props.banValue}  </span>
-</div>
-        </div>
-    )
+  return(
+    <div>
+      <div className="banner">
+        <span className="fontStyle">{props.banValue} </span>
+          <span className="fontStyle">{props.banValue}  </span>
+      </div>
+    </div>
+  )
 }
 
 export default Bann;

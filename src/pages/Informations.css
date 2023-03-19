@@ -6,15 +6,18 @@ body{
        background-image: url(../assets/marble.jpg);
    background-size: cover;
    background-attachment:fixed;
-    height: 40em;
+    height: 100%;
 padding-top: 5%;
 font-family: 'Teko', sans-serif;
+
 }
 
 .button-position{
-    margin-left: 47%;
-    margin-bottom: 5%;
-    margin-top: 1%;
+ margin-left: 25%;
+ width: 50%;
+margin-top: 3%;
+font-size: 1.5em !important;
+margin-bottom: 5%;
 }
 
 .form-control{
@@ -25,6 +28,7 @@ font-family: 'Teko', sans-serif;
 
 .form-label, .form-text{
     margin-left: 25%;
+    font-size: 1.4em;
 }
 
 h1{

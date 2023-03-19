@@ -85,9 +85,6 @@ const ConnexionButton =()=>{
   setPassVerifState(e.currentTarget.value)
   }
 
-  const connectFunction=  (e: React.MouseEvent)=>{
-   
-  }
 
     const suscribeFunction=  (e: React.MouseEvent)=>{
         if (passState !== passVerifState){

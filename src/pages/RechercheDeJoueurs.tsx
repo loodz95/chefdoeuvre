@@ -36,7 +36,6 @@ const RechercheDeJoueurs = () => {
   let valueSearch: string;
   let myPlayers :Players[];
   const[search,setSearch]=useState<string>()
-  const [tabDef,setTabDef] =useState<Players[]>()
   const [tous,setTous] = useState<string>()
   const [show, setShow] = useState(false);  //state pour ouverture modal connexion//
  
@@ -66,7 +65,6 @@ const RechercheDeJoueurs = () => {
       setPlayersTab(res.data)
       setTabDisplayed([...myPlayers])
       console.log("players tab dans use effect",tabDisplayed)
-      console.log("tableau défenseurs", tabDef)
       console.log("tab dans use effect",tabDisplayed)
     }).catch((err)=>{
       console.log("something wrent wrong", err)
@@ -185,32 +183,6 @@ const searchProps =(e:string)=>{
        </div>
       ))}
     </div>
-
- {/* <MediaQuery minWidth={1225}>
-      <div className="searchbar">
-     <SearchBar searchProps={searchProps}/>
-    
-    
-     { tabTampon?.map((player,i)=> search&&(
-      <div className="backrecherche">
-      
-      <Link className="listerecherche" key={i} to ={`/players/${player.id}`}>
-     <div className="recherche">
-   
-      <div className="listerecherche">{player.firstName}</div>
-      <div className="listerecherche">{player.lastName}</div>
-      <div className="listerecherche">{player.position}</div>
-      <div className="listerecherche">{player.rate}</div>
-    
-      
-     </div> 
-     </Link> 
-     </div>
-     ))}
-     </div>
-  </MediaQuery> */}
-
-
 
  <div className="miseenpage">
    <MediaQuery minWidth={1024}>

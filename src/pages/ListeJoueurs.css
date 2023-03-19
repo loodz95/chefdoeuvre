@@ -1,13 +1,11 @@
-.div-principale{
+.div-principale-liste-joueurs{
       background-image: url(../assets/marble.jpg);
    background-size: cover;
    background-attachment:fixed;
-    height: 120%;
+    height: 100%;
+	width: 100%;
 }
 
-.good{
-	 height: 100%;
-}
 
 .ban{
     color: white;
@@ -15,22 +13,18 @@
 
 
 .style-nom-attributs {
-	list-style-type: none;
-	text-decoration: none;
-	
-	width: 100%;
-
-	margin-bottom: 30px;
-	margin-top: 20px;
-			  font-family: 'Sedgwick Ave Display', cursive;
+  list-style-type: none;
+  text-decoration: none;
+  width: 100%;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  font-family: 'Sedgwick Ave Display', cursive;
   text-shadow:#e7f6ff 0 -1px 0,
-rgb(190, 162, 7) 1px 1px 0,
-white 2px 2px 0,
-brown 3px 3px 0,
-
-
-#333 5px 5px 10px;
-color:black;
+  rgb(190, 162, 7) 1px 1px 0,
+  white 2px 2px 0,
+  brown 3px 3px 0,
+  #333 5px 5px 10px;
+  color:black;
 font-size: 25px;	  
 }
 
@@ -162,7 +156,7 @@ margin-top: 50px;
 
 .poubelle{
 	position: absolute;
-left: 9%;
+left: 2%;
 margin-top: 38px;
 font-size: 30px;
 border: none;
@@ -221,14 +215,11 @@ width: 100%;
 .joueur-nom-Mobile{
 	position: absolute;
 	margin-top: 50px;
-	
-left:20%;
+    left:18%;
 }
 .joueur-nom-Mobile-attributs{
 	position: absolute;
 	margin-top: 50px;
-	
-
 }
 
 
@@ -236,19 +227,19 @@ left:20%;
 	
 	position: absolute;
 	margin-top: 50px;
-left:40%;
+left:38%;
 }
 
 .joueur-note-Mobile{
 
 	position: absolute;
 	margin-top: 50px;
-left:60%;
+left:59%;
 }
 
 .joueur-position-Mobile{
 position: absolute;
-left:80%;
+left:78%;
 	margin-top: 50px;
 }
 
@@ -256,7 +247,5 @@ left:80%;
 	position:absolute
 }
 
-.avant-footer{
-	height:50px
-}
+
 

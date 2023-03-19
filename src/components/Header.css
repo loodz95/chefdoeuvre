@@ -21,9 +21,10 @@ border-style: double;
 
 .profil{
     display: flex;
-    margin-left: 44%;
+    margin-left: 37%;
    color: white;
    padding-top: 5px;
+ 
 }
 
 .dropdown{
@@ -40,11 +41,13 @@ border-style: double;
     z-index: 10;
     font-family: 'Teko', sans-serif; 
     font-size: 25px;
+ 
 }
 
 .nav-dropdown-dark-example{
     color: white !important;
      z-index: 10;
+    
 }
 
 
@@ -72,6 +75,7 @@ border-style: double;
     z-index: 10;
     color: white;
     padding-bottom: 5px;
+    margin-left: 45%;
 }
 
 .moncompte{
